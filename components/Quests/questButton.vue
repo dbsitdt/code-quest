@@ -11,6 +11,7 @@ button {
   border-radius: 50px;
   border: none;
   -webkit-border: none;
+  font-family: inherit;
   cursor: pointer;
   font-family: Roboto Mono;
 }
