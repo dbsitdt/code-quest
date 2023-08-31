@@ -1,6 +1,6 @@
-# Nuxt 3 Minimal Starter
+# ITDT Code Quest
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+The DBS ITDT Code Quest is a web application under continuous development since April 2023. The application provides hands-on exercises and videos for members to learn different web development technologies.
 
 ## Setup
 
