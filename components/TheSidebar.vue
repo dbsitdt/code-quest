@@ -49,7 +49,6 @@ nav {
 }
 ul {
   margin-top: 10vh;
-  height: 100%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
