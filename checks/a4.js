@@ -8,15 +8,15 @@ export default {
   category: "Basic HTML",
   defaultCode: {
     htmlCode: `<div>
-                    <h1>John Doe</h1>
-                    <div><p>Software engineer</p></div>
-                </div>`,
+  <h1>John Doe</h1>
+  <div><p>Software engineer</p></div>
+</div>`,
     cssCode: `div {
-                border: solid 2px red;
-              }
-              div > div {
-                border: solid 2px blue;
-              }`,
+  border: solid 2px red;
+}
+div > div {
+  border: solid 2px blue;
+}`,
   },
   steps: [
     {
