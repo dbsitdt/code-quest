@@ -237,6 +237,7 @@ definePageMeta({
 .right-col {
   width: 62.5%;
   height: 89vh;
+  background: blue;
 }
 .instructions {
   display: flex;
@@ -296,5 +297,16 @@ canvas {
 .instruction-leave-to {
   opacity: 0;
   transform: translateY(0);
+}
+@media (max-width: 800px) {
+  .quest-container {
+    flex-direction: column;
+  }
+  .left-col {
+    width: 100%;
+  }
+  .right-col {
+    width: 100%;
+  }
 }
 </style>

@@ -66,4 +66,9 @@ nav {
 .nav-return p {
   font-size: 1.2rem;
 }
+@media (max-width: 700px) {
+  .nav-return p {
+    display: none;
+  }
+}
 </style>
