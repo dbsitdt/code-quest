@@ -1,0 +1,62 @@
+<template>
+  <header>
+    <TheMainNav @toggle-sidebar="toggleSidebar" />
+  </header>
+  <div class="container">
+    <TheSidebar :sidebarOpened="sidebarOpened" />
+    <div class="content"><slot></slot></div>
+  </div>
+</template>
+
+<script setup>
+const sidebarOpened = ref(true);
+const toggleSidebar = function () {
+  sidebarOpened.value = !sidebarOpened.value;
+};
+onMounted(() => {
+  //BUG ??
+  window.addEventListener("resize", (e) => {
+    if (e.target.innerWidth < 800) {
+      sidebarOpened.value = false;
+    } else {
+      sidebarOpened.value = true;
+    }
+  });
+});
+</script>
+<style scoped>
+.container {
+  display: flex;
+  height: 90vh;
+}
+.content {
+  flex: 1;
+  width: 100%;
+}
+</style>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #2a2d32;
+}
+div#__nuxt,
+#__layout,
+#__layout > div,
+#app {
+  height: 100vh;
+}
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+</style>
