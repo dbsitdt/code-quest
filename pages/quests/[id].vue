@@ -34,11 +34,16 @@
         <quest-button v-if="completedQuest && expanded" @click="nextQuest"
           >Next Quest</quest-button
         >
-        <div class="height-control" @click="changeHeight">
-          <img v-if="expanded" src="../../assets/Quests/dropup.svg" />
-          <img v-else src="../../assets/Quests/dropdown.svg" />
-          <p v-if="expanded">Minimize</p>
-          <p v-else>Expand</p>
+        <div class="controls">
+          <div class="height-control" @click="changeHeight">
+            <img v-if="expanded" src="../../assets/Quests/dropup.svg" />
+            <img v-else src="../../assets/Quests/dropdown.svg" />
+            <p v-if="expanded">Minimize</p>
+            <p v-else>Expand</p>
+          </div>
+          <!-- <div class="reset-control" @click="resetQuest">
+            <p>Reset Quest</p>
+          </div> -->
         </div>
       </div>
       <div class="code-tabs">
@@ -192,6 +197,12 @@ const instructionStyles = computed(function (): CSSProperties {
     whiteSpace: expanded.value ? "normal" : "nowrap",
   };
 });
+const resetQuest = function () {
+  step.value = 1;
+  store.updateHtml(defaultCode.htmlCode);
+  store.updateCss(defaultCode.cssCode);
+  console.log(htmlCode.value);
+};
 definePageMeta({
   layout: "quests",
   middleware: ["load-quest"],
@@ -205,7 +216,7 @@ definePageMeta({
   font-size: 0.9rem;
   display: flex;
   align-items: center;
-  color: #adadad;
+
   font-weight: 400;
   cursor: pointer;
 }
@@ -245,6 +256,11 @@ definePageMeta({
   gap: 0.5rem;
   justify-content: flex-start;
   align-items: flex-start;
+  position: relative;
+  background: #062b56;
+  color: white;
+  flex: 1;
+  padding: 1rem;
 }
 .code-tabs {
   display: flex;
@@ -255,12 +271,7 @@ definePageMeta({
   flex: 1;
   height: 7vh;
 }
-.instructions {
-  background: #062b56;
-  color: white;
-  flex: 1;
-  padding: 1rem;
-}
+
 .ide {
   flex: 30;
 }
@@ -298,6 +309,18 @@ canvas {
   opacity: 0;
   transform: translateY(0);
 }
+.controls {
+  color: #adadad;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+/* .reset-control {
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+} */
 @media (max-width: 800px) {
   .quest-container {
     flex-direction: column;
