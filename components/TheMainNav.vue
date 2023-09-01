@@ -2,8 +2,10 @@
   <nav>
     <div class="nav-container">
       <div class="nav-logo">
-        <img src="../assets/Nav/itdtlogo.svg" alt="ITDT Logo" />
-        <p>ITDT Code Quest</p>
+        <NuxtLink to="/">
+          <img src="../assets/Nav/itdtlogo.svg" alt="ITDT Logo" />
+          <p>ITDT Code Quest</p>
+        </NuxtLink>
       </div>
       <div class="nav-profile">
         <img class="profile-img" src="https://placehold.co/600x400" />
@@ -34,6 +36,13 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 .nav-container {
   display: flex;
   color: white;
@@ -42,11 +51,6 @@ nav {
   flex: 1;
 }
 
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
 .nav-logo p {
   font-size: clamp(1.1rem, 3vw, 1.4rem);
   font-weight: 600;

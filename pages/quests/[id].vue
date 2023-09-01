@@ -22,18 +22,20 @@
         </div>
         <p v-if="error">{{ error }}</p>
         <p v-if="completedQuest">{{ completeMessage }}</p>
-        <quest-button v-if="!completedStep && expanded" @click="submitCode"
-          >Submit</quest-button
-        >
+        <div class="buttons">
+          <quest-button v-if="!completedStep && expanded" @click="submitCode"
+            >Submit</quest-button
+          >
 
-        <quest-button
-          @click="nextStep"
-          v-else-if="completedStep && !completedQuest"
-          >Next Step</quest-button
-        >
-        <quest-button v-if="completedQuest && expanded" @click="nextQuest"
-          >Next Quest</quest-button
-        >
+          <quest-button
+            @click="nextStep"
+            v-else-if="completedStep && !completedQuest"
+            >Next Step</quest-button
+          >
+          <quest-button v-if="completedQuest && expanded" @click="nextQuest"
+            >Next Quest</quest-button
+          >
+        </div>
         <div class="controls">
           <div class="height-control" @click="changeHeight">
             <img v-if="expanded" src="../../assets/Quests/dropup.svg" />
@@ -41,9 +43,6 @@
             <p v-if="expanded">Minimize</p>
             <p v-else>Expand</p>
           </div>
-          <!-- <div class="reset-control" @click="resetQuest">
-            <p>Reset Quest</p>
-          </div> -->
         </div>
       </div>
       <div class="code-tabs">
@@ -197,12 +196,12 @@ const instructionStyles = computed(function (): CSSProperties {
     whiteSpace: expanded.value ? "normal" : "nowrap",
   };
 });
-const resetQuest = function () {
-  step.value = 1;
-  store.updateHtml(defaultCode.htmlCode);
-  store.updateCss(defaultCode.cssCode);
-  console.log(htmlCode.value);
-};
+// const resetQuest = function () {
+//   step.value = 1;
+//   store.updateHtml(defaultCode.htmlCode);
+//   store.updateCss(defaultCode.cssCode);
+//   console.log(htmlCode.value);
+// };
 definePageMeta({
   layout: "quests",
   middleware: ["load-quest"],
