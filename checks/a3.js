@@ -112,7 +112,6 @@ export default {
         {
           testFunc: (frame) => {
             const p = frame.querySelector("p");
-            console.log(p);
             return checkElementText(p, "Software engineer");
           },
           error: "Change the content of the p to Software engineer!",

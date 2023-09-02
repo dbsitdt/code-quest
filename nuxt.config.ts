@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   components: [
     { path: "~/components/QuestsGlobal", pathPrefix: false, global: true },
     { path: "~/components/Quests", pathPrefix: false },
+    { path: "~/components/UI", pathPrefix: false },
     "~/components",
   ],
   app: {
@@ -31,5 +32,10 @@ export default defineNuxtConfig({
       // automatically imports `defineStore`
       "defineStore", // import { defineStore } from 'pinia'
     ],
+  },
+  runtimeConfig: {
+    public: {
+      authKey: process.env.NUXT_AUTH_API_TOKEN,
+    },
   },
 });

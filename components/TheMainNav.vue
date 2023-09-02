@@ -8,8 +8,8 @@
         </NuxtLink>
       </div>
       <div class="nav-profile">
-        <img class="profile-img" src="https://placehold.co/600x400" />
-        <p>John Doe</p>
+        <img class="profile-img" src="../assets/Pfp/pfp1.png" />
+        <p>{{ username }}</p>
         <img draggable="false" src="../assets/ui/dropdown.svg" />
       </div>
     </div>
@@ -21,6 +21,18 @@
   </nav>
 </template>
 <script setup>
+import { useUserStore } from "../stores/user.ts";
+const store = useUserStore();
+
+const username = computed(() => store.getUserInfo.username);
+// BUG Not allowed to load local resource
+// const profilePic = computed(() => store.getUserInfo.profilePicture);
+// const getPfpPath = function () {
+//   return new URL(`../assets/Pfp/pfp${profilePic.value}.png`, import.meta.url)
+//     .href;
+// };
+
+// console.log(pfpLink.value);
 const emit = defineEmits(["toggle-sidebar"]);
 const toggleSidebar = function () {
   emit("toggle-sidebar");
@@ -69,7 +81,7 @@ a {
   height: 38px;
   object-fit: cover;
   margin-right: 0.7rem;
-  border-radius: 38px;
+  border-radius: 5px;
   display: block;
 }
 .nav-logo p {

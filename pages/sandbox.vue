@@ -67,6 +67,7 @@ const outputFrame: any = ref(null);
 
 definePageMeta({
   layout: "sandbox",
+  middleware: ["auth-page"],
 });
 </script>
 <style scoped>

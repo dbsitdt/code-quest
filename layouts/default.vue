@@ -13,6 +13,7 @@ const sidebarOpened = ref(true);
 const toggleSidebar = function () {
   sidebarOpened.value = !sidebarOpened.value;
 };
+
 onMounted(() => {
   //BUG ??
   window.addEventListener("resize", (e) => {
@@ -28,6 +29,7 @@ onMounted(() => {
 .container {
   display: flex;
   height: 90vh;
+  position: relative;
 }
 .content {
   flex: 1;

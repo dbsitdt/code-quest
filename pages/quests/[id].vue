@@ -79,6 +79,8 @@ import cssIDE from "../../components/QuestsGlobal/cssIDE.vue";
 import type { CSSProperties } from "vue";
 import { useQuestStore } from "../../stores/quest.js";
 import confetti from "canvas-confetti";
+import { useUserStore } from "../../stores/user.ts";
+const userStore = useUserStore();
 
 const route = useRoute();
 const questId = route.params.id;
@@ -156,6 +158,8 @@ const submitCode = function () {
     error.value = "";
     completedStep.value = true;
     if (step.value === steps.length) {
+      // Completed entire quest
+      userStore.completeQuest(questId);
       completeMessage.value =
         "Well Done! Click the button below to move on to the next quest";
       completedQuest.value = true;
@@ -204,7 +208,7 @@ const instructionStyles = computed(function (): CSSProperties {
 // };
 definePageMeta({
   layout: "quests",
-  middleware: ["load-quest"],
+  middleware: ["auth-page", "load-quest"],
 });
 </script>
 <style scoped>

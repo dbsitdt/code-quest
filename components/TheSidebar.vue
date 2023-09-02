@@ -45,6 +45,7 @@ nav {
   height: 100%;
   position: absolute;
   background: #151c24;
+  z-index: 1;
   padding: 0 clamp(1.5rem, 3vw, 3rem);
 }
 ul {

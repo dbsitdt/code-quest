@@ -1,5 +1,11 @@
-export default defineNuxtRouteMiddleware(async (to, from) => {
+import { useAuthStore } from "../stores/auth.ts";
+export default defineNuxtRouteMiddleware(async (to) => {
+  const store = useAuthStore();
   if (to.path === "/") {
-    return navigateTo("/quests", { redirectCode: 301 });
+    if (store.authStatus) {
+      return navigateTo("/quests", { redirectCode: 301 });
+    } else {
+      return navigateTo("/login", { redirectCode: 301 });
+    }
   }
 });
