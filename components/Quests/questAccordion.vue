@@ -110,7 +110,7 @@ a {
   align-items: center;
   font-size: clamp(18px, 3vw, 20px);
   gap: 0.8rem;
-  margin-block: 0.5rem;
+  margin-block: 0.7rem;
 }
 .quest-accordion-quest svg,
 .quest-accordion-quest img {
