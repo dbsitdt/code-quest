@@ -55,7 +55,6 @@ onMounted(() => {
   );
   strokeDasharray.value = `${circumference} ${circumference}`;
   strokeDashoffset.value = offset.value;
-  console.log(meterStyles.value);
 });
 </script>
 <style scoped>
