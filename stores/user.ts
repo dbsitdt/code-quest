@@ -30,7 +30,7 @@ export const useUserStore = defineStore("user", {
     },
     numberOfCompletedQuests(state) {
       if (state.userInfo.completedQuests) {
-        return state.userInfo.completedQuests.length;
+        return state.userInfo.completedQuests.length - 1;
       } else {
         return null;
       }
