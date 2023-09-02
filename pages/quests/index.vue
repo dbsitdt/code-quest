@@ -28,7 +28,9 @@ const username = computed(() => store.userInfo.username);
 const randomTextCounter = Math.random() * 100;
 const splashText = ref("");
 if (randomTextCounter) {
-  if (randomTextCounter < 10) {
+  if (randomTextCounter < 1) {
+    splashText.value = "Today is your lucky day";
+  } else if (randomTextCounter < 10) {
     splashText.value = "Welcome back";
   } else if (randomTextCounter < 30) {
     splashText.value = "Hullo";
@@ -36,7 +38,7 @@ if (randomTextCounter) {
     splashText.value = "What's up";
   } else if (randomTextCounter < 65) {
     splashText.value = "You're very epic";
-  } else if (randomTextCounter < 80) {
+  } else if (randomTextCounter < 85) {
     splashText.value = "Hi";
   } else if (randomTextCounter < 100) {
     splashText.value = "Yo";
