@@ -85,7 +85,7 @@ p.error-message {
   background: #2a3232;
 }
 h3 {
-  font-size: 4rem;
+  font-size: 3.6rem;
   font-weight: 600;
 }
 p.help {
