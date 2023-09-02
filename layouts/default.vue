@@ -15,7 +15,7 @@ const toggleSidebar = function () {
 };
 
 onMounted(() => {
-  //BUG ??
+  if (window.innerWidth < 800) sidebarOpened.value = false;
   window.addEventListener("resize", (e) => {
     if (e.target.innerWidth < 800) {
       sidebarOpened.value = false;
