@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="left-col">
-      <h4>Hullo, {{ username }}!</h4>
+      <h4>{{ splashText }}, {{ username }}!</h4>
       <div class="row"></div>
       <div name="quest-category-list" class="quests-container">
         <questAccordion
@@ -25,6 +25,23 @@ const store = useUserStore();
 const completedQuests = computed(() => store.getUserCompletedQuests);
 const numberOfCompletedQuests = computed(() => store.numberOfCompletedQuests);
 const username = computed(() => store.userInfo.username);
+const randomTextCounter = Math.random() * 100;
+const splashText = ref("");
+if (randomTextCounter) {
+  if (randomTextCounter < 10) {
+    splashText.value = "Welcome back";
+  } else if (randomTextCounter < 30) {
+    splashText.value = "Hullo";
+  } else if (randomTextCounter < 60) {
+    splashText.value = "What's up";
+  } else if (randomTextCounter < 65) {
+    splashText.value = "You're very epic";
+  } else if (randomTextCounter < 80) {
+    splashText.value = "Hi";
+  } else if (randomTextCounter < 100) {
+    splashText.value = "Yo";
+  }
+}
 const questsCat = [
   {
     categoryName: "Basic HTML",
