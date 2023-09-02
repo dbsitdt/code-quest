@@ -93,7 +93,7 @@ const questSymbolStyle = computed(() => {
   justify-content: space-between;
 }
 .header p {
-  font-size: clamp(20px, 3vw, 31px);
+  font-size: clamp(20px, 2vw, 25px);
 }
 .header span {
   color: #8d8d8d;
@@ -108,13 +108,14 @@ a {
 .quest-accordion-quest {
   display: flex;
   align-items: center;
-  font-size: clamp(18px, 3vw, 22px);
+  font-size: clamp(18px, 3vw, 20px);
   gap: 0.8rem;
-  padding-block: 0.5rem;
+  margin-block: 0.5rem;
 }
-.quest-accordion-quest svg {
+.quest-accordion-quest svg,
+.quest-accordion-quest img {
   height: 41px;
-  width: min(6vw, 41px);
+  width: min(5vw, 35px);
 
   min-height: 41px;
 }

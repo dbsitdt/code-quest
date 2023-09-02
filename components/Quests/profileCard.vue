@@ -1,7 +1,8 @@
 <template>
   <div class="progress-card">
-    <h3 class="white mastery-text">Mastery:</h3>
-    <h2 class="yellow rank">Novice</h2>
+    <h3 class="white mastery-text">
+      Mastery: <span class="yellow rank">Novice</span>
+    </h3>
     <div class="progress-bar">
       <svg class="fill" viewBox="0 0 308 308">
         <circle
@@ -61,18 +62,18 @@ onMounted(() => {
 .mastery-text {
   font-size: 30px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 450;
+  margin-bottom: 1rem;
 }
 .rank {
-  font-size: 55px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
 }
 .card-text {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -59%);
 }
 .card-text .number {
   font-size: clamp(40px, 3vw, 70px);
@@ -100,7 +101,11 @@ onMounted(() => {
   padding: 5vh 0;
   position: relative;
 }
-
+@media (min-width: 1550px) {
+  .progress-card {
+    width: 85%;
+  }
+}
 /* owen so bully not let me have flip effect*/
 /* .card:hover .progress-card {
   transform: rotateY(-20deg);
