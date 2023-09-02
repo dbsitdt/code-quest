@@ -25,5 +25,6 @@ iframe {
   width: 100%;
   flex: 1;
   background: white;
+  overflow-y: auto;
 }
 </style>

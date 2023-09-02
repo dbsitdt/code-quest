@@ -114,10 +114,10 @@ a {
 }
 .quest-accordion-quest svg,
 .quest-accordion-quest img {
-  height: 41px;
-  width: min(5vw, 35px);
-
-  min-height: 41px;
+  height: 35px;
+  width: 35px;
+  min-width: 35px;
+  min-height: 35px;
 }
 .quest-accordion-box {
   padding: 0.6rem 30px;
