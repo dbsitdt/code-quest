@@ -18,7 +18,6 @@ export const useUserStore = defineStore("user", {
       },
     };
   },
-  // BUG JUST REMOVE .json???
   getters: {
     getUserId(state) {
       return state.userInfo.userId;
@@ -53,11 +52,15 @@ export const useUserStore = defineStore("user", {
     async updateUserInfo(userId: any, token: any) {
       const userInfo = this.getUserInfo;
       try {
-        const res = await $fetch(
+        await $fetch(
           `https://code-quest-74ced-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=${token}`,
           {
             method: "PUT",
-            body: JSON.stringify(userInfo),
+            body: JSON.stringify({
+              username: userInfo.username,
+              profilePicture: userInfo.profilePicture,
+              completedQuests: userInfo.completedQuests,
+            }),
           }
         );
       } catch (err) {
