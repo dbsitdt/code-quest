@@ -7,10 +7,13 @@
           <p>ITDT Code Quest</p>
         </NuxtLink>
       </div>
-      <div class="nav-profile">
+      <div class="nav-profile" @click="toggleProfile">
         <img class="profile-img" src="../assets/Pfp/pfp1.png" />
         <p>{{ username }}</p>
         <img draggable="false" src="../assets/ui/dropdown.svg" />
+        <div v-if="navProfileOn" class="profile-nav">
+          <div class="profile-nav-item" @click="logout"><p>Logout</p></div>
+        </div>
       </div>
     </div>
     <div class="hamburger" @click="toggleSidebar">
@@ -22,9 +25,22 @@
 </template>
 <script setup>
 import { useUserStore } from "../stores/user.ts";
+import { useUiStore } from "../stores/ui.js";
+import { useAuthStore } from "../stores/auth.ts";
 const store = useUserStore();
-
+const uiStore = useUiStore();
+const authStore = useAuthStore();
+const navProfileOn = computed(() => uiStore.getProfileNavStatus);
+const toggleProfile = function () {
+  uiStore.toggleProfile();
+};
 const username = computed(() => store.getUserInfo.username);
+
+const logout = function () {
+  authStore.logout();
+  return navigateTo("/login");
+};
+
 // BUG Not allowed to load local resource
 // const profilePic = computed(() => store.getUserInfo.profilePicture);
 // const getPfpPath = function () {
@@ -39,6 +55,16 @@ const toggleSidebar = function () {
 };
 </script>
 <style scoped>
+.profile-nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #151c24;
+  border-radius: 10px;
+}
+.profile-nav-item {
+  padding: 0.5rem 1rem;
+}
 nav {
   height: 10vh;
   min-height: 4rem;
@@ -71,6 +97,7 @@ a {
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: relative;
 }
 .nav-profile p {
   font-size: 1.1rem;

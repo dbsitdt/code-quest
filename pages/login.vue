@@ -12,21 +12,23 @@
         <form @submit.prevent="submitCred">
           <div class="input-box">
             <div class="field">
-              <label for="email">Email</label>
+              <label for="userEmail">Email</label>
               <input
                 v-model.trim="email"
                 type="email"
-                name="email"
+                name="userEmail"
                 required="true"
+                autocomplete="email"
               />
             </div>
             <div class="field">
-              <label for="password">Password</label
+              <label for="userPassword">Password</label
               ><input
                 v-model.trim="password"
                 type="password"
-                name="password"
+                name="userPassword"
                 required="true"
+                autocomplete="current-password"
               />
             </div>
           </div>
@@ -43,6 +45,12 @@ const store = useAuthStore();
 const error = ref(false);
 const email = ref("");
 const password = ref("");
+onMounted(async () => {
+  const autoLoginSuccess = await store.tryLogin();
+  if (autoLoginSuccess) {
+    return navigateTo("/quests");
+  }
+});
 const submitCred = async function () {
   try {
     await store.auth({ email: email.value, password: password.value });

@@ -73,6 +73,11 @@ export const useUserStore = defineStore("user", {
       this.userInfo.completedQuests = userInfo.completedQuests;
       this.userInfo.userId = userInfo.userId;
     },
+    reset() {
+      this.userInfo.username = null;
+      this.userInfo.profilePicture = null;
+      (this.userInfo.completedQuests = []), (this.userInfo.userId = null);
+    },
   },
 });
 if (import.meta.hot) {
