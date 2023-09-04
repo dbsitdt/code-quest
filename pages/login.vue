@@ -45,12 +45,7 @@ const store = useAuthStore();
 const error = ref(false);
 const email = ref("");
 const password = ref("");
-onBeforeMount(async () => {
-  const autoLoginSuccess = await store.tryLogin();
-  if (autoLoginSuccess) {
-    navigateTo(`/quests`);
-  }
-});
+onBeforeMount(async () => {});
 
 const submitCred = async function () {
   try {

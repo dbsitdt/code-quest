@@ -5,5 +5,14 @@ export default defineNuxtRouteMiddleware(async (to) => {
   if (store.authStatus) {
     return abortNavigation();
   }
+  const autoLoginSuccess = await store.tryLogin();
+  if (autoLoginSuccess) {
+    if (to.path !== "/login") {
+      return navigateTo(to.path);
+    } else {
+      console.log("GOING TO QUESTS");
+      return navigateTo("/quests");
+    }
+  }
   return;
 });

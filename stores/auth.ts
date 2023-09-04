@@ -96,8 +96,8 @@ export const useAuthStore = defineStore("auth", {
       // setTimeout(function () {
       //   context.dispatch("autoLogout");
       // }, expiresIn);
+
       if (token && userId) {
-        console.log("AUTO LOGIN SUCCESS!");
         await this.setUser({
           token: token.value,
           userId: userId.value,

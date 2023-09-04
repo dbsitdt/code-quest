@@ -7,6 +7,5 @@ export default defineNuxtRouteMiddleware(async (to) => {
     } else {
       return navigateTo("/login", { redirectCode: 301 });
     }
-    // BUG always goes to /login before redirecting to quests
   }
 });

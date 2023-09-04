@@ -21,10 +21,16 @@
 
 <script setup>
 import { useUserStore } from "../../stores/user.ts";
+import { useAuthStore } from "../../stores/auth.ts";
 const store = useUserStore();
+const authStore = useAuthStore();
+if (!authStore.authStatus) {
+  const autoLoginSuccess = await authStore.tryLogin();
+}
 const completedQuests = computed(() => store.getUserCompletedQuests);
 const numberOfCompletedQuests = computed(() => store.numberOfCompletedQuests);
 const username = computed(() => store.userInfo.username);
+
 const randomTextCounter = Math.random() * 100;
 const splashText = ref("");
 if (randomTextCounter) {
