@@ -28,6 +28,7 @@ try {
   const res = await $fetch(
     `https://code-quest-74ced-default-rtdb.asia-southeast1.firebasedatabase.app/users.json`
   );
+  console.log(res);
   const people = Object.values(res);
   people.sort((a, b) => {
     if (a.completedQuests.length < b.completedQuests.length) {
