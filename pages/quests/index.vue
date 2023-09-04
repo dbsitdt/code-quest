@@ -22,34 +22,41 @@
 <script setup>
 import { useUserStore } from "../../stores/user.ts";
 import { useAuthStore } from "../../stores/auth.ts";
-const store = useUserStore();
+
 const authStore = useAuthStore();
 if (!authStore.authStatus) {
   const autoLoginSuccess = await authStore.tryLogin();
+  if (!autoLoginSuccess) {
+    navigateTo("/login");
+  }
 }
+const store = useUserStore();
 const completedQuests = computed(() => store.getUserCompletedQuests);
 const numberOfCompletedQuests = computed(() => store.numberOfCompletedQuests);
 const username = computed(() => store.userInfo.username);
 
 const randomTextCounter = Math.random() * 100;
 const splashText = ref("");
-if (randomTextCounter) {
-  if (randomTextCounter < 1) {
-    splashText.value = "Today is your lucky day";
-  } else if (randomTextCounter < 10) {
-    splashText.value = "Welcome back";
-  } else if (randomTextCounter < 30) {
-    splashText.value = "Hullo";
-  } else if (randomTextCounter < 60) {
-    splashText.value = "What's up";
-  } else if (randomTextCounter < 65) {
-    splashText.value = "You're very epic";
-  } else if (randomTextCounter < 85) {
-    splashText.value = "Hi";
-  } else if (randomTextCounter < 100) {
-    splashText.value = "Yo";
+onMounted(() => {
+  if (randomTextCounter) {
+    if (randomTextCounter < 1) {
+      splashText.value = "Today is your lucky day";
+    } else if (randomTextCounter < 10) {
+      splashText.value = "Welcome back";
+    } else if (randomTextCounter < 30) {
+      splashText.value = "Hullo";
+    } else if (randomTextCounter < 60) {
+      splashText.value = "What's up";
+    } else if (randomTextCounter < 65) {
+      splashText.value = "You're very epic";
+    } else if (randomTextCounter < 85) {
+      splashText.value = "Hi";
+    } else if (randomTextCounter < 100) {
+      splashText.value = "Yo";
+    }
   }
-}
+});
+
 const questsCat = [
   {
     categoryName: "Basic HTML",
