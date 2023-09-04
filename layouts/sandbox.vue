@@ -1,6 +1,6 @@
 <template>
   <header>
-    <TheMainNav />
+    <TheSandboxNav />
   </header>
   <div class="container">
     <div class="content"><slot></slot></div>
