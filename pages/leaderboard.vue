@@ -9,14 +9,14 @@
       <p>Quests</p>
       <p>Rank</p>
     </div>
-    <leaderboardEntry
+    <userBoard
       v-for="(user, i) in userList"
       :user="{
         questNumber: user.completedQuests.length,
         place: i + 1,
         username: user.username,
       }"
-    ></leaderboardEntry>
+    ></userBoard>
   </div>
 </template>
 
