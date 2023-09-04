@@ -38,13 +38,11 @@ try {
       return 0;
     }
   });
-  console.log(people);
   userList = people;
 } catch (err) {
   console.error(err);
   error = true;
 }
-console.log(userList);
 definePageMeta({
   middleware: ["auth-page"],
 });
