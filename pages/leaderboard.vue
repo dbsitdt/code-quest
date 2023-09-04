@@ -1,5 +1,8 @@
 <template>
   <div class="leaderboard-container">
+    <p class="error-message" v-if="error">
+      There was an error loading the leaderboard. Please try again later ;-;
+    </p>
     <div class="leaderboard-header">
       <p>Place</p>
       <p>Username</p>
@@ -19,6 +22,8 @@
 
 <script setup>
 let userList = ref([]);
+const error = ref(false);
+
 try {
   const res = await $fetch(
     `https://code-quest-74ced-default-rtdb.asia-southeast1.firebasedatabase.app/users.json`
@@ -36,6 +41,7 @@ try {
   userList = people;
 } catch (err) {
   console.error(err);
+  error = true;
 }
 definePageMeta({
   middleware: ["auth-page"],
@@ -53,5 +59,8 @@ definePageMeta({
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
   font-size: 18px;
+}
+.error-message {
+  color: red;
 }
 </style>

@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   components: [
     { path: "~/components/QuestsGlobal", pathPrefix: false, global: true },
     { path: "~/components/Quests", pathPrefix: false },
-    { path: "~/components/LeaderBoard", pathPrefix: false },
+    { path: "~/components/Leaderboard", pathPrefix: false },
     { path: "~/components/UI", pathPrefix: false },
     "~/components",
   ],

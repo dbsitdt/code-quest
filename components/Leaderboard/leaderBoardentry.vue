@@ -68,7 +68,7 @@ const backgroundStyle = {
 .user {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
-  padding: 10px;
+  padding: 20px;
   color: white;
   font-size: 18px;
 }
