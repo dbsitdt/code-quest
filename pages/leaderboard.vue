@@ -12,7 +12,7 @@
     <userBoard
       v-for="(user, i) in userList"
       :user="{
-        questNumber: user.completedQuests.length,
+        questNumber: user.completedQuests.length - 1,
         place: i + 1,
         username: user.username,
       }"
