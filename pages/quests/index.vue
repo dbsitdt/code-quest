@@ -37,7 +37,7 @@ const username = computed(() => store.userInfo.username);
 
 const randomTextCounter = Math.random() * 100;
 const splashText = ref("");
-onMounted(() => {
+onBeforeMounted(() => {
   if (randomTextCounter) {
     if (randomTextCounter < 1) {
       splashText.value = "Today is your lucky day";
