@@ -1,7 +1,6 @@
 import { useAuthStore } from "../stores/auth.ts";
 export default defineNuxtRouteMiddleware(async (to) => {
   const store = useAuthStore();
-
   if (store.authStatus) {
     return abortNavigation();
   }
@@ -10,7 +9,6 @@ export default defineNuxtRouteMiddleware(async (to) => {
     if (to.path !== "/login") {
       return navigateTo(to.path);
     } else {
-      console.log("GOING TO QUESTS");
       return navigateTo("/quests");
     }
   }
