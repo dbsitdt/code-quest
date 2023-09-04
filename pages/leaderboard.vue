@@ -28,7 +28,6 @@ try {
   const res = await $fetch(
     `https://code-quest-74ced-default-rtdb.asia-southeast1.firebasedatabase.app/users.json`
   );
-  console.log(res);
   const people = Object.values(res);
   people.sort((a, b) => {
     if (a.completedQuests.length < b.completedQuests.length) {
@@ -39,11 +38,13 @@ try {
       return 0;
     }
   });
+  console.log(people);
   userList = people;
 } catch (err) {
   console.error(err);
   error = true;
 }
+console.log(userList);
 definePageMeta({
   middleware: ["auth-page"],
 });
