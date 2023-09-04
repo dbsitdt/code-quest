@@ -5,6 +5,6 @@
 </template>
 <script setup>
 definePageMeta({
-  middleware: ["auth-page", "load-page"],
+  middleware: ["unauth-page", "load-page"],
 });
 </script>

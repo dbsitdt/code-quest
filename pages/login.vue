@@ -45,23 +45,24 @@ const store = useAuthStore();
 const error = ref(false);
 const email = ref("");
 const password = ref("");
-onMounted(async () => {
+onBeforeMount(async () => {
   const autoLoginSuccess = await store.tryLogin();
   if (autoLoginSuccess) {
-    return navigateTo("/quests");
+    navigateTo(`/quests`);
   }
 });
+
 const submitCred = async function () {
   try {
     await store.auth({ email: email.value, password: password.value });
     return navigateTo("/quests");
   } catch (err) {
-    console.error(err);
     error.value = true;
   }
 };
 definePageMeta({
   layout: "login",
+  middleware: ["unauth-page"],
 });
 </script>
 <style scoped>

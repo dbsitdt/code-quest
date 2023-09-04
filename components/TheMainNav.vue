@@ -36,8 +36,8 @@ const toggleProfile = function () {
 };
 const username = computed(() => store.getUserInfo.username);
 
-const logout = function () {
-  authStore.logout();
+const logout = async function () {
+  await authStore.logout();
   return navigateTo("/login");
 };
 

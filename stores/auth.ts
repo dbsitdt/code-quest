@@ -1,6 +1,7 @@
 import { acceptHMRUpdate } from "pinia";
 import { useUserStore } from "./user.ts";
-
+import { defineStore } from "pinia";
+import { useCookie } from "#imports";
 let timer: any;
 interface UserInfo {
   username: string;
@@ -8,19 +9,31 @@ interface UserInfo {
   userId: string;
   completedQuests: string[];
 }
+interface State {
+  loggedIn: Boolean;
+  token: string | null | undefined;
+  userId: string | null | undefined;
+  tokenExpiration: string | null | undefined;
+  tokenExpired: Boolean;
+  didAutoAuth: Boolean;
+}
 export const useAuthStore = defineStore("auth", {
-  state: () => {
+  state: (): State => {
     return {
       loggedIn: false,
       token: "",
       userId: "",
-      expiresIn: "",
+      tokenExpiration: "",
       tokenExpired: false,
+      didAutoAuth: false,
     };
   },
   getters: {
     authStatus(state) {
       return state.loggedIn;
+    },
+    ifAutoAuth(state) {
+      return state.didAutoAuth;
     },
     getToken(state) {
       return state.token;
@@ -48,10 +61,15 @@ export const useAuthStore = defineStore("auth", {
         const expiresIn = res.expiresIn * 1000;
         // const expiresIn = 5000;
         const expirationDate = new Date().getTime() + expiresIn;
-
-        localStorage.setItem("token", res.idToken);
-        localStorage.setItem("userId", res.localId);
-        localStorage.setItem("tokenExpiration", expirationDate.toString());
+        const tokenRef = useCookie("token");
+        tokenRef.value = res.idToken;
+        this.token = tokenRef.value;
+        const userIdRef = useCookie("userId");
+        userIdRef.value = res.localId;
+        this.userId = userIdRef.value;
+        const tokenExpirationRef = useCookie("tokenExpiration");
+        tokenExpirationRef.value = expirationDate.toString();
+        this.tokenExpiration = tokenExpirationRef.value;
 
         timer = setTimeout(() => {
           this.tokenExpired = true;
@@ -63,12 +81,15 @@ export const useAuthStore = defineStore("auth", {
         throw err;
       }
     },
+    setAutoAuth(status: Boolean) {
+      this.didAutoAuth = status;
+    },
     async tryLogin() {
-      const token = localStorage.getItem("token");
-      const userId = localStorage.getItem("userId");
-      const tokenExpiration: string | null =
-        localStorage.getItem("tokenExpiration");
-      const expiresIn = Number(tokenExpiration) - new Date().getTime();
+      const token = useCookie("token");
+      const userId = useCookie("userId");
+      const tokenExpiration = useCookie("tokenExpiration");
+      if (!token.value || !userId.value || !tokenExpiration.value) return false;
+      const expiresIn = Number(tokenExpiration.value) - new Date().getTime();
       if (expiresIn < 0) {
         return false;
       }
@@ -76,17 +97,22 @@ export const useAuthStore = defineStore("auth", {
       //   context.dispatch("autoLogout");
       // }, expiresIn);
       if (token && userId) {
+        console.log("AUTO LOGIN SUCCESS!");
         await this.setUser({
-          token: token,
-          userId: userId,
+          token: token.value,
+          userId: userId.value,
         });
         this.loggedIn = true;
-
         return true;
       }
       return false;
     },
-    async setUser(payload: { token: string; userId: string }) {
+    async setUser(payload: {
+      token: string | null | undefined;
+      userId: string | null | undefined;
+    }) {
+      if (!payload.token || !payload.userId)
+        throw new Error(`Failed to load user`);
       this.token = payload.token;
       this.userId = payload.userId;
       const userInfo: UserInfo | null = await this.loadUserInfo(payload.userId);
@@ -109,9 +135,14 @@ export const useAuthStore = defineStore("auth", {
       }
     },
     logout() {
-      localStorage.removeItem("token");
-      localStorage.removeItem("userId");
-      localStorage.removeItem("tokenExpiration");
+      // remove cookies?
+      const tokenRef = useCookie("token");
+      const tokenExpirationRef = useCookie("tokenExpirationRef");
+      const userIdRef = useCookie("userId");
+      tokenRef.value = null;
+      tokenExpirationRef.value = null;
+      userIdRef.value = null;
+
       clearTimeout(timer);
 
       this.reset();
@@ -120,7 +151,7 @@ export const useAuthStore = defineStore("auth", {
       this.loggedIn = false;
       this.token = "";
       this.userId = "";
-      this.expiresIn = "";
+      this.tokenExpiration = "";
       this.tokenExpired = false;
       const userStore = useUserStore();
       userStore.reset();
