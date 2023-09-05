@@ -25,6 +25,9 @@ export const useUserStore = defineStore("user", {
     getUserInfo(state) {
       return state.userInfo;
     },
+    getPfp(state) {
+      return state.userInfo.profilePicture;
+    },
     getUserCompletedQuests(): string[] | null {
       return this.getUserInfo.completedQuests;
     },
@@ -48,6 +51,9 @@ export const useUserStore = defineStore("user", {
       } else {
         return;
       }
+    },
+    updatePfp(pfpId: string) {
+      this.userInfo.profilePicture = pfpId;
     },
     async updateUserInfo(userId: any, token: any) {
       const userInfo = this.getUserInfo;

@@ -12,7 +12,9 @@ export const useSandboxStore = defineStore("sandbox", {
   },
   actions: {
     updateHtml(newCode) {
-      const safeCode = newCode.replaceAll("script", "sscript");
+      const safeCode = newCode
+        .replaceAll("script", "sscript")
+        .replaceAll("iframe", "iiframe");
       this.htmlCode = safeCode;
     },
     updateCss(newCode) {

@@ -16,7 +16,7 @@
       <p>{{ user.place }}</p>
     </div>
     <p>{{ user.username }}</p>
-    <p>{{ user.questNumber }} tasks</p>
+    <p>{{ user.questNumber }} quests</p>
     <p :style="{ color: rankInfo.rankColor }">{{ rankInfo.rank }}</p>
   </div>
 </template>
