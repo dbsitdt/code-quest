@@ -1,5 +1,5 @@
 <template>
-  <div class="user" :style="backgroundStyle">
+  <div class="user">
     <div class="place">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -60,9 +60,6 @@ const rankInfo = computed(() => {
     };
   }
 });
-const backgroundStyle = {
-  backgroundColor: user.value.place % 2 === 0 ? "#1E2121" : "#191b1e",
-};
 </script>
 <style scoped>
 .user {

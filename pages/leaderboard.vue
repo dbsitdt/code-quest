@@ -10,12 +10,13 @@
       <p>Rank</p>
     </div>
     <userBoard
-      v-for="(user, i) in userList"
+      v-for="user in userList"
       :user="{
         questNumber: user.completedQuests.length - 1,
-        place: i + 1,
+        place: user.place,
         username: user.username,
       }"
+      class="user-board"
     ></userBoard>
   </div>
 </template>
@@ -28,20 +29,47 @@ try {
   const res = await $fetch(
     `https://code-quest-74ced-default-rtdb.asia-southeast1.firebasedatabase.app/users.json`
   );
+  if (res.length === 0) {
+    error.value = true;
+    throw new Error(`Error in fetching leaderboard!`);
+  }
   const people = Object.values(res);
-  people.sort((a, b) => {
-    if (a.completedQuests.length < b.completedQuests.length) {
-      return 1;
-    } else if (a.completedQuests.length > b.completedQuests.length) {
-      return -1;
-    } else if (a.completedQuests.length > b.completedQuests.length) {
-      return 0;
+  const sortedPeople = people
+    .filter((person) => person.completedQuests.length - 1 > 1)
+    .sort((a, b) => {
+      if (a.completedQuests.length < b.completedQuests.length) {
+        return 1;
+      } else if (a.completedQuests.length > b.completedQuests.length) {
+        return -1;
+      } else if (a.completedQuests.length > b.completedQuests.length) {
+        return 0;
+      }
+    });
+  let placeIndex = 0;
+  const rankedPeople = sortedPeople.map((person, index) => {
+    if (index > 0) {
+      console.log(
+        person.completedQuests.length,
+        sortedPeople[index - 1].completedQuests.length
+      );
     }
+    if (
+      index > 0 &&
+      person.completedQuests.length ===
+        sortedPeople[index - 1].completedQuests.length
+    ) {
+      person.place = sortedPeople[index - 1].place;
+      placeIndex = sortedPeople[index - 1].place;
+    } else {
+      person.place = placeIndex + 1;
+      placeIndex++;
+    }
+    return person;
   });
-  userList = people;
+  const cutOff = rankedPeople.findIndex((person) => person.place > 20);
+  userList = rankedPeople.slice(0, cutOff == -1 ? rankedPeople.length : cutOff);
 } catch (err) {
-  console.error(err);
-  error = true;
+  error.value = true;
 }
 definePageMeta({
   middleware: ["auth-page"],
@@ -49,6 +77,12 @@ definePageMeta({
 </script>
 
 <style scoped>
+.user-board:nth-of-type(odd) {
+  background-color: #1e2121;
+}
+.user-board:nth-of-type(even) {
+  background-color: #191b1e;
+}
 .leaderboard-container {
   padding: 3vh 5vw;
 }

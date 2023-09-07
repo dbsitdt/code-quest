@@ -32,8 +32,15 @@
             v-else-if="completedStep && !completedQuest"
             >Next Step</quest-button
           >
-          <quest-button v-if="completedQuest && expanded" @click="nextQuest"
+          <quest-button
+            v-if="completedQuest && expanded && !lastInCat"
+            @click="nextQuest"
             >Next Quest</quest-button
+          >
+          <quest-button
+            v-else-if="completedQuest && expanded && lastInCat"
+            @click="backToQuests"
+            >All Quests</quest-button
           >
         </div>
         <div class="controls">
@@ -95,6 +102,7 @@ try {
 }
 const { default: questInfo } = await import(`../../checks/${questId}.js`);
 const { defaultCode, steps, title, category } = questInfo;
+const lastInCat = questInfo?.lastInCat;
 // console.log(steps[0].instruction);
 const step = ref(1);
 const currentStep = computed(() => steps[step.value - 1]);
@@ -160,8 +168,9 @@ const submitCode = function () {
     if (step.value === steps.length) {
       // Completed entire quest
       userStore.completeQuest(questId);
-      completeMessage.value =
-        "Well Done! Click the button below to move on to the next quest";
+      completeMessage.value = !lastInCat
+        ? "Well Done! Click the button below to move on to the next quest"
+        : "Congratulations on finishing the section! Return to quests to see your progress!";
       completedQuest.value = true;
       completeMessage;
     }
@@ -192,6 +201,9 @@ const changeHeight = function (): void {
 const nextQuest = async function () {
   const cutId = Number(questId.slice(1, questId.length));
   await navigateTo({ path: `${questId.slice(0, 1)}${cutId + 1}` });
+};
+const backToQuests = async function () {
+  await navigateTo("/quests");
 };
 const instructionStyles = computed(function (): CSSProperties {
   return {

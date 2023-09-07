@@ -2,13 +2,15 @@
   <header>
     <TheMainNav @toggle-sidebar="toggleSidebar" />
   </header>
-  <div class="container">
+  <div class="container" @click="closeUIs">
     <TheSidebar :sidebarOpened="sidebarOpened" />
     <div class="content"><slot></slot></div>
   </div>
 </template>
 
 <script setup>
+import { useUiStore } from "../stores/ui.js";
+const store = useUiStore();
 const sidebarOpened = ref(true);
 const toggleSidebar = function () {
   sidebarOpened.value = !sidebarOpened.value;
@@ -24,6 +26,9 @@ onMounted(() => {
     }
   });
 });
+const closeUIs = function () {
+  store.closeProfile();
+};
 </script>
 <style scoped>
 .container {

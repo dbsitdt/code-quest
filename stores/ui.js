@@ -15,6 +15,9 @@ export const useUiStore = defineStore("ui", {
     toggleProfile() {
       this.navProfileOn = !this.navProfileOn;
     },
+    closeProfile() {
+      this.navProfileOn = false;
+    },
   },
 });
 if (import.meta.hot) {
