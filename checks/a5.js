@@ -6,7 +6,6 @@ import {
 export default {
   title: "Using anchor tags for links",
   category: "Basic HTML",
-  lastInCat: true,
   defaultCode: {
     htmlCode: "<p>Click here for RICKROLL!</p>",
     cssCode: "/* Nothing to see here :) */",

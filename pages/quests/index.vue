@@ -59,6 +59,8 @@ const questsCat = [
       { title: "Basic layout", id: "a3" },
       { title: "Adding images", id: "a4" },
       { title: "Using anchor tags for links", id: "a5" },
+      { title: "Ordered Lists", id: "a6" },
+      { title: "Unordered Lists", id: "a7" },
     ],
   },
 ];

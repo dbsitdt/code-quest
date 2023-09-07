@@ -48,7 +48,7 @@ const meterStyles = computed(() => {
     strokeDashoffset: strokeDashoffset.value,
   };
 });
-const max_tasks = 5;
+const max_tasks = 6;
 onMounted(() => {
   const circumference = 2 * Math.PI * meter.value.getAttribute("r");
   const offset = computed(
