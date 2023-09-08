@@ -69,16 +69,50 @@ const downloadCard = async function () {
   elClone.style.borderRadius = 0;
   elClone.style.zIndex = -5;
   elClone.style.width = "400px";
-  elClone.style.top = 0;
-  elClone.style.left = 0;
-  elClone.style.position = "absolute";
+
+  const userContainer = document.createElement("div");
+  userContainer.style.display = "flex";
+  userContainer.style.gap = "1rem";
+
+  const name = document.createElement("h3");
+  name.style.fontSize = "2rem";
+  name.style.color = "white";
+  name.textContent = "dbsowen";
+  userContainer.append(name);
+
+  // const userPhoto = document.createElement("img");
+  // userPhoto.src = "../../assets/Pfp/pfp2.png";
+  // userPhoto.style.width = "100px";
+  // userPhoto.style.height = "100px";
+  // userContainer.append(userPhoto);
+
+  elClone.prepend(userContainer);
   elClone.querySelector("button").style.display = "none";
-  document.querySelector("body").append(elClone);
+
+  const watermark = document.createElement("p");
+  watermark.style.color = "white";
+  watermark.style.marginTop = "1.5rem";
+  watermark.style.fontSize = "1rem";
+
+  watermark.textContent = "At ";
+  const waterMarkLink = document.createElement("span");
+  waterMarkLink.innerText = "itdt-codequest.netlify.app";
+  waterMarkLink.style.textDecoration = "underline";
+  watermark.append(waterMarkLink);
+  elClone.append(watermark);
+  const elemDiv = document.createElement("div");
+  elemDiv.style.top = 0;
+  elemDiv.style.left = 0;
+  elemDiv.style.position = "absolute";
+  document.querySelector("body").append(elemDiv);
+  elemDiv.style.backgroundColor = "#2A2D32";
+  elemDiv.style.padding = "2rem 3rem";
+  elemDiv.append(elClone);
   const options = {
     type: "dataURL",
   };
-  const printCanvas = await html2canvas(elClone, options);
-  elClone.remove();
+  const printCanvas = await html2canvas(elemDiv, options);
+  elemDiv.remove();
   const link = document.createElement("a");
   link.setAttribute("download", "profile-card.png");
   link.setAttribute(
@@ -87,7 +121,6 @@ const downloadCard = async function () {
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream")
   );
-  // elClone.remove();
 
   link.click();
 };
