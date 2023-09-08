@@ -48,13 +48,13 @@ const closeUIs = function () {
   box-sizing: border-box;
 }
 body {
-  background-color: #2a2d32;
 }
 div#__nuxt,
 #__layout,
 #__layout > div,
 #app {
   height: 100vh;
+  background-color: #2a2d32;
 }
 p,
 a,
@@ -64,7 +64,8 @@ h3,
 h4,
 h5,
 h6,
-button {
+button,
+label {
   font-family: "Poppins", sans-serif;
 }
 </style>

@@ -66,8 +66,10 @@ const downloadCard = async function () {
   const el = card.value;
   const elClone = el.cloneNode(true);
   elClone.style.borderRadius = 0;
-  elClone.style.zIndex = -100;
+  elClone.style.zIndex = -5;
   elClone.style.width = "400px";
+  elClone.style.top = 0;
+  elClone.style.left = 0;
   elClone.style.position = "absolute";
   elClone.querySelector("button").style.display = "none";
   document.querySelector("body").append(elClone);
@@ -75,7 +77,7 @@ const downloadCard = async function () {
     type: "dataURL",
   };
   const printCanvas = await html2canvas(elClone, options);
-  console.log(printCanvas);
+  elClone.remove();
   const link = document.createElement("a");
   link.setAttribute("download", "download.png");
   link.setAttribute(
@@ -84,6 +86,8 @@ const downloadCard = async function () {
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream")
   );
+  // elClone.remove();
+
   link.click();
 };
 </script>
