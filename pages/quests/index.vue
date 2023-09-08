@@ -14,7 +14,10 @@
       </div>
     </div>
     <div class="progress-card-container">
-      <profileCard :tasksCompleted="numberOfCompletedQuests" />
+      <profileCard
+        :maxTasks="maxTasks"
+        :tasksCompleted="numberOfCompletedQuests"
+      />
     </div>
   </div>
 </template>
@@ -64,6 +67,8 @@ const questsCat = [
     ],
   },
 ];
+const maxTasks = questsCat.reduce((acc, cat) => (acc += cat.quests.length), 0);
+console.log(maxTasks);
 definePageMeta({
   middleware: ["auth-page"],
 });

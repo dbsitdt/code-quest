@@ -40,8 +40,9 @@
 <script setup>
 import html2canvas from "html2canvas";
 
-const props = defineProps(["tasksCompleted"]);
+const props = defineProps(["tasksCompleted", "maxTasks"]);
 const tasksCompleted = computed(() => props.tasksCompleted);
+const maxTasks = computed(() => props.maxTasks);
 const meter = ref(null);
 const number = ref(null);
 const strokeDasharray = ref(0);
@@ -52,7 +53,7 @@ const meterStyles = computed(() => {
     strokeDashoffset: strokeDashoffset.value,
   };
 });
-const max_tasks = 6;
+const max_tasks = maxTasks.value;
 onMounted(() => {
   const circumference = 2 * Math.PI * meter.value.getAttribute("r");
   const offset = computed(
@@ -79,7 +80,7 @@ const downloadCard = async function () {
   const printCanvas = await html2canvas(elClone, options);
   elClone.remove();
   const link = document.createElement("a");
-  link.setAttribute("download", "download.png");
+  link.setAttribute("download", "profile-card.png");
   link.setAttribute(
     "href",
     printCanvas
