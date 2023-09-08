@@ -1,5 +1,5 @@
 <template>
-  <div class="progress-card">
+  <div ref="card" class="progress-card">
     <h3 class="white mastery-text">
       Mastery: <span class="yellow rank">Novice</span>
     </h3>
@@ -32,10 +32,14 @@
         <p class="white">Quests Completed</p>
       </div>
     </div>
-    <!-- <button class="button">Share</button> -->
+    <button @click="downloadCard" class="button">
+      <img src="../../assets/Quests/share.svg" />Share
+    </button>
   </div>
 </template>
 <script setup>
+import html2canvas from "html2canvas";
+
 const props = defineProps(["tasksCompleted"]);
 const tasksCompleted = computed(() => props.tasksCompleted);
 const meter = ref(null);
@@ -57,6 +61,31 @@ onMounted(() => {
   strokeDasharray.value = `${circumference} ${circumference}`;
   strokeDashoffset.value = offset.value;
 });
+const card = ref(null);
+const downloadCard = async function () {
+  const el = card.value;
+  const elClone = el.cloneNode(true);
+  elClone.style.borderRadius = 0;
+  elClone.style.zIndex = -100;
+  elClone.style.width = "400px";
+  elClone.style.position = "absolute";
+  elClone.querySelector("button").style.display = "none";
+  document.querySelector("body").append(elClone);
+  const options = {
+    type: "dataURL",
+  };
+  const printCanvas = await html2canvas(elClone, options);
+  console.log(printCanvas);
+  const link = document.createElement("a");
+  link.setAttribute("download", "download.png");
+  link.setAttribute(
+    "href",
+    printCanvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream")
+  );
+  link.click();
+};
 </script>
 <style scoped>
 .mastery-text {
@@ -86,7 +115,7 @@ onMounted(() => {
   font-weight: 500;
 }
 .progress-card {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: #3b3d42;
   border-radius: 15px;
   text-align: center;
   display: flex;
@@ -145,9 +174,12 @@ button.button {
   border: 2px solid #278bff;
   cursor: pointer;
   font-family: "Poppins", Sans-Serif;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 13px;
   transition-duration: 300ms;
+  font-size: 18px;
   margin-top: 1rem;
+  display: flex;
+  gap: 0.6rem;
 }
 
 button.button:hover {

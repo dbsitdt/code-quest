@@ -125,10 +125,10 @@ input[type="password"]:focus {
   border: 3px solid rgb(177, 177, 177);
 }
 input[type="submit"] {
+  -webkit-appearance: none;
   margin-top: 32px;
   padding: 0.6rem 1.8rem;
   border-radius: 10px;
-  -webkit-apperance: none;
   background: #278bff;
   border: none;
   color: white;
