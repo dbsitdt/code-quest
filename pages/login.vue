@@ -128,6 +128,7 @@ input[type="submit"] {
   margin-top: 32px;
   padding: 0.6rem 1.8rem;
   border-radius: 10px;
+  -webkit-apperance: none;
   background: #278bff;
   border: none;
   color: white;
