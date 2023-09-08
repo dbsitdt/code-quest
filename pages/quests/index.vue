@@ -15,6 +15,7 @@
     </div>
     <div class="progress-card-container">
       <profileCard
+        :username="username"
         :maxTasks="maxTasks"
         :tasksCompleted="numberOfCompletedQuests"
       />

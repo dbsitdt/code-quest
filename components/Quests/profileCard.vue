@@ -40,9 +40,10 @@
 <script setup>
 import html2canvas from "html2canvas";
 
-const props = defineProps(["tasksCompleted", "maxTasks"]);
+const props = defineProps(["username", "tasksCompleted", "maxTasks"]);
 const tasksCompleted = computed(() => props.tasksCompleted);
 const maxTasks = computed(() => props.maxTasks);
+const username = computed(() => props.username);
 const meter = ref(null);
 const number = ref(null);
 const strokeDasharray = ref(0);
@@ -67,7 +68,6 @@ const downloadCard = async function () {
   const el = card.value;
   const elClone = el.cloneNode(true);
   elClone.style.borderRadius = 0;
-  elClone.style.zIndex = -5;
   elClone.style.width = "400px";
 
   const userContainer = document.createElement("div");
@@ -77,7 +77,7 @@ const downloadCard = async function () {
   const name = document.createElement("h3");
   name.style.fontSize = "2rem";
   name.style.color = "white";
-  name.textContent = "dbsowen";
+  name.textContent = username.value;
   userContainer.append(name);
 
   // const userPhoto = document.createElement("img");
@@ -104,14 +104,18 @@ const downloadCard = async function () {
   elemDiv.style.top = 0;
   elemDiv.style.left = 0;
   elemDiv.style.position = "absolute";
+  elemDiv.style.zIndex = -5;
   document.querySelector("body").append(elemDiv);
   elemDiv.style.backgroundColor = "#2A2D32";
   elemDiv.style.padding = "2rem 3rem";
+  elemDiv.style.overflow = "hidden";
   elemDiv.append(elClone);
+
   const options = {
     type: "dataURL",
   };
   const printCanvas = await html2canvas(elemDiv, options);
+
   elemDiv.remove();
   const link = document.createElement("a");
   link.setAttribute("download", "profile-card.png");
