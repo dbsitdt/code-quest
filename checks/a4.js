@@ -30,6 +30,13 @@ div > div {
         },
         {
           testFunc: (frame) => {
+            const h1 = frame.querySelector("h1");
+            return isElementChildOf(h1, frame);
+          },
+          error: "Don't touch the h1 :/",
+        },
+        {
+          testFunc: (frame) => {
             const div = frame.querySelectorAll("div");
             const image = frame.querySelector("img");
 

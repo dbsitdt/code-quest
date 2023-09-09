@@ -47,7 +47,6 @@ export const checkElementAttribute = (
   optimalValue: string
 ): boolean => {
   const attributeValue = element.getAttribute(attribute);
-
   if (attributeValue === optimalValue) {
     return true;
   } else {

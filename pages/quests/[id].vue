@@ -96,7 +96,7 @@ try {
 } catch (err) {
   throw createError({
     statusCode: 404,
-    statusMessage: `Quest not found bruh`,
+    statusMessage: `Quest not found`,
     fatal: true,
   });
 }

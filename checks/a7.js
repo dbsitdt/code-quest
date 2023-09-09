@@ -6,7 +6,6 @@ import {
 export default {
   title: "Ununordered Lists",
   category: "Basic HTML",
-  lastInCat: true,
   defaultCode: {
     htmlCode: "<h1>Shopping List</h1>",
     cssCode: "/* Nothing to see here :) */",

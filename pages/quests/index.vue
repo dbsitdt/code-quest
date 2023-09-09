@@ -65,11 +65,12 @@ const questsCat = [
       { title: "Using anchor tags for links", id: "a5" },
       { title: "Ordered Lists", id: "a6" },
       { title: "Unordered Lists", id: "a7" },
+      { title: "Text input", id: "a8" },
+      { title: "Radio input", id: "a9" },
     ],
   },
 ];
 const maxTasks = questsCat.reduce((acc, cat) => (acc += cat.quests.length), 0);
-console.log(maxTasks);
 definePageMeta({
   middleware: ["auth-page"],
 });
