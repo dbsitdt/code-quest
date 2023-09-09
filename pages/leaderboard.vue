@@ -35,7 +35,10 @@ try {
   }
   const people = Object.values(res);
   const sortedPeople = people
-    .filter((person) => person.completedQuests.length - 1 > 1)
+    .filter(
+      (person) =>
+        person.completedQuests.length - 1 > 1 && person.username !== "dbsguest"
+    )
     .sort((a, b) => {
       if (a.completedQuests.length < b.completedQuests.length) {
         return 1;
@@ -47,12 +50,6 @@ try {
     });
   let placeIndex = 0;
   const rankedPeople = sortedPeople.map((person, index) => {
-    if (index > 0) {
-      console.log(
-        person.completedQuests.length,
-        sortedPeople[index - 1].completedQuests.length
-      );
-    }
     if (
       index > 0 &&
       person.completedQuests.length ===
