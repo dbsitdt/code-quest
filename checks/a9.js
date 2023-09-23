@@ -6,7 +6,7 @@ import {
 } from "../helpers/domHelpers";
 export default {
   title: "Radio Input",
-  category: "Basic HTML",
+  category: "Working with forms",
   lastInCat: true,
   defaultCode: {
     htmlCode:

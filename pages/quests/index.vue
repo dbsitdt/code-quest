@@ -65,8 +65,14 @@ const questsCat = [
       { title: "Using anchor tags for links", id: "a5" },
       { title: "Ordered Lists", id: "a6" },
       { title: "Unordered Lists", id: "a7" },
+    ],
+  },
+  {
+    categoryName: "Working with forms",
+    quests: [
       { title: "Text input", id: "a8" },
       { title: "Radio input", id: "a9" },
+      { title: "Adding a submit button", id: "a10" },
     ],
   },
 ];

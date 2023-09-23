@@ -6,8 +6,7 @@ import {
 } from "../helpers/domHelpers";
 export default {
   title: "Text Input",
-  category: "Basic HTML",
-  lastInCat: true,
+  category: "Working with forms",
   defaultCode: {
     htmlCode: "<h1>Sign up to ITDT!</h1>",
     cssCode: "/* Nothing to see here :) */",
