@@ -13,7 +13,7 @@
           :fill="iconFill"
         />
       </svg>
-      <p>{{ user.place }}</p>
+      <p class="place-number">{{ user.place }}</p>
     </div>
     <p>{{ user.username }}</p>
     <p>{{ user.questNumber }} quests</p>
@@ -55,7 +55,7 @@ const rankInfo = computed(() => {
   }
   if (num <= 60) {
     return {
-      rank: "Novice",
+      rank: "Master",
       rankColor: "#BF6DD8",
     };
   }
@@ -64,10 +64,16 @@ const rankInfo = computed(() => {
 <style scoped>
 .user {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
   padding: 20px;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+
   color: white;
   font-size: 18px;
+}
+@media (min-width: 1000px) {
+  .user {
+    grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
+  }
 }
 .place {
   display: flex;

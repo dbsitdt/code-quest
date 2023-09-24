@@ -88,8 +88,13 @@ definePageMeta({
   padding: 10px;
 
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
   font-size: 18px;
+}
+@media (min-width: 1000px) {
+  .leaderboard-header {
+    grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
+  }
 }
 .error-message {
   color: red;

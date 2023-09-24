@@ -48,10 +48,38 @@ const meter = ref(null);
 const number = ref(null);
 const strokeDasharray = ref(0);
 const strokeDashoffset = ref(0);
+const rankInfo = computed(() => {
+  const num = computed(() => tasksCompleted.value);
+  if (num <= 10) {
+    return {
+      rank: "Novice",
+      rankColor: "#D6B06C",
+    };
+  }
+  if (num <= 20) {
+    return {
+      rank: "Intermediate",
+      rankColor: "#8DBB6E",
+    };
+  }
+  if (num <= 40) {
+    return {
+      rank: "Expert",
+      rankColor: "#57A5ED",
+    };
+  }
+  if (num <= 60) {
+    return {
+      rank: "Master",
+      rankColor: "#BF6DD8",
+    };
+  }
+});
 const meterStyles = computed(() => {
   return {
     strokeDasharray: strokeDasharray.value,
     strokeDashoffset: strokeDashoffset.value,
+    stroke: rankInfo.value,
   };
 });
 const max_tasks = maxTasks.value;
@@ -197,7 +225,6 @@ const downloadCard = async function () {
   transition: stroke-dashoffset 0.5s;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
-  stroke: #e1b86f;
 }
 .progress-text {
   padding-top: 1rem;

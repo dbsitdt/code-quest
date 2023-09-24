@@ -53,3 +53,13 @@ export const checkElementAttribute = (
     return false;
   }
 };
+
+export const checkElementProperty = function (
+  element: HTMLElement,
+  property: string,
+  value: string
+) {
+  const style: any = getComputedStyle(element);
+  const obtainedStyle = style[property];
+  return obtainedStyle === value;
+};

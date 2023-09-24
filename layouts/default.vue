@@ -3,7 +3,7 @@
     <TheMainNav @toggle-sidebar="toggleSidebar" />
   </header>
   <div class="container" @click="closeUIs">
-    <TheSidebar :sidebarOpened="sidebarOpened" />
+    <TheSidebar @close-sidebar="toggleSidebar" :sidebarOpened="sidebarOpened" />
     <div class="content"><slot></slot></div>
   </div>
 </template>
