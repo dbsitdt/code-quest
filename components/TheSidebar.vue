@@ -43,7 +43,7 @@ const { sidebarOpened } = toRefs(props);
 
 const clickedNav = function (e) {
   const el = e.target.closest("li");
-  if (!el) return;
+  if (!el || window.innerWidth > 800) return;
   emit("close-sidebar");
 };
 </script>

@@ -65,10 +65,22 @@ const rankInfo = computed(() => {
 .user {
   display: grid;
   padding: 20px;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
 
+  grid-template-columns: 0.5fr 1.5fr 1fr 1fr;
   color: white;
   font-size: 18px;
+  gap: 0.4rem;
+}
+.place-number {
+  display: none;
+}
+@media (min-width: 500px) {
+  .user {
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+  }
+  .place-number {
+    display: inline-block;
+  }
 }
 @media (min-width: 1000px) {
   .user {
