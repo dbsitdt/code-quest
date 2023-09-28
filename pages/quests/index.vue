@@ -75,6 +75,10 @@ const questsCat = [
       { title: "Adding a submit button", id: "a10" },
     ],
   },
+  {
+    categoryName: "Basic CSS",
+    quests: [{ title: "Changing colors", id: "a11" }],
+  },
 ];
 const maxTasks = questsCat.reduce((acc, cat) => (acc += cat.quests.length), 0);
 definePageMeta({
