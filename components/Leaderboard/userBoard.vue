@@ -16,8 +16,10 @@
       <p class="place-number">{{ user.place }}</p>
     </div>
     <p>{{ user.username }}</p>
-    <p>{{ user.questNumber }} quests</p>
-    <p :style="{ color: rankInfo.rankColor }">{{ rankInfo.rank }}</p>
+    <p>{{ user.questNumber }} <span class="quest-unit">Quests</span></p>
+    <p class="rank" :style="{ color: rankInfo.rankColor }">
+      {{ rankInfo.rank }}
+    </p>
   </div>
 </template>
 <script setup>
@@ -66,25 +68,31 @@ const rankInfo = computed(() => {
   display: grid;
   padding: 20px;
 
-  grid-template-columns: 0.5fr 1.5fr 1fr 1fr;
+  grid-template-columns: 0.5fr 1.5fr 0.7fr;
   color: white;
   font-size: 18px;
   gap: 0.4rem;
 }
-.place-number {
+.quest-unit {
+  display: none;
+}
+.rank {
   display: none;
 }
 @media (min-width: 500px) {
   .user {
-    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 0.7fr 1.5fr;
   }
-  .place-number {
+  .rank {
     display: inline-block;
   }
 }
 @media (min-width: 1000px) {
   .user {
     grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
+  }
+  .quest-unit {
+    display: inline-block;
   }
 }
 .place {

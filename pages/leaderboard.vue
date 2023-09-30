@@ -7,7 +7,7 @@
       <p>Place</p>
       <p>Username</p>
       <p>Quests</p>
-      <p>Rank</p>
+      <p class="rank-header">Rank</p>
     </div>
     <userBoard
       v-for="user in userList"
@@ -88,18 +88,25 @@ definePageMeta({
   padding: 10px;
 
   display: grid;
-  grid-template-columns: 0.5fr 1.5fr 1fr 1fr;
+  grid-template-columns: 0.5fr 1.5fr 0.7fr;
   gap: 0.4rem;
   font-size: 18px;
+}
+
+.rank-header {
+  display: none;
+}
+@media (min-width: 500px) {
+  .leaderboard-header {
+    grid-template-columns: 1fr 1.5fr 0.7fr 1.5fr;
+  }
+  .rank-header {
+    display: inline-block;
+  }
 }
 @media (min-width: 1000px) {
   .leaderboard-header {
     grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
-  }
-}
-@media (min-width: 500px) {
-  .leaderboard-header {
-    grid-template-columns: 1fr 2fr 1fr 1fr;
   }
 }
 .error-message {

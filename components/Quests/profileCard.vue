@@ -1,7 +1,7 @@
 <template>
   <div ref="card" class="progress-card">
     <h3 class="white mastery-text">
-      Mastery: <span class="yellow rank">Novice</span>
+      Mastery: <span class="rank" :style="rankColor">{{ rankInfo.rank }}</span>
     </h3>
     <div class="progress-bar">
       <svg class="fill" viewBox="0 0 308 308">
@@ -26,7 +26,7 @@
         />
       </svg>
       <div class="card-text">
-        <h4 ref="number" class="yellow number">
+        <h4 ref="number" class="number" :style="rankColor">
           {{ tasksCompleted }}
         </h4>
         <p class="white">Quests Completed</p>
@@ -50,25 +50,25 @@ const strokeDasharray = ref(0);
 const strokeDashoffset = ref(0);
 const rankInfo = computed(() => {
   const num = computed(() => tasksCompleted.value);
-  if (num <= 10) {
+  if (num.value <= 10) {
     return {
       rank: "Novice",
       rankColor: "#D6B06C",
     };
   }
-  if (num <= 20) {
+  if (num.value <= 20) {
     return {
       rank: "Intermediate",
       rankColor: "#8DBB6E",
     };
   }
-  if (num <= 40) {
+  if (num.value <= 40) {
     return {
       rank: "Expert",
       rankColor: "#57A5ED",
     };
   }
-  if (num <= 60) {
+  if (num.value <= 60) {
     return {
       rank: "Master",
       rankColor: "#BF6DD8",
@@ -79,8 +79,11 @@ const meterStyles = computed(() => {
   return {
     strokeDasharray: strokeDasharray.value,
     strokeDashoffset: strokeDashoffset.value,
-    stroke: rankInfo.value,
+    stroke: rankInfo.value.rankColor,
   };
+});
+const rankColor = computed(() => {
+  return { color: rankInfo.value.rankColor };
 });
 const max_tasks = maxTasks.value;
 onMounted(() => {
