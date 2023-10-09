@@ -49,7 +49,7 @@ const clickedNav = function (e) {
 </script>
 <style scoped>
 nav {
-  height: 100dvh;
+  height: 100%;
   position: absolute;
   background: var(--bg-dark-blue);
   z-index: 1;
