@@ -19,7 +19,8 @@ export default {
             const h1 = frame.querySelector("h1");
             return isElementChildOf(h1, frame);
           },
-          error: "Where is the h1?? Add an h1 with the h1 tags",
+          error:
+            "Where is the <tag>h1</tag>?? Add an h1 with the <tag>h1</tag> tags",
         },
         {
           testFunc: (frame) => {
@@ -29,7 +30,8 @@ export default {
           error: "You haven't changed the content yet!",
         },
       ],
-      instruction: 'Add an h1 tag with the content of "This is a h1"',
+      instruction:
+        'Add an <tag>h1</tag> tag with the content of "This is a h1"',
     },
     {
       tests: [
@@ -38,7 +40,8 @@ export default {
             const h1 = frame.querySelector("h1");
             return isElementChildOf(h1, frame);
           },
-          error: "Where did the h1 go??? Don't delete your previous code!",
+          error:
+            "Where did the <tag>h1</tag> go??? Don't delete your previous code!",
         },
         {
           testFunc: (frame) => {
@@ -52,7 +55,7 @@ export default {
             const h2 = frame.querySelector("h2");
             return isElementChildOf(h2, frame);
           },
-          error: "You haven't added an h2 yet!",
+          error: "You haven't added an <tag>h2</tag> yet!",
         },
         {
           testFunc: (frame) => {
@@ -60,18 +63,18 @@ export default {
             const h2 = frame.querySelector("h2");
             return areElementsInOrder([h1, h2], frame);
           },
-          error: "The h2 isn't directly under h1!",
+          error: "The <tag>h2</tag> isn't directly under <tag>h1</tag>!",
         },
         {
           testFunc: (frame) => {
             const h2 = frame.querySelector("h2");
             return checkElementText(h2, "This is a h2");
           },
-          error: "The content in the h2 seems to be wrong :/",
+          error: "The content in the <tag>h2</tag> seems to be wrong :/",
         },
       ],
       instruction:
-        'Now add a h2 tag below the h1 tag with the content of "This is a h2"',
+        'Now add a <tag>h2</tag> tag below the <tag>h1</tag> tag with the content of "This is a h2"',
     },
   ],
 };

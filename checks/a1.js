@@ -21,7 +21,7 @@ export default {
           error: "You haven't changed the content yet!",
         },
       ],
-      instruction: 'Change the content in h1 to "I love HTML!"',
+      instruction: 'Change the content in <tag>h1</tag> to "I love HTML!"',
     },
   ],
 };

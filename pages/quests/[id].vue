@@ -16,9 +16,7 @@
               d="M18 3C9.75 3 3 9.75 3 18C3 26.25 9.75 33 18 33C26.25 33 33 26.25 33 18C33 9.75 26.25 3 18 3ZM18 30C11.385 30 6 24.615 6 18C6 11.385 11.385 6 18 6C24.615 6 30 11.385 30 18C30 24.615 24.615 30 18 30ZM24.885 11.37L15 21.255L11.115 17.385L9 19.5L15 25.5L27 13.5L24.885 11.37Z"
             />
           </svg>
-          <p :style="instructionStyles">
-            {{ currentInstruction }}
-          </p>
+          <p v-html="currentInstruction" :style="instructionStyles"></p>
         </div>
         <p v-if="error">{{ error }}</p>
         <p v-if="completedQuest">{{ completeMessage }}</p>
@@ -87,6 +85,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import sanitizeHtml from "sanitize-html";
 import htmlIDE from "../../components/QuestsGlobal/htmlIDE.vue";
 import cssIDE from "../../components/QuestsGlobal/cssIDE.vue";
 import type { CSSProperties } from "vue";
@@ -112,9 +111,14 @@ const lastInCat = questInfo?.lastInCat;
 // console.log(steps[0].instruction);
 const step = ref(1);
 const currentStep = computed(() => steps[step.value - 1]);
-const currentInstruction = computed(
-  () => `(Step ${step.value}) ${currentStep.value.instruction}`
-);
+// TODO sanitize with server
+const currentInstruction = computed(() => {
+  const instruction = currentStep.value.instruction.replaceAll(
+    "<tag",
+    "<tag style='background: #202525; padding-inline: 3px; font-family: Roboto Mono'"
+  );
+  return `(Step ${step.value}) ${instruction}`;
+});
 const store = useQuestStore();
 store.updateHtml(defaultCode.htmlCode);
 store.updateCss(defaultCode.cssCode);

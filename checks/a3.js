@@ -19,21 +19,21 @@ export default {
             const div = frame.querySelector("div");
             return isElementChildOf(div, frame);
           },
-          error: "Make sure the div still exists!",
+          error: "Make sure the <tag>div</tag> still exists!",
         },
         {
           testFunc: (frame) => {
             const h1 = frame.querySelector("h1");
             return isElementChildOf(h1, frame);
           },
-          error: "You need to add a h1 in the div!",
+          error: "You need to add a <tag>h1</tag> in the div!",
         },
         {
           testFunc: (frame) => {
             const h1 = frame.querySelector("h1");
             return checkElementText(h1, "John Doe");
           },
-          error: "Change the content of the h1 to John Doe!",
+          error: "Change the content of the <tag>h1</tag> to John Doe!",
         },
         {
           testFunc: (frame) => {
@@ -41,10 +41,10 @@ export default {
             const div = frame.querySelector("div");
             return isElementChildOf(h1, div);
           },
-          error: "Your h1 needs to be in the div!",
+          error: "Your <tag>h1</tag> needs to be in the <tag>div</tag>!",
         },
       ],
-      instruction: 'Add an h1 tag with the content of "John Doe"',
+      instruction: 'Add an <tag>h1</tag> tag with the content of "John Doe"',
     },
     {
       tests: [
@@ -53,14 +53,14 @@ export default {
             const div = frame.querySelectorAll("div");
             return div.length > 1;
           },
-          error: "You need 2 divs!",
+          error: "You need 2 <tag>div</tag>!",
         },
         {
           testFunc: (frame) => {
             const div = frame.querySelectorAll("div");
             return isElementChildOf(div[1], frame);
           },
-          error: "Add a div inside the second div!",
+          error: "Add a <tag>div</tag> inside the second <tag>div</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -68,7 +68,7 @@ export default {
             const div = frame.querySelectorAll("div");
             return isElementChildOf(h1, div[0]);
           },
-          error: "Don't delete the h1 in the previous step!",
+          error: "Don't delete the <tag>h1</tag> in the previous step!",
         },
         {
           testFunc: (frame) => {
@@ -76,7 +76,8 @@ export default {
 
             return isElementChildOf(div[1], div[0]);
           },
-          error: "Make sure the second div is inside the initial one",
+          error:
+            "Make sure the second <tag>div</tag> is inside the initial one",
         },
         {
           testFunc: (frame) => {
@@ -85,10 +86,11 @@ export default {
 
             return areElementsInOrder([h1, div[1]], div[0]);
           },
-          error: "Make sure the div is below the h1",
+          error: "Make sure the <tag>div</tag> is below the <tag>h1</tag>",
         },
       ],
-      instruction: "Add a div inside our current div below the h1",
+      instruction:
+        "Add a <tag>div</tag> inside our current <tag>div</tag> below the <tag>h1</tag>",
     },
     {
       tests: [

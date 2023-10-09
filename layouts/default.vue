@@ -40,6 +40,7 @@ const closeUIs = function () {
 .content {
   flex: 1;
   width: 100%;
+  overflow-y: auto;
 }
 </style>
 <style>

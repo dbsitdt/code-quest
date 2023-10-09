@@ -26,7 +26,7 @@ div > div {
             const image = frame.querySelector("img");
             return isElementChildOf(image, frame);
           },
-          error: "Add an image with <img>!",
+          error: "Add an image with <tag>img</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -43,7 +43,7 @@ div > div {
             return isElementChildOf(image, div[0]);
           },
           error:
-            "Make sure the image is in the outer div and not in the nested one",
+            "Make sure the <tag>img</tag> is in the outer <tag>div</tag> and not in the nested one",
         },
         {
           testFunc: (frame) => {
@@ -52,10 +52,12 @@ div > div {
             const h1 = frame.querySelector("h1");
             return areElementsInOrder([h1, div[1], image], div[0]);
           },
-          error: "The image should be below the nested div as well",
+          error:
+            "The <tag>img</tag> should be below the nested <tag>div</tag> as well",
         },
       ],
-      instruction: "Add an image tag underneath the nested div",
+      instruction:
+        "Add an <tag>img</tag> tag underneath the nested <tag>div</tag>",
     },
     {
       tests: [
@@ -74,7 +76,7 @@ div > div {
             const h1 = frame.querySelector("h1");
             return areElementsInOrder([h1, div[1], image], div[0]);
           },
-          error: "The image should be below the nested div!",
+          error: "The image should be below the nested <tag>div</tag>!",
         },
         {
           testFunc: (frame) => {

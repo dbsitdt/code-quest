@@ -12,6 +12,7 @@
     "@nuxt/devtools": "latest",
     "@types/canvas-confetti": "^1.6.0",
     "@types/node": "^18.17.3",
+    "@types/sanitize-html": "^2.9.1",
     "nuxt": "^3.6.5",
     "typescript": "^5.1.6"
   },
@@ -24,6 +25,7 @@
     "canvas-confetti": "^1.6.0",
     "html2canvas": "^1.4.1",
     "pinia": "^2.1.6",
+    "sanitize-html": "^2.11.0",
     "vue-codemirror": "^6.1.1"
   },
   "overrides": {
