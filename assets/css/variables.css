@@ -1,0 +1,20 @@
+:root {
+  --bg-dark-blue: #151c24;
+  --accent-main: #278bff;
+  --accent-dark: #062b56;
+  --bg-dark: #1e2121;
+  --bg-light: #3b3d42;
+  --bg-dark-light: #2a2d32;
+  --btn-dark: #00070f;
+  --btn-dark-active: rgb(5, 43, 78);
+}
+.autumn {
+  --bg-dark-blue: #241f15;
+  --accent-main: #d89e22;
+  --accent-dark: #563606;
+  --bg-dark: #21201e;
+  --bg-light: #42403b;
+  --bg-dark-light: #322f2a;
+  --btn-dark: #0f0a00;
+  --btn-dark-active: rgb(78, 55, 5);
+}

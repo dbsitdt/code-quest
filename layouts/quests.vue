@@ -11,6 +11,7 @@
 .container {
   display: flex;
   height: 90vh;
+  background: var(--bg-dark-light);
 }
 </style>
 
@@ -22,7 +23,6 @@
 }
 
 body {
-  background-color: #2a2d32;
   margin: 0;
 }
 /* html {

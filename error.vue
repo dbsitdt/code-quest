@@ -16,7 +16,7 @@ defineProps(["error"]);
   box-sizing: border-box;
 }
 body {
-  background-color: #2a2d32;
+  background-color: var(--bg-dark-light);
 }
 div#__nuxt,
 #__layout,
@@ -42,10 +42,11 @@ h6 {
   align-items: center;
   justify-content: center;
   color: white;
+  background: var(--bg-dark-light);
 }
 a {
   padding: 0.5rem 1.2rem;
-  background: #278bff;
+  background: var(--accent-main);
   color: white;
   font-size: 1rem;
   border-radius: 50px;

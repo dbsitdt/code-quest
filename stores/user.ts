@@ -3,7 +3,6 @@ import { useAuthStore } from "./auth.ts";
 
 interface UserInfo {
   username: string;
-  profilePicture: string;
   userId: string;
   completedQuests: string[];
 }
@@ -12,7 +11,6 @@ export const useUserStore = defineStore("user", {
     return {
       userInfo: {
         username: null as String | null,
-        profilePicture: null as String | null,
         completedQuests: [] as string[] | null,
         userId: null as String | null,
       },
@@ -24,9 +22,6 @@ export const useUserStore = defineStore("user", {
     },
     getUserInfo(state) {
       return state.userInfo;
-    },
-    getPfp(state) {
-      return state.userInfo.profilePicture;
     },
     getUserCompletedQuests(): string[] | null {
       return this.getUserInfo.completedQuests;
@@ -52,9 +47,6 @@ export const useUserStore = defineStore("user", {
         return;
       }
     },
-    updatePfp(pfpId: string) {
-      this.userInfo.profilePicture = pfpId;
-    },
     async updateUserInfo(userId: any, token: any) {
       const userInfo = this.getUserInfo;
       try {
@@ -64,7 +56,6 @@ export const useUserStore = defineStore("user", {
             method: "PUT",
             body: JSON.stringify({
               username: userInfo.username,
-              profilePicture: userInfo.profilePicture,
               completedQuests: userInfo.completedQuests,
             }),
           }
@@ -75,13 +66,11 @@ export const useUserStore = defineStore("user", {
     },
     setUserInfo(userInfo: UserInfo) {
       this.userInfo.username = userInfo.username;
-      this.userInfo.profilePicture = userInfo.profilePicture;
       this.userInfo.completedQuests = userInfo.completedQuests;
       this.userInfo.userId = userInfo.userId;
     },
     reset() {
       this.userInfo.username = null;
-      this.userInfo.profilePicture = null;
       (this.userInfo.completedQuests = []), (this.userInfo.userId = null);
     },
   },

@@ -35,6 +35,7 @@ const closeUIs = function () {
   display: flex;
   height: 90vh;
   position: relative;
+  background: var(--bg-dark-light);
 }
 .content {
   flex: 1;
@@ -47,14 +48,12 @@ const closeUIs = function () {
   margin: 0;
   box-sizing: border-box;
 }
-body {
-}
+
 div#__nuxt,
 #__layout,
 #__layout > div,
 #app {
   height: 100vh;
-  background-color: #2a2d32;
 }
 p,
 a,

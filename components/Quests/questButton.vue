@@ -5,7 +5,7 @@
 <style scoped>
 button {
   padding: 0.5rem 1.2rem;
-  background: #278bff;
+  background: var(--accent-main);
   color: white;
   font-size: 0.9rem;
   border-radius: 50px;

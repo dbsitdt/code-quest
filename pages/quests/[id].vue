@@ -78,6 +78,12 @@
     <div class="right-col">
       <ideOutput ref="outputFrame" class="output-frame" :code="compiled" />
     </div>
+    <audio ref="completedAudio">
+      <source src="../../assets/audio/completed.mp3" />
+    </audio>
+    <audio ref="successAudio">
+      <source src="../../assets/audio/success.mp3" />
+    </audio>
   </div>
 </template>
 <script lang="ts" setup>
@@ -150,6 +156,9 @@ const nextStep = function () {
   completedStep.value = false;
 };
 const tests = computed(() => currentStep.value.tests);
+const completedAudio: any = ref(null);
+const successAudio: any = ref(null);
+
 const submitCode = function () {
   const doc = outputFrame.value.frame.contentWindow.document.body;
   let errorFound = false;
@@ -168,11 +177,18 @@ const submitCode = function () {
     if (step.value === steps.length) {
       // Completed entire quest
       userStore.completeQuest(questId);
+      if (completedAudio.value) {
+        completedAudio.value.play();
+      }
       completeMessage.value = !lastInCat
         ? "Well Done! Click the button below to move on to the next quest"
         : "Congratulations on finishing the section! Return to quests to see your progress!";
       completedQuest.value = true;
       completeMessage;
+    } else {
+      if (successAudio.value) {
+        successAudio.value.play();
+      }
     }
   }
 };
@@ -212,12 +228,7 @@ const instructionStyles = computed(function (): CSSProperties {
     whiteSpace: expanded.value ? "normal" : "nowrap",
   };
 });
-// const resetQuest = function () {
-//   step.value = 1;
-//   store.updateHtml(defaultCode.htmlCode);
-//   store.updateCss(defaultCode.cssCode);
-//   console.log(htmlCode.value);
-// };
+
 definePageMeta({
   layout: "quests",
   middleware: ["auth-page", "load-quest"],
@@ -272,7 +283,7 @@ definePageMeta({
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  background: #062b56;
+  background: var(--accent-dark);
   color: white;
   flex: 1;
   padding: 1rem;

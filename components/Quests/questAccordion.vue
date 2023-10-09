@@ -74,7 +74,7 @@ const questSymbolStyle = computed(() => {
 <style scoped>
 .quest-accordion {
   color: white;
-  background: #1e2121;
+  background: var(--bg-dark);
   user-select: none;
   width: 100%;
 }

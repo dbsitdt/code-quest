@@ -22,7 +22,7 @@
 nav {
   height: 10vh;
   min-height: 4rem;
-  background-color: #1e2121;
+  background-color: var(--bg-dark);
   padding: 2vh 4vw;
   display: flex;
   align-items: center;

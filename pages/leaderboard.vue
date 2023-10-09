@@ -35,10 +35,7 @@ try {
   }
   const people = Object.values(res);
   const sortedPeople = people
-    .filter(
-      (person) =>
-        person.completedQuests.length - 1 > 1 && person.username !== "dbsguest"
-    )
+    .filter((person) => person.completedQuests.length - 1 > 1 && !person?.test)
     .sort((a, b) => {
       if (a.completedQuests.length < b.completedQuests.length) {
         return 1;
@@ -75,7 +72,7 @@ definePageMeta({
 
 <style scoped>
 .user-board:nth-of-type(odd) {
-  background-color: #1e2121;
+  background-color: var(--bg-dark);
 }
 .user-board:nth-of-type(even) {
   background-color: #191b1e;

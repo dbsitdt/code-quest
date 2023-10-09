@@ -51,7 +51,7 @@ const clickedNav = function (e) {
 nav {
   height: 100dvh;
   position: absolute;
-  background: #151c24;
+  background: var(--bg-dark-blue);
   z-index: 1;
   padding: 0 clamp(1.5rem, 3vw, 3rem);
 }
@@ -70,16 +70,20 @@ li {
 li a {
   display: flex;
   gap: 0.5rem;
-  background: #00070f;
+  background: var(--btn-dark);
   padding: 11px 14px;
   border-radius: 9px;
   width: clamp(11.5rem, 13vw, 14.1rem);
   color: white;
   text-decoration: none;
   font-size: 18px;
+  transition: background 100ms linear;
+}
+li a:not(.router-link-exact-active):hover {
+  background: var(--btn-dark-active);
 }
 .router-link-exact-active {
-  background: #278bff;
+  background: var(--accent-main);
 }
 @media (min-width: 800px) {
   nav {

@@ -5,7 +5,6 @@ import { useCookie } from "#imports";
 let timer: any;
 interface UserInfo {
   username: string;
-  profilePicture: string;
   userId: string;
   completedQuests: string[];
 }

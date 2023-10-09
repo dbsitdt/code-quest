@@ -12,20 +12,22 @@
         <form @submit.prevent="submitCred">
           <div class="input-box">
             <div class="field">
-              <label for="userEmail">Email</label>
+              <label for="email">Email</label>
               <input
                 v-model.trim="email"
                 type="email"
                 name="userEmail"
+                id="email"
                 required="true"
                 autocomplete="email"
               />
             </div>
             <div class="field">
-              <label for="userPassword">Password</label
+              <label for="password">Password</label
               ><input
                 v-model.trim="password"
                 type="password"
+                id="password"
                 name="userPassword"
                 required="true"
                 autocomplete="current-password"
@@ -62,7 +64,7 @@ definePageMeta({
 </script>
 <style scoped>
 a {
-  color: #278bff;
+  color: var(--accent-main);
 }
 .container {
   height: 100%;
@@ -129,7 +131,7 @@ input[type="submit"] {
   margin-top: 32px;
   padding: 0.6rem 1.8rem;
   border-radius: 10px;
-  background: #278bff;
+  background: var(--accent-main);
   border: none;
   color: white;
   font-size: 1.2rem;

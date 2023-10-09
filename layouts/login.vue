@@ -12,6 +12,7 @@
 .container {
   display: flex;
   height: 90vh;
+  background: var(--bg-dark-light);
 }
 .content {
   flex: 1;
@@ -24,9 +25,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  background-color: #2a2d32;
-}
+
 div#__nuxt,
 #__layout,
 #__layout > div,

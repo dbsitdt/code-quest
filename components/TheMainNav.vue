@@ -8,7 +8,6 @@
         </NuxtLink>
       </div>
       <div class="nav-profile" @click="toggleProfile">
-        <img class="profile-img" :src="pfpPath" />
         <p>{{ username }}</p>
         <img draggable="false" src="../assets/ui/dropdown.svg" />
         <div v-if="navProfileOn" class="profile-nav">
@@ -42,12 +41,12 @@ const logout = async function () {
 };
 
 // BUG Not allowed to load local resource
-const profilePic = computed(() => store.getUserInfo.profilePicture);
-const getPfpPath = function () {
-  return new URL(`../assets/Pfp/pfp${profilePic.value}.png`, import.meta.url)
-    .href;
-};
-const pfpPath = computed(() => getPfpPath());
+// const profilePic = computed(() => store.getUserInfo.profilePicture);
+// const getPfpPath = function () {
+//   return new URL(`../assets/Pfp/pfp${profilePic.value}.png`, import.meta.url)
+//     .href;
+// };
+// const pfpPath = computed(() => getPfpPath());
 // console.log(pfpLink.value);
 const emit = defineEmits(["toggle-sidebar"]);
 const toggleSidebar = function () {
@@ -60,7 +59,7 @@ const toggleSidebar = function () {
   z-index: 1;
   top: 100%;
   right: 0;
-  background: #151c24;
+  background: var(--bg-dark-blue);
   border-radius: 10px;
 }
 .profile-nav-item {
@@ -69,7 +68,7 @@ const toggleSidebar = function () {
 nav {
   height: 10vh;
   min-height: 4rem;
-  background-color: #1e2121;
+  background-color: var(--bg-dark);
   padding: 2vh 4vw;
   display: flex;
   align-items: center;

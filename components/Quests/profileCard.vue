@@ -8,7 +8,7 @@
         <circle
           class="meter2"
           fill="none"
-          stroke="#151C24"
+          stroke="var(--bg-dark-blue)"
           stroke-width="30"
           r="124"
           cx="154"
@@ -137,7 +137,7 @@ const downloadCard = async function () {
   elemDiv.style.position = "absolute";
   elemDiv.style.zIndex = -5;
   document.querySelector("body").append(elemDiv);
-  elemDiv.style.backgroundColor = "#2A2D32";
+  elemDiv.style.backgroundColor = "var(--bg-dark-light)";
   elemDiv.style.padding = "2rem 3rem";
   elemDiv.style.overflow = "hidden";
   elemDiv.append(elClone);
@@ -188,7 +188,7 @@ const downloadCard = async function () {
   font-weight: 500;
 }
 .progress-card {
-  background-color: #3b3d42;
+  background-color: var(--bg-light);
   border-radius: 15px;
   text-align: center;
   display: flex;
@@ -243,7 +243,7 @@ button.button {
   background-color: #444444;
   color: white;
   border-radius: 5px;
-  border: 2px solid #278bff;
+  border: 2px solid var(--accent-main);
   cursor: pointer;
   font-family: "Poppins", Sans-Serif;
   padding: 0.4rem 13px;

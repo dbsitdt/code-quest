@@ -2,7 +2,7 @@
   <div class="settings-container">
     <h4>User Settings</h4>
     <div class="row"></div>
-    <div class="setting">
+    <!-- <div class="setting">
       <h5>Profile Picture</h5>
       <div class="form-control">
         <div>
@@ -36,8 +36,8 @@
           <label for="question-mark">Question Mark</label>
         </div>
       </div>
-    </div>
-    <button @click="saveSettings" class="btn">Save</button>
+    </div> -->
+    <!-- <button @click="saveSettings" class="btn">Save</button> -->
   </div>
 </template>
 <script setup>
@@ -59,7 +59,7 @@ definePageMeta({
   margin-top: 20px;
   padding: 0.6rem 1.3rem;
   border-radius: 10px;
-  background: #278bff;
+  background: var(--accent-main);
   border: none;
   color: white;
   font-size: 1.1rem;
@@ -89,7 +89,7 @@ label {
   font-size: 1.1rem;
 }
 input[type="radio"] {
-  accent-color: #062b56;
+  accent-color: var(--accent-dark);
   width: 14px;
   height: 14px;
 }

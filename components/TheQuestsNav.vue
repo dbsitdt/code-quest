@@ -34,7 +34,7 @@ nav {
   align-items: center;
   height: 10vh;
   min-height: 4rem;
-  background-color: #1e2121;
+  background-color: var(--bg-dark);
 }
 .nav-logo {
   display: flex;

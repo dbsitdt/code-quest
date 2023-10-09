@@ -119,7 +119,7 @@ definePageMeta({
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  background: #062b56;
+  background: var(--accent-dark);
   color: white;
   flex: 1;
   padding: 1rem;
