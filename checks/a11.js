@@ -24,7 +24,8 @@ export default {
             "You haven't changed the color of the h1 yet! You can just select an element with its name.",
         },
       ],
-      instruction: "Change the color of the h1 to red.",
+      instruction:
+        "Change the <tag>color</tag> of the <tag>h1</tag> to <tag>red</tag>.",
     },
     {
       tests: [
@@ -47,7 +48,8 @@ export default {
             "You haven't changed the background color of the h1 yet! Remember to change it with background-color.",
         },
       ],
-      instruction: "Change the background color of the h1 to orange.",
+      instruction:
+        "Change the background color of the <tag>h1</tag> to <tag>orange</tag>.",
     },
   ],
 };

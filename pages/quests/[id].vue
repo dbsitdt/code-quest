@@ -18,7 +18,7 @@
           </svg>
           <p v-html="currentInstruction" :style="instructionStyles"></p>
         </div>
-        <p v-if="error">{{ error }}</p>
+        <p v-if="error" v-html="error"></p>
         <p v-if="completedQuest">{{ completeMessage }}</p>
         <div class="buttons">
           <quest-button v-if="!completedStep && expanded" @click="submitCode"
@@ -169,7 +169,10 @@ const submitCode = function () {
   for (const test of tests.value) {
     const testRes = test.testFunc(doc);
     if (!testRes) {
-      error.value = test.error;
+      error.value = test.error.replaceAll(
+        "<tag",
+        "<tag style='background: #202525; padding-inline: 3px; font-family: Roboto Mono'"
+      );
       completeMessage.value = "";
       errorFound = true;
       break;

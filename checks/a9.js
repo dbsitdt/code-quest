@@ -21,7 +21,7 @@ export default {
             const h1 = frame.querySelector("h1");
             return isElementChildOf(h1, frame);
           },
-          error: "Don't delete the h1.",
+          error: "Don't delete the <tag>h1</tag>.",
         },
 
         {
@@ -29,7 +29,7 @@ export default {
             const form = frame.querySelector("form");
             return isElementChildOf(form, frame);
           },
-          error: "Don't delete the form element.",
+          error: "Don't delete the <tag>form</tag> element.",
         },
         {
           testFunc: (frame) => {
@@ -37,14 +37,15 @@ export default {
             const form = frame.querySelector("form");
             return areElementsInOrder([h1, form], frame);
           },
-          error: "The form element should still be underneath the h1!",
+          error:
+            "The <tag>form</tag> element should still be underneath the <tag>h1</tag>!",
         },
         {
           testFunc: (frame) => {
             const input = frame.querySelector("input");
             return isElementChildOf(input, frame);
           },
-          error: "Don't delete the input!",
+          error: "Don't delete the <tag>input</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -53,7 +54,8 @@ export default {
 
             return isElementChildOf(input, form);
           },
-          error: "Make sure the input is still in the form!",
+          error:
+            "Make sure the <tag>input</tag> is still in the <tag>form</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -62,7 +64,8 @@ export default {
 
             return isElementChildOf(label, form);
           },
-          error: "Make sure the label is still in the form!",
+          error:
+            "Make sure the <tag>label</tag> is still in the <tag>form</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -70,7 +73,7 @@ export default {
 
             return checkElementAttribute(input, "type", "radio");
           },
-          error: "Keep the type of the input as radio!",
+          error: "Keep the <tag>label</tag> of the input as <tag>radio</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -79,11 +82,11 @@ export default {
             return checkElementAttribute(label, "for", "web");
           },
           error:
-            "Now change the which input the label is pointing to with 'for' according to the name",
+            "Now change the which input the <tag>label</tag> is pointing to with 'for' according to the name",
         },
       ],
       instruction:
-        "Add an attribute of 'for' to the label set as the 'id' of the radio input. This will allow the input to be selected from the label.",
+        "Add an attribute of <tag>for</tag> to the <tag>label</tag> set as the 'id' of the radio input. This will allow the input to be selected from the label.",
     },
     {
       tests: [
@@ -92,7 +95,7 @@ export default {
             const form = frame.querySelector("form");
             return isElementChildOf(form, frame);
           },
-          error: "Don't delete the form!",
+          error: "Don't delete the <tag>form</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -100,7 +103,7 @@ export default {
             const inputs = form.querySelectorAll("input");
             return inputs.length === 2;
           },
-          error: "Add the second input inside the form",
+          error: "Add the second <tag>input</tag> inside the form",
         },
         {
           testFunc: (frame) => {
@@ -116,7 +119,7 @@ export default {
         },
       ],
       instruction:
-        "Add a second input with type of 'radio', id of 'app' and name of 'stream'",
+        "Add a second <tag>input</tag> with <tag>type</tag> of 'radio', <tag>id</tag> of 'app' and <tag>name</tag> of 'stream'",
     },
     {
       tests: [
@@ -181,7 +184,7 @@ export default {
         },
       ],
       instruction:
-        "Add a new label underneath the second input with its 'for' attribute set to the the id of the input above. It's content should be 'App'",
+        "Add a new <tag>label</tag> underneath the second <tag>input</tag> with its 'for' attribute set to the the id of the input above. It's content should be 'App'",
     },
   ],
 };

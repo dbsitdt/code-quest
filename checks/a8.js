@@ -19,14 +19,14 @@ export default {
             const h1 = frame.querySelector("h1");
             return isElementChildOf(h1, frame);
           },
-          error: "Don't delete the h1.",
+          error: "Don't delete the <tag>h1</tag>.",
         },
         {
           testFunc: (frame) => {
             const form = frame.querySelector("form");
             return isElementChildOf(form, frame);
           },
-          error: "Add the form element.",
+          error: "Add the <tag>form</tag> element.",
         },
         {
           testFunc: (frame) => {
@@ -34,11 +34,12 @@ export default {
             const form = frame.querySelector("form");
             return areElementsInOrder([h1, form], frame);
           },
-          error: "The form element should be underneath the h1!",
+          error:
+            "The <tag>form</tag> element should be underneath the <tag>h1</tag>!",
         },
       ],
 
-      instruction: "Add a form element underneath the h1",
+      instruction: "Add a <tag>form</tag> element underneath the <tag>h1</tag>",
     },
     {
       tests: [
@@ -47,7 +48,7 @@ export default {
             const h1 = frame.querySelector("h1");
             return isElementChildOf(h1, frame);
           },
-          error: "Don't delete the h1.",
+          error: "Don't delete the <tag>h1</tag>.",
         },
 
         {
@@ -55,7 +56,7 @@ export default {
             const form = frame.querySelector("form");
             return isElementChildOf(form, frame);
           },
-          error: "Don't delete the form element.",
+          error: "Don't delete the <tag>form</tag> element.",
         },
         {
           testFunc: (frame) => {
@@ -63,14 +64,15 @@ export default {
             const form = frame.querySelector("form");
             return areElementsInOrder([h1, form], frame);
           },
-          error: "The form element should still be underneath the h1!",
+          error:
+            "The <tag>form</tag> element should still be underneath the <tag>h1</tag>!",
         },
         {
           testFunc: (frame) => {
             const input = frame.querySelector("input");
             return isElementChildOf(input, frame);
           },
-          error: "Don't forget to add the input!",
+          error: "Don't forget to add the <tag>input</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -79,7 +81,7 @@ export default {
 
             return isElementChildOf(input, form);
           },
-          error: "Make sure the input is in the form!",
+          error: "Make sure the <tag>input</tag> is in the <tag>form</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -88,11 +90,11 @@ export default {
             return checkElementAttribute(input, "type", "text");
           },
           error:
-            "You should change the attribute of type of the input to 'text'!",
+            "You should change the attribute of <tag>type</tag> of the <tag>input</tag> to 'text'!",
         },
       ],
       instruction:
-        "Add an input in the form element. It should have an attribute of 'type' set to 'text'.",
+        "Add an input in the <tag>form</tag> element. It should have an attribute of <tag>type</tag> set to 'text'.",
     },
     {
       tests: [
@@ -101,7 +103,7 @@ export default {
             const h1 = frame.querySelector("h1");
             return isElementChildOf(h1, frame);
           },
-          error: "Don't delete the h1.",
+          error: "Don't delete the <tag>h1</tag>.",
         },
 
         {
@@ -109,7 +111,7 @@ export default {
             const form = frame.querySelector("form");
             return isElementChildOf(form, frame);
           },
-          error: "Don't delete the form element.",
+          error: "Don't delete the <tag>form</tag> element.",
         },
         {
           testFunc: (frame) => {
@@ -117,14 +119,15 @@ export default {
             const form = frame.querySelector("form");
             return areElementsInOrder([h1, form], frame);
           },
-          error: "The form element should still be underneath the h1!",
+          error:
+            "The <tag>form</tag> element should still be underneath the h1!",
         },
         {
           testFunc: (frame) => {
             const input = frame.querySelector("input");
             return isElementChildOf(input, frame);
           },
-          error: "Don't forget to add the input!",
+          error: "Don't forget to add the <tag>input</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -133,7 +136,7 @@ export default {
 
             return isElementChildOf(input, form);
           },
-          error: "Make sure the input is in the form!",
+          error: "Make sure the <tag>input</tag> is in the <tag>form</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -141,14 +144,15 @@ export default {
 
             return checkElementAttribute(input, "type", "text");
           },
-          error: "The attribute of type of the input should be 'text'!",
+          error:
+            "The attribute of <tag>type</tag> of the <tag>input</tag> should be 'text'!",
         },
         {
           testFunc: (frame) => {
             const label = frame.querySelector("label");
             return isElementChildOf(label, frame);
           },
-          error: "Don't forget to add the label!",
+          error: "Don't forget to add the <tag>label</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -157,7 +161,7 @@ export default {
 
             return isElementChildOf(label, form);
           },
-          error: "Make sure the label is in the form!",
+          error: "Make sure the <tag>label</tag> is in the form!",
         },
         {
           testFunc: (frame) => {
@@ -166,18 +170,19 @@ export default {
             const form = frame.querySelector("form");
             return areElementsInOrder([label, input], form);
           },
-          error: "Remember to add the lable ABOVE the input!",
+          error:
+            "Remember to add the <tag>label</tag> ABOVE the <tag>input</tag>!",
         },
         {
           testFunc: (frame) => {
             const label = frame.querySelector("label");
             return checkElementText(label, "Full Name");
           },
-          error: "Remember to change the content of the label!",
+          error: "Remember to change the content of the <tag>label</tag>!",
         },
       ],
       instruction:
-        "Add a label above the input with the content of 'Full Name'",
+        "Add a <tag>label</tag> above the <tag>input</tag> with the content of 'Full Name'",
     },
   ],
 };

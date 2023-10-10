@@ -28,11 +28,11 @@ export default {
             const ul = frame.querySelector("ul");
             return areElementsInOrder([h1, ul], frame);
           },
-          error: "The unordered list should be under h1",
+          error: "The unordered list should be under <tag>h1</tag>",
         },
       ],
 
-      instruction: "Add an unordered list under the h1",
+      instruction: "Add an unordered list under the <tag>h1</tag>",
     },
     {
       tests: [
@@ -49,7 +49,7 @@ export default {
             const ul = frame.querySelector("ul");
             return areElementsInOrder([h1, ul], frame);
           },
-          error: "The unordered list should still be under h1",
+          error: "The unordered list should still be under <tag>h1</tag>",
         },
         {
           testFunc: (frame) => {
@@ -57,7 +57,7 @@ export default {
             const li = frame.querySelector("li");
             return isElementChildOf(li, ul);
           },
-          error: "Now add a list item in the ul with li!",
+          error: "Now add a list item in the ul with <tag>li</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -65,7 +65,8 @@ export default {
             const li = frame.querySelector("li");
             return isElementChildOf(p, li);
           },
-          error: "You should add a paragraph inside the li for the content",
+          error:
+            "You should add a paragraph inside the <tag>li</tag> for the content",
         },
         {
           testFunc: (frame) => {
@@ -93,7 +94,7 @@ export default {
             const ul = frame.querySelector("ul");
             return areElementsInOrder([h1, ul], frame);
           },
-          error: "The unordered list should still be under h1",
+          error: "The unordered list should still be under <tag>h1</tag>",
         },
         {
           testFunc: (frame) => {

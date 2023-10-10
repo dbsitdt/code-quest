@@ -166,6 +166,7 @@ const downloadCard = async function () {
   font-style: normal;
   font-weight: 450;
   margin-bottom: 1rem;
+  padding-inline: 20px;
 }
 .rank {
   font-style: normal;

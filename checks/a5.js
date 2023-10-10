@@ -18,14 +18,14 @@ export default {
             const p = frame.querySelector("p");
             return isElementChildOf(p, frame);
           },
-          error: "Where did the initial paragraph go??",
+          error: "Where did the initial <tag>p</tag> go??",
         },
         {
           testFunc: (frame) => {
             const p = frame.querySelector("p");
             return checkElementText(p, "Click here for RICKROLL!");
           },
-          error: "Don't change the text of the paragraph!",
+          error: "Don't change the text of the <tag>p</tag>!",
         },
         {
           testFunc: (frame) => {
@@ -33,7 +33,7 @@ export default {
             const a = frame.querySelector("a");
             return isElementChildOf(a, p);
           },
-          error: "Make sure you've added an anchor tag in the paragraph",
+          error: "Make sure you've added an anchor tag in the <tag>p</tag>",
         },
         {
           testFunc: (frame) => {
@@ -56,7 +56,7 @@ export default {
       ],
 
       instruction:
-        "Add an anchor tag with href to https://www.youtube.com/watch?v=dQw4w9WgXcQ around the text of 'here'",
+        "Add an anchor tag with <tag>href</tag> to https://www.youtube.com/watch?v=dQw4w9WgXcQ around the text of 'here'",
     },
     {
       tests: [
@@ -65,7 +65,7 @@ export default {
             const p = frame.querySelector("p");
             return isElementChildOf(p, frame);
           },
-          error: "Where did the initial paragraph go??",
+          error: "Where did the initial <tag>p</tag> go??",
         },
         {
           testFunc: (frame) => {
@@ -99,11 +99,11 @@ export default {
             return checkElementAttribute(a, "target", "_blank");
           },
           error:
-            "Make sure the anchor tag has its target attribute set to '_blank'!",
+            "Make sure the anchor tag has its <tag>target</tag> attribute set to '_blank'!",
         },
       ],
       instruction:
-        "Add an attribute of 'target' and set it to '_blank' on the anchor tag to open another window when opening the link",
+        "Add an attribute of <tag>target</tag> and set it to <tag>_blank</tag> on the anchor tag to open another window when opening the link",
     },
   ],
 };

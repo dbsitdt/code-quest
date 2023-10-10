@@ -58,7 +58,8 @@ export default {
           error: "Time to do what the quest says...",
         },
       ],
-      instruction: "Add a new input with type of submit within the form.",
+      instruction:
+        "Add a new <tag>input</tag> with <tag>type</tag> of submit within the <tag>form</tag>.",
     },
     {
       tests: [
@@ -100,7 +101,7 @@ export default {
         },
       ],
       instruction:
-        "Add an attribute of value onto the submit button, and set it to 'Submit application'",
+        "Add an attribute of <tag>value</tag> onto the submit button, and set it to 'Submit application'",
     },
   ],
 };
