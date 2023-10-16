@@ -77,7 +77,10 @@ const questsCat = [
   },
   {
     categoryName: "Basic CSS",
-    quests: [{ title: "Changing colors", id: "a11" }],
+    quests: [
+      { title: "Changing colors", id: "a11" },
+      { title: "Changing default styling", id: "a12" },
+    ],
   },
 ];
 const maxTasks = questsCat.reduce((acc, cat) => (acc += cat.quests.length), 0);
