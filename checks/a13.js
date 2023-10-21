@@ -74,7 +74,7 @@ export default {
         },
       ],
       instruction:
-        "Change the <tag>width</tag> of the <tag>img</tag> to <tag>300px</tag>.",
+        "Change the <tag>height</tag> of the <tag>img</tag> to <tag>300px</tag>.",
     },
     {
       tests: [
