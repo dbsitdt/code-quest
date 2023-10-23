@@ -7,6 +7,8 @@ import {
 export default {
   title: "Text Input",
   category: "Working with forms",
+  disabled: { html: false, css: true },
+
   defaultCode: {
     htmlCode: "<h1>Sign up to ITDT!</h1>",
     cssCode: "/* Nothing to see here :) */",

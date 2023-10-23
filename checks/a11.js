@@ -2,6 +2,7 @@ import { checkElementProperty } from "../helpers/domHelpers";
 export default {
   title: "Changing colors",
   category: "Basic CSS",
+  disabled: { html: true, css: false },
   defaultCode: {
     htmlCode: "<h1>Hi!</h1>",
     cssCode: "",

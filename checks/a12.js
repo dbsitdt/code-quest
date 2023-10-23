@@ -2,7 +2,7 @@ import { checkElementProperty } from "../helpers/domHelpers";
 export default {
   title: "Changing default styling",
   category: "Basic CSS",
-  lastInCat: true,
+  disabled: { html: true, css: false },
   defaultCode: {
     htmlCode:
       "<a href='https://dbsitdt.netlify.app' target='_blank'>ITDT Website</a>",

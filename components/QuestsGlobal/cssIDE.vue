@@ -8,6 +8,8 @@
       :indent-with-tab="true"
       :tab-size="2"
       :extensions="extensions"
+      :disabled="disabled"
+      :style="style"
       @ready="handleReady"
       @update:modelValue="updated"
     />
@@ -22,9 +24,15 @@ export default defineComponent({
   components: {
     Codemirror,
   },
-  props: ["defaultCode"],
+  props: ["defaultCode", "disabled"],
   setup(props, context) {
     const code = ref(`${props.defaultCode ? props.defaultCode : ""}`);
+    const disabled = ref(props.disabled);
+    const style = computed(() => {
+      return {
+        cursor: disabled.value ? "not-allowed" : "inherit",
+      };
+    });
     const extensions = [css(), oneDark];
 
     // Codemirror EditorView instance ref
@@ -41,6 +49,8 @@ export default defineComponent({
       handleReady,
       log: console.log,
       updated,
+      style,
+      disabled,
     };
   },
 });

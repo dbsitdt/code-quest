@@ -70,6 +70,7 @@
             @code-updated="updateCode"
             :is="htmlIdeActive ? htmlIDE : cssIDE"
             :defaultCode="htmlIdeActive ? htmlCode : cssCode"
+            :disabled="htmlIdeActive ? htmlDisabled : cssDisabled"
         /></keep-alive>
       </div>
     </div>
@@ -106,7 +107,9 @@ try {
   });
 }
 const { default: questInfo } = await import(`../../checks/${questId}.js`);
-const { defaultCode, steps, title, category } = questInfo;
+const { defaultCode, steps, title, category, disabled } = questInfo;
+const htmlDisabled = ref(disabled.html);
+const cssDisabled = ref(disabled.css);
 const lastInCat = questInfo?.lastInCat;
 // console.log(steps[0].instruction);
 const step = ref(1);
@@ -187,6 +190,8 @@ const submitCode = function () {
       if (completedAudio.value) {
         completedAudio.value.play();
       }
+      htmlDisabled.value = false;
+      cssDisabled.value = false;
       completeMessage.value = !lastInCat
         ? "Well Done! Click the button below to move on to the next quest"
         : "Congratulations on finishing the section! Return to quests to see your progress!";

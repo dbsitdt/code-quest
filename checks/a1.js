@@ -1,6 +1,8 @@
 export default {
   title: "Changing Tag Content",
   category: "Basic HTML",
+  disabled: { html: false, css: true },
+
   defaultCode: {
     htmlCode: "<h1>Hi!</h1>",
     cssCode: "",

@@ -2,7 +2,7 @@ import { checkElementProperty } from "../helpers/domHelpers";
 export default {
   title: "Dealing with images",
   category: "Basic CSS",
-  lastInCat: true,
+  disabled: { html: true, css: false },
   defaultCode: {
     htmlCode:
       "<img src='https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png'/>",

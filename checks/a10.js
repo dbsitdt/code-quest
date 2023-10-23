@@ -7,6 +7,8 @@ import {
 export default {
   title: "Adding a submit button",
   category: "Working with forms",
+  disabled: { html: false, css: true },
+
   lastInCat: true,
   defaultCode: {
     htmlCode:

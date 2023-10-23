@@ -6,6 +6,8 @@ import {
 export default {
   title: "Ordered Lists",
   category: "Basic HTML",
+  disabled: { html: false, css: true },
+
   defaultCode: {
     htmlCode: "<h1>Instructions</h1>",
     cssCode: "/* Nothing to see here :) */",

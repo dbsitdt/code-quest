@@ -6,6 +6,8 @@ import {
 export default {
   title: "Adding images",
   category: "Basic HTML",
+  disabled: { html: false, css: true },
+
   defaultCode: {
     htmlCode: `<div>
   <h1>John Doe</h1>

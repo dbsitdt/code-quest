@@ -81,6 +81,7 @@ const questsCat = [
       { title: "Changing colors", id: "a11" },
       { title: "Changing default styling", id: "a12" },
       { title: "Dealing with images", id: "a13" },
+      { title: "Padding and Margin", id: "a14" },
     ],
   },
 ];

@@ -6,6 +6,8 @@ import {
 export default {
   title: "Adding tags",
   category: "Basic HTML",
+  disabled: { html: false, css: true },
+
   defaultCode: {
     htmlCode:
       "<!--Remember to open the tag with <[tag-name]> and close the tag with </[tag-name]>]\nAlso don't delete code from previous steps!-->",

@@ -6,6 +6,8 @@ import {
 export default {
   title: "Basic layout",
   category: "Basic HTML",
+  disabled: { html: false, css: true },
+
   defaultCode: {
     htmlCode: "<div>\n<!--Write code here-->\n</div>",
     cssCode:

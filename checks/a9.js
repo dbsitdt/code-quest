@@ -7,6 +7,7 @@ import {
 export default {
   title: "Radio Input",
   category: "Working with forms",
+  disabled: { html: false, css: true },
   defaultCode: {
     htmlCode:
       "<h1>Sign up to ITDT!</h1>\n<form>\n  <input type='radio' id='web' name='stream'>\n  <label>Web</label>\n</form>",

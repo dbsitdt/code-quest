@@ -7,6 +7,7 @@ export default {
   title: "Ununordered Lists",
   category: "Basic HTML",
   lastInCat: true,
+  disabled: { html: false, css: true },
 
   defaultCode: {
     htmlCode: "<h1>Shopping List</h1>",
