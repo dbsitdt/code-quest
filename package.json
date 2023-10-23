@@ -17,11 +17,13 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@babel/traverse": "^7.23.2",
     "@codemirror/lang-css": "^6.2.1",
     "@codemirror/lang-html": "^6.4.5",
     "@codemirror/theme-one-dark": "^6.1.2",
     "@nuxtjs/google-fonts": "^3.0.2",
     "@pinia/nuxt": "^0.4.11",
+    "babel": "^6.23.0",
     "canvas-confetti": "^1.6.0",
     "html2canvas": "^1.4.1",
     "pinia": "^2.1.6",
