@@ -2,7 +2,6 @@ import { checkElementProperty } from "../helpers/domHelpers";
 export default {
   title: "Padding and Margin",
   category: "Basic CSS",
-  lastInCat: true,
   disabled: { html: true, css: false },
   defaultCode: {
     htmlCode:

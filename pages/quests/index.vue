@@ -82,6 +82,7 @@ const questsCat = [
       { title: "Changing default styling", id: "a12" },
       { title: "Dealing with images", id: "a13" },
       { title: "Padding and Margin", id: "a14" },
+      { title: "List styling", id: "a15" },
     ],
   },
 ];

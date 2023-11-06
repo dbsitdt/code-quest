@@ -61,6 +61,6 @@ export const checkElementProperty = function (
 ) {
   const style: any = getComputedStyle(element);
   const obtainedStyle = style[property];
-  // console.log(obtainedStyle);
+  console.log(obtainedStyle);
   return obtainedStyle === value;
 };
