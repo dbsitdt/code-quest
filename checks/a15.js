@@ -2,7 +2,6 @@ import { checkElementProperty, isElementChildOf } from "../helpers/domHelpers";
 export default {
   title: "List styling",
   category: "Basic CSS",
-  lastInCat: true,
   disabled: { html: true, css: false },
   defaultCode: {
     htmlCode:
