@@ -84,6 +84,7 @@ const questsCat = [
       { title: "Padding and Margin", id: "a14" },
       { title: "List styling", id: "a15" },
       { title: "Styled Layout", id: "a16" },
+      { title: "Box shadow", id: "a17" },
     ],
   },
 ];
