@@ -87,6 +87,10 @@ const questsCat = [
       { title: "Box shadow", id: "a17" },
     ],
   },
+  {
+    categoryName: "CSS selectors",
+    quests: [{ title: "Classes", id: "a18" }],
+  },
 ];
 const maxTasks = questsCat.reduce((acc, cat) => (acc += cat.quests.length), 0);
 definePageMeta({
