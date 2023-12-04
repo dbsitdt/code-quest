@@ -3,7 +3,6 @@ export default {
   title: "Classes",
   category: "CSS Selectors",
   disabled: { html: true, css: false },
-  lastInCat: true,
   defaultCode: {
     htmlCode:
       "<div class='box red'></div>\n<section class='box blue'></section>\n<div class='box green'></div>",

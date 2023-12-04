@@ -89,7 +89,10 @@ const questsCat = [
   },
   {
     categoryName: "CSS selectors",
-    quests: [{ title: "Classes", id: "a18" }],
+    quests: [
+      { title: "Classes", id: "a18" },
+      { title: "ID", id: "a19" },
+    ],
   },
 ];
 const maxTasks = questsCat.reduce((acc, cat) => (acc += cat.quests.length), 0);
