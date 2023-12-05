@@ -1,9 +1,11 @@
 <template>
-  <header>
-    <TheSandboxNav />
-  </header>
-  <div class="container">
-    <div class="content"><slot></slot></div>
+  <div>
+    <header>
+      <TheSandboxNav />
+    </header>
+    <div class="container">
+      <div class="content"><slot></slot></div>
+    </div>
   </div>
 </template>
 

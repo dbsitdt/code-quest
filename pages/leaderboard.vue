@@ -68,6 +68,9 @@ try {
 definePageMeta({
   middleware: ["auth-page"],
 });
+useHead({
+  title: `Leaderboard - Code Quest`,
+});
 </script>
 
 <style scoped>

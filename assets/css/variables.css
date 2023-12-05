@@ -7,6 +7,8 @@
   --bg-dark-light: #2a2d32;
   --btn-dark: #00070f;
   --btn-dark-active: rgb(5, 43, 78);
+  --btn-light: #278bff;
+  --btn-light-active: rgb(33, 99, 173);
 }
 .autumn {
   --bg-dark-blue: #241f15;

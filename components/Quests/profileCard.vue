@@ -50,28 +50,25 @@ const strokeDasharray = ref(0);
 const strokeDashoffset = ref(0);
 const rankInfo = computed(() => {
   const num = computed(() => tasksCompleted.value);
-  if (num.value <= 10) {
+  if (num.value >= 40) {
     return {
-      rank: "Novice",
-      rankColor: "#D6B06C",
+      rank: "Master",
+      rankColor: "#BF6DD8",
     };
-  }
-  if (num.value <= 20) {
-    return {
-      rank: "Intermediate",
-      rankColor: "#8DBB6E",
-    };
-  }
-  if (num.value <= 40) {
+  } else if (num.value >= 20) {
     return {
       rank: "Expert",
       rankColor: "#57A5ED",
     };
-  }
-  if (num.value <= 60) {
+  } else if (num.value >= 10) {
     return {
-      rank: "Master",
-      rankColor: "#BF6DD8",
+      rank: "Intermediate",
+      rankColor: "#8DBB6E",
+    };
+  } else if (num.value >= 0) {
+    return {
+      rank: "Novice",
+      rankColor: "#D6B06C",
     };
   }
 });

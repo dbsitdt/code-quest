@@ -61,6 +61,9 @@ definePageMeta({
   layout: "login",
   middleware: ["unauth-page"],
 });
+useHead({
+  title: `Login - Code Quest`,
+});
 </script>
 <style scoped>
 a {
@@ -128,6 +131,7 @@ input[type="password"]:focus {
 }
 input[type="submit"] {
   -webkit-appearance: none;
+  appearance: none;
   margin-top: 32px;
   padding: 0.6rem 1.8rem;
   border-radius: 10px;

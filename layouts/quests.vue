@@ -1,9 +1,11 @@
 <template>
-  <header>
-    <TheQuestsNav />
-  </header>
-  <div class="container">
-    <slot></slot>
+  <div>
+    <header>
+      <TheQuestsNav />
+    </header>
+    <div class="container">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script setup></script>

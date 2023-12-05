@@ -1,10 +1,15 @@
 <template>
-  <header>
-    <TheMainNav @toggle-sidebar="toggleSidebar" />
-  </header>
-  <div class="container" @click="closeUIs">
-    <TheSidebar @close-sidebar="toggleSidebar" :sidebarOpened="sidebarOpened" />
-    <div class="content"><slot></slot></div>
+  <div>
+    <header>
+      <TheMainNav @toggle-sidebar="toggleSidebar" />
+    </header>
+    <div class="container" @click="closeUIs">
+      <TheSidebar
+        @close-sidebar="toggleSidebar"
+        :sidebarOpened="sidebarOpened"
+      />
+      <div class="content"><slot></slot></div>
+    </div>
   </div>
 </template>
 

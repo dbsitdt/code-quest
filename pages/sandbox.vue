@@ -69,6 +69,9 @@ definePageMeta({
   layout: "sandbox",
   middleware: ["auth-page"],
 });
+useHead({
+  title: `Sandbox - Code Quest`,
+});
 </script>
 <style scoped>
 .instructionTitle {

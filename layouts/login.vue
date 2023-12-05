@@ -1,9 +1,11 @@
 <template>
-  <header>
-    <TheUnauthNav />
-  </header>
-  <div class="container">
-    <div class="content"><slot></slot></div>
+  <div>
+    <header>
+      <TheUnauthNav />
+    </header>
+    <div class="container">
+      <div class="content"><slot></slot></div>
+    </div>
   </div>
 </template>
 

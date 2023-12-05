@@ -1,10 +1,11 @@
 <template>
-  <canvas ref="cofetti" teleport="body"></canvas>
   <div class="quest-container">
+    <canvas ref="cofetti" teleport="body"></canvas>
+
     <div class="left-col">
       <div class="instructions">
-        <p class="instructionTitle" v-if="expanded">Instructions:</p>
-        <div class="instructions-text">
+        <div class="instructions-header" v-if="expanded">
+          <p class="instructionTitle">Step {{ step }}</p>
           <svg
             :style="tickStyles"
             width="36"
@@ -16,6 +17,8 @@
               d="M18 3C9.75 3 3 9.75 3 18C3 26.25 9.75 33 18 33C26.25 33 33 26.25 33 18C33 9.75 26.25 3 18 3ZM18 30C11.385 30 6 24.615 6 18C6 11.385 11.385 6 18 6C24.615 6 30 11.385 30 18C30 24.615 24.615 30 18 30ZM24.885 11.37L15 21.255L11.115 17.385L9 19.5L15 25.5L27 13.5L24.885 11.37Z"
             />
           </svg>
+        </div>
+        <div class="instructions-text">
           <p v-html="currentInstruction" :style="instructionStyles"></p>
         </div>
         <p v-if="error" v-html="error"></p>
@@ -120,7 +123,7 @@ const currentInstruction = computed(() => {
     "<tag",
     "<tag style='background: #202525; padding-inline: 3px; font-family: Roboto Mono'"
   );
-  return `(Step ${step.value}) ${instruction}`;
+  return instruction;
 });
 const store = useQuestStore();
 store.updateHtml(defaultCode.htmlCode);
@@ -188,6 +191,7 @@ const submitCode = function () {
       // Completed entire quest
       userStore.completeQuest(questId);
       if (completedAudio.value) {
+        completedAudio.value.volume = 0.3;
         completedAudio.value.play();
       }
       htmlDisabled.value = false;
@@ -199,6 +203,7 @@ const submitCode = function () {
       completeMessage;
     } else {
       if (successAudio.value) {
+        successAudio.value.volume = 0.3;
         successAudio.value.play();
       }
     }
@@ -245,6 +250,9 @@ definePageMeta({
   layout: "quests",
   middleware: ["auth-page", "load-quest"],
 });
+useHead({
+  title: `${title} - Code Quest`,
+});
 </script>
 <style scoped>
 .instructionTitle {
@@ -263,19 +271,22 @@ definePageMeta({
   width: 100%;
   justify-content: space-between;
 }
-.instructions-text {
+.instructions-header {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
+}
+.instructions-header svg {
+  width: 30px;
+  min-width: 30px;
+  transition: fill 300ms linear;
+}
+.instructions-text p {
   font-size: 18px;
-  align-items: flex-start;
+
   width: 100%;
 }
 
-.instructions-text svg {
-  width: 36px;
-  min-width: 36px;
-  transition: fill 300ms linear;
-}
 .left-col {
   width: 37.5%;
   height: 90vh;
@@ -298,12 +309,12 @@ definePageMeta({
   background: var(--accent-dark);
   color: white;
   flex: 1;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 2rem;
 }
 .code-tabs {
   display: flex;
   background: #000;
-  padding-left: 1rem;
+  padding-left: 2rem;
   padding-top: 1rem;
   gap: 1rem;
   flex: 1;

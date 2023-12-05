@@ -99,6 +99,9 @@ const maxTasks = questsCat.reduce((acc, cat) => (acc += cat.quests.length), 0);
 definePageMeta({
   middleware: ["auth-page"],
 });
+useHead({
+  title: `Quests - Code Quest`,
+});
 </script>
 
 <style scoped>

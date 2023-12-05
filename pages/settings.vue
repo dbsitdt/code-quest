@@ -53,6 +53,9 @@ const saveSettings = async function () {
 definePageMeta({
   middleware: ["auth-page"],
 });
+useHead({
+  title: `Settings - Code Quest`,
+});
 </script>
 <style scoped>
 .btn {
