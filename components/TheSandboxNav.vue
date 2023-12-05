@@ -63,4 +63,10 @@ a {
     display: none;
   }
 }
+.nav-return img {
+  transition: transform 100ms linear;
+}
+.nav-return:hover img {
+  transform: translateX(-10px);
+}
 </style>

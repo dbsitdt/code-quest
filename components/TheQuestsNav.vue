@@ -47,9 +47,9 @@ nav {
   justify-content: center;
 }
 .quest-title {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.4;
 }
 .quest-cat {
   font-size: 13px;
@@ -70,5 +70,11 @@ nav {
   .nav-return p {
     display: none;
   }
+}
+.nav-return img {
+  transition: transform 100ms linear;
+}
+.nav-return:hover img {
+  transform: translateX(-10px);
 }
 </style>

@@ -150,7 +150,7 @@ input[type="submit"] {
     width: 70%;
   }
   .right-col {
-    background: url("../assets/Login/loginPhoto.png"),
+    background: url("../assets/Login/loginPhoto.webp"),
       lightgray 50% / cover no-repeat;
     background-size: cover;
     box-shadow: 0px 4px 25px 21px rgba(0, 0, 0, 0.25) inset;
