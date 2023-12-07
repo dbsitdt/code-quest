@@ -43,13 +43,8 @@ export const useAuthStore = defineStore("auth", {
   },
   actions: {
     async auth(payload: { email: string; password: string }) {
-      const {
-        public: { authKey },
-      } = useRuntimeConfig();
-      const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${authKey}`;
-
       try {
-        const res: any = await $fetch(url, {
+        const { data } = await useFetch("/api/authPost", {
           method: "POST",
           body: JSON.stringify({
             email: payload.email,
@@ -57,6 +52,8 @@ export const useAuthStore = defineStore("auth", {
             returnSecureToken: true,
           }),
         });
+        const res: any = data.value;
+
         const expiresIn = res.expiresIn * 1000;
         // const expiresIn = 5000;
         const expirationDate = new Date().getTime() + expiresIn;
@@ -114,7 +111,7 @@ export const useAuthStore = defineStore("auth", {
         throw new Error(`Failed to load user`);
       this.token = payload.token;
       this.userId = payload.userId;
-      const userInfo: UserInfo | null = await this.loadUserInfo(payload.userId);
+      const userInfo: UserInfo | any = await this.loadUserInfo(payload.userId);
       if (userInfo) {
         const userStore = useUserStore();
         userStore.setUserInfo({ ...userInfo, userId: this.userId });
@@ -124,12 +121,10 @@ export const useAuthStore = defineStore("auth", {
     },
     async loadUserInfo(userId: string) {
       try {
-        const res: UserInfo = await $fetch(
-          `https://code-quest-74ced-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json`
-        );
+        const { data } = await useFetch(`/api/userQuery?userId=${userId}`);
+        const res = data.value;
         return res;
       } catch (err) {
-        console.error(err);
         return null;
       }
     },

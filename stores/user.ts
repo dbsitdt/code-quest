@@ -50,16 +50,15 @@ export const useUserStore = defineStore("user", {
     async updateUserInfo(userId: any, token: any) {
       const userInfo = this.getUserInfo;
       try {
-        await $fetch(
-          `https://code-quest-74ced-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=${token}`,
-          {
-            method: "PUT",
-            body: JSON.stringify({
-              username: userInfo.username,
-              completedQuests: userInfo.completedQuests,
-            }),
-          }
-        );
+        await useFetch(`/api/postUserInfo`, {
+          method: "PUT",
+          body: {
+            username: userInfo.username,
+            completedQuests: userInfo.completedQuests,
+            userId: userId,
+            token: token,
+          },
+        });
       } catch (err) {
         console.error(err);
       }

@@ -18,6 +18,7 @@
       }"
       class="user-board"
     ></userBoard>
+    {{ res }}
   </div>
 </template>
 
@@ -26,9 +27,8 @@ let userList = ref([]);
 const error = ref(false);
 
 try {
-  const res = await $fetch(
-    `https://code-quest-74ced-default-rtdb.asia-southeast1.firebasedatabase.app/users.json`
-  );
+  const { data } = await useFetch("/api/leaderboard");
+  const res = data.value;
   if (res.length === 0) {
     error.value = true;
     throw new Error(`Error in fetching leaderboard!`);

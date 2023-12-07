@@ -20,7 +20,6 @@ export default {
         {
           testFunc: (frame) => {
             const img = frame.querySelector("img");
-            console.log(img.getAttribute("src"));
             return (
               img.getAttribute("src") ===
               "https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png"
@@ -50,7 +49,6 @@ export default {
         {
           testFunc: (frame) => {
             const img = frame.querySelector("img");
-            console.log(img.getAttribute("src"));
             return (
               img.getAttribute("src") ===
               "https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png"
@@ -87,7 +85,6 @@ export default {
         {
           testFunc: (frame) => {
             const img = frame.querySelector("img");
-            console.log(img.getAttribute("src"));
             return (
               img.getAttribute("src") ===
               "https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png"

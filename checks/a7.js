@@ -100,7 +100,6 @@ export default {
         {
           testFunc: (frame) => {
             const liList = frame.querySelectorAll("li");
-            console.log(liList);
             return liList.length === 2;
           },
           error: "You should have 2 list items now!",

@@ -15,7 +15,6 @@ export default {
         {
           testFunc: (frame) => {
             const thing = frame.querySelector("div:has(h2 + p)");
-            console.log(thing);
             return thing;
           },
           error: "Don't touch the html!",

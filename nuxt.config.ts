@@ -39,6 +39,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       authKey: process.env.NUXT_AUTH_API_TOKEN,
+      usersApi: process.env.NUXT_USERS_API_ENDPOINT,
     },
   },
 });
