@@ -60,7 +60,7 @@ export const useUserStore = defineStore("user", {
           },
         });
       } catch (err) {
-        console.error(err);
+        // console.error(err);
       }
     },
     setUserInfo(userInfo: UserInfo) {
