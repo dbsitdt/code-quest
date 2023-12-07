@@ -61,6 +61,7 @@ export const useUserStore = defineStore("user", {
         });
       } catch (err) {
         // console.error(err);
+        throw new Error("Something went wrong");
       }
     },
     setUserInfo(userInfo: UserInfo) {

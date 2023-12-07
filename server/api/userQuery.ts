@@ -3,6 +3,10 @@ export default defineEventHandler(async (event) => {
     public: { usersApi },
   } = useRuntimeConfig();
   const { userId } = getQuery(event);
-  const res = await $fetch(`${usersApi}/users/${userId}.json`);
-  return res;
+  try {
+    const res = await $fetch(`${usersApi}/users/${userId}.json`);
+    return res;
+  } catch (err) {
+    throw new Error("Something went wrong");
+  }
 });
