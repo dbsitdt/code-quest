@@ -27,13 +27,13 @@ let userList = ref([]);
 const error = ref(false);
 
 try {
-  const { data } = await useFetch("/api/leaderboard");
-  const res = data.value;
-  if (res.length === 0) {
+  const {
+    data: { value: people },
+  } = await useFetch("/api/leaderboard");
+  if (people.length === 0) {
     error.value = true;
     throw new Error(`Error in fetching leaderboard!`);
   }
-  const people = Object.values(res);
   const sortedPeople = people
     .filter((person) => person.completedQuests.length - 1 > 1 && !person?.test)
     .sort((a, b) => {
