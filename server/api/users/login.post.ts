@@ -17,6 +17,7 @@ export default defineEventHandler(async (event: any) => {
   const token: string = jwt.sign({ id: user._id }, jwtSecret, {
     expiresIn: jwtExpiresIn,
   });
+
   setResponseStatus(event, 200);
   return {
     status: "success",
