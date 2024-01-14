@@ -20,9 +20,10 @@ export default defineEventHandler(async (event) => {
       }
 
       if (!token)
-        throw new AppError(
+        throw createAppError(
           "You're not logged in. Please login to get access.",
-          401
+          401,
+          event
         );
       const { jwtSecret } = useRuntimeConfig();
       const decoded = await promisify(jwt.verify)(token, jwtSecret);
@@ -30,19 +31,28 @@ export default defineEventHandler(async (event) => {
       const currentUser = await User.findById(decoded.id);
       req.user = currentUser;
       if (!currentUser)
-        throw new AppError("The user belonging to this token no longer exist.");
+        throw createAppError(
+          "The user belonging to this token no longer exist.",
+          400,
+          event
+        );
       if (currentUser.changedPasswordAfter(decoded.iat)) {
-        throw new AppError(
+        throw createAppError(
           "User recently changed password. Please log in again.",
-          401
+          401,
+          event
         );
       }
     }
   } catch (err) {
     if (err.name === "JsonWebTokenError") {
-      throw new AppError(`Invalid token. Please log in again!`, 401);
+      throw createAppError(`Invalid token. Please log in again!`, 401, event);
     } else if (err.name === "TokenExpiredError") {
-      throw new AppError(`The token has expired. Please log in again!`, 401);
+      throw createAppError(
+        `The token has expired. Please log in again!`,
+        401,
+        event
+      );
     }
     throw err;
   }

@@ -9,6 +9,7 @@ const filterObj = function (obj: any, ...allowedFields: string[]) {
 export default defineEventHandler(async (event: any) => {
   try {
     const { id } = getQuery(event);
+    const { req } = event.node;
     const body = await readBody(event);
     if (!body)
       return createAppError(
@@ -17,6 +18,8 @@ export default defineEventHandler(async (event: any) => {
         event
       );
     const filteredBody = filterObj(body, "completedQuests");
+    if (id !== req.user.id)
+      return createAppError("You can't update other users' data.", 403, event);
     const updatedUser: any = await User.findByIdAndUpdate(id, filteredBody, {
       new: true,
       runValidators: true,
@@ -30,7 +33,7 @@ export default defineEventHandler(async (event: any) => {
     };
   } catch (err: any) {
     if (err.name === "CastError") {
-      throw new AppError(`Invalid user ID.`, 400);
+      return createAppError("Invalid user ID", 400, event);
     }
     throw err;
   }

@@ -26,7 +26,7 @@ export default defineEventHandler(async (event: any) => {
     }
   } catch (err: any) {
     if (err.name === "CastError") {
-      throw new AppError(`Invalid user ID.`, 400);
+      throw createAppError("Invalid user ID", 400, event);
     }
     throw err;
   }

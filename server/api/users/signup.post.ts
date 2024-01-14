@@ -34,12 +34,12 @@ export default defineEventHandler(async (event) => {
     if (err.code === 11000) {
       const value = err.errmsg.match(/(["'])(\\?.)*?\1/);
       const message = `Duplicate field value: ${value[0]}. Please use another value!`;
-      throw new AppError(message, 400);
+      return createAppError(message, 400, event);
     } else if (err.name === "ValidationError") {
       const errors = Object.values(err.errors).map((el: any) => el.message);
 
       const message = `Invalid input data. ${errors.join(" ")}`;
-      throw new AppError(message, 400);
+      return createAppError(message, 400, event);
     }
   }
 });
