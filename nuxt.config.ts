@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ["@pinia/nuxt", "nuxt-helm"],
+  modules: ["@pinia/nuxt"],
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
