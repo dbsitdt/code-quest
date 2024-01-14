@@ -3,7 +3,7 @@ import {
   isElementChildOf,
   areElementsInOrder,
   checkElementText,
-} from "../helpers/domHelpers";
+} from "../utils/domHelpers";
 export default {
   title: "Adding a submit button",
   category: "Working with forms",

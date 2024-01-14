@@ -5,6 +5,10 @@ interface UserInfo {
   username: string;
   userId: string;
   completedQuests: string[];
+  rank: {
+    rankName: string;
+    rankColor: string;
+  };
 }
 export const useUserStore = defineStore("user", {
   state: () => {
@@ -13,6 +17,10 @@ export const useUserStore = defineStore("user", {
         username: null as String | null,
         completedQuests: [] as string[] | null,
         userId: null as String | null,
+        rank: null as {
+          rankName: string;
+          rankColor: string;
+        } | null,
       },
     };
   },
@@ -28,7 +36,7 @@ export const useUserStore = defineStore("user", {
     },
     numberOfCompletedQuests(state) {
       if (state.userInfo.completedQuests) {
-        return state.userInfo.completedQuests.length - 1;
+        return state.userInfo.completedQuests.length;
       } else {
         return null;
       }
@@ -40,7 +48,6 @@ export const useUserStore = defineStore("user", {
         if (!this.userInfo.completedQuests.includes(id)) {
           this.userInfo.completedQuests.push(id);
           const authStore = useAuthStore();
-
           await this.updateUserInfo(this.getUserId, authStore.getToken);
         }
       } else {
@@ -50,13 +57,13 @@ export const useUserStore = defineStore("user", {
     async updateUserInfo(userId: any, token: any) {
       const userInfo = this.getUserInfo;
       try {
-        await useFetch(`/api/postUserInfo`, {
+        await useFetch(`/api/users?id=${userId}`, {
           method: "PUT",
           body: {
-            username: userInfo.username,
             completedQuests: userInfo.completedQuests,
-            userId: userId,
-            token: token,
+          },
+          headers: {
+            Authorization: "Bearer " + token,
           },
         });
       } catch (err) {
@@ -64,10 +71,11 @@ export const useUserStore = defineStore("user", {
         throw new Error("Something went wrong");
       }
     },
-    setUserInfo(userInfo: UserInfo) {
+    setUserInfo(userInfo: any) {
       this.userInfo.username = userInfo.username;
       this.userInfo.completedQuests = userInfo.completedQuests;
-      this.userInfo.userId = userInfo.userId;
+      this.userInfo.userId = userInfo.id;
+      this.userInfo.rank = userInfo.rank;
     },
     reset() {
       this.userInfo.username = null;

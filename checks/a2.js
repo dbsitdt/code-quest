@@ -2,7 +2,7 @@ import {
   areElementsInOrder,
   checkElementText,
   isElementChildOf,
-} from "../helpers/domHelpers";
+} from "../utils/domHelpers";
 export default {
   title: "Adding tags",
   category: "Basic HTML",

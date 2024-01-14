@@ -2,7 +2,7 @@ import {
   checkElementAttribute,
   isElementChildOf,
   areElementsInOrder,
-} from "../helpers/domHelpers";
+} from "../utils/domHelpers";
 export default {
   title: "Adding images",
   category: "Basic HTML",

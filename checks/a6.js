@@ -2,7 +2,7 @@ import {
   checkElementText,
   isElementChildOf,
   areElementsInOrder,
-} from "../helpers/domHelpers";
+} from "../utils/domHelpers";
 export default {
   title: "Ordered Lists",
   category: "Basic HTML",

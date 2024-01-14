@@ -12,30 +12,41 @@
     <userBoard
       v-for="user in userList"
       :user="{
-        questNumber: user.completedQuests.length - 1,
+        questNumber: user.completedQuests.length,
         place: user.place,
         username: user.username,
+        rankInfo: user.rank,
       }"
       class="user-board"
     ></userBoard>
-    {{ res }}
   </div>
 </template>
 
 <script setup>
+import { setTokenSourceMapRange } from "typescript";
+import { useAuthStore } from "../stores/auth.ts";
+const store = useAuthStore();
 let userList = ref([]);
 const error = ref(false);
 
 try {
   const {
-    data: { value: people },
-  } = await useFetch("/api/leaderboard");
-  if (people.length === 0) {
+    data: {
+      value: {
+        data: { users },
+      },
+    },
+  } = await useFetch("/api/users", {
+    headers: {
+      authorization: "Bearer " + store.token,
+    },
+  });
+  if (users.length === 0) {
     error.value = true;
     throw new Error(`Error in fetching leaderboard!`);
   }
-  const sortedPeople = people
-    .filter((person) => person.completedQuests.length - 1 > 1 && !person?.test)
+  const sortedPeople = users
+    .filter((person) => person.completedQuests.length > 0 && !person?.tester)
     .sort((a, b) => {
       if (a.completedQuests.length < b.completedQuests.length) {
         return 1;

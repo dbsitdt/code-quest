@@ -3,7 +3,7 @@ import {
   isElementChildOf,
   areElementsInOrder,
   checkElementText,
-} from "../helpers/domHelpers";
+} from "../utils/domHelpers";
 export default {
   title: "Text Input",
   category: "Working with forms",

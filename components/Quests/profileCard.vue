@@ -1,7 +1,8 @@
 <template>
   <div ref="card" class="progress-card">
     <h3 class="white mastery-text">
-      Mastery: <span class="rank" :style="rankColor">{{ rankInfo.rank }}</span>
+      Mastery:
+      <span class="rank" :style="rankColor">{{ rankInfo.rankName }}</span>
     </h3>
     <div class="progress-bar">
       <svg class="fill" viewBox="0 0 308 308">
@@ -40,38 +41,20 @@
 <script setup>
 import html2canvas from "html2canvas";
 
-const props = defineProps(["username", "tasksCompleted", "maxTasks"]);
+const props = defineProps([
+  "username",
+  "tasksCompleted",
+  "maxTasks",
+  "rankInfo",
+]);
 const tasksCompleted = computed(() => props.tasksCompleted);
 const maxTasks = computed(() => props.maxTasks);
 const username = computed(() => props.username);
+const rankInfo = computed(() => props.rankInfo);
 const meter = ref(null);
 const number = ref(null);
 const strokeDasharray = ref(0);
 const strokeDashoffset = ref(0);
-const rankInfo = computed(() => {
-  const num = computed(() => tasksCompleted.value);
-  if (num.value >= 40) {
-    return {
-      rank: "Master",
-      rankColor: "#BF6DD8",
-    };
-  } else if (num.value >= 20) {
-    return {
-      rank: "Expert",
-      rankColor: "#57A5ED",
-    };
-  } else if (num.value >= 10) {
-    return {
-      rank: "Intermediate",
-      rankColor: "#8DBB6E",
-    };
-  } else if (num.value >= 0) {
-    return {
-      rank: "Novice",
-      rankColor: "#D6B06C",
-    };
-  }
-});
 const meterStyles = computed(() => {
   return {
     strokeDasharray: strokeDasharray.value,

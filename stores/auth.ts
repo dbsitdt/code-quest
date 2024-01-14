@@ -7,12 +7,15 @@ interface UserInfo {
   username: string;
   userId: string;
   completedQuests: string[];
+  rank: {
+    rankName: string;
+    rankColor: string;
+  };
 }
 interface State {
   loggedIn: Boolean;
   token: string | null | undefined;
   userId: string | null | undefined;
-  tokenExpiration: string | null | undefined;
   tokenExpired: Boolean;
   didAutoAuth: Boolean;
 }
@@ -22,7 +25,6 @@ export const useAuthStore = defineStore("auth", {
       loggedIn: false,
       token: "",
       userId: "",
-      tokenExpiration: "",
       tokenExpired: false,
       didAutoAuth: false,
     };
@@ -37,44 +39,30 @@ export const useAuthStore = defineStore("auth", {
     getToken(state) {
       return state.token;
     },
-    isTokenExpired(state) {
-      return state.tokenExpired;
-    },
   },
   actions: {
     async auth(payload: { email: string; password: string }) {
       try {
-        const { data } = await useFetch("/api/authPost", {
+        const { data } = await useFetch("/api/users/login", {
           method: "POST",
           body: JSON.stringify({
             email: payload.email,
             password: payload.password,
-            returnSecureToken: true,
           }),
         });
         const res: any = data.value;
-
-        const expiresIn = res.expiresIn * 1000;
-        // const expiresIn = 5000;
-        const expirationDate = new Date().getTime() + expiresIn;
         const tokenRef = useCookie("token");
-        tokenRef.value = res.idToken;
-        this.token = tokenRef.value;
+        tokenRef.value = res.token;
         const userIdRef = useCookie("userId");
-        userIdRef.value = res.localId;
-        this.userId = userIdRef.value;
-        const tokenExpirationRef = useCookie("tokenExpiration");
-        tokenExpirationRef.value = expirationDate.toString();
-        this.tokenExpiration = tokenExpirationRef.value;
-
-        timer = setTimeout(() => {
-          this.tokenExpired = true;
-        }, expiresIn);
-
-        await this.setUser({ token: res.idToken, userId: res.localId });
+        userIdRef.value = res.id;
+        this.token = tokenRef.value;
+        // const userIdRef = useCookie("userId");
+        // userIdRef.value = res.localId;
+        // this.userId = userIdRef.value;
+        await this.setUser({ token: res.token, userId: res.id });
         this.loggedIn = true;
       } catch (err: any) {
-        throw err;
+        throw new Error("Something went wrong");
       }
     },
     setAutoAuth(status: Boolean) {
@@ -83,45 +71,46 @@ export const useAuthStore = defineStore("auth", {
     async tryLogin() {
       const token = useCookie("token");
       const userId = useCookie("userId");
-      const tokenExpiration = useCookie("tokenExpiration");
-      if (!token.value || !userId.value || !tokenExpiration.value) return false;
-      const expiresIn = Number(tokenExpiration.value) - new Date().getTime();
-      if (expiresIn < 0) {
+      if (!token.value || !userId.value) return false;
+      try {
+        if (token && userId) {
+          await this.setUser({
+            token: token.value,
+            userId: userId.value,
+          });
+          this.loggedIn = true;
+          return true;
+        }
+        return false;
+      } catch {
         return false;
       }
-      // setTimeout(function () {
-      //   context.dispatch("autoLogout");
-      // }, expiresIn);
-
-      if (token && userId) {
-        await this.setUser({
-          token: token.value,
-          userId: userId.value,
-        });
-        this.loggedIn = true;
-        return true;
-      }
-      return false;
     },
     async setUser(payload: {
       token: string | null | undefined;
-      userId: string | null | undefined;
+      userId: string | undefined;
     }) {
       if (!payload.token || !payload.userId)
         throw new Error(`Failed to load user`);
       this.token = payload.token;
-      this.userId = payload.userId;
-      const userInfo: UserInfo | any = await this.loadUserInfo(payload.userId);
+      const res = await this.loadUserInfo(payload.userId);
+      if (!res) throw new Error("Failed to load user info");
+      const { data }: any = res;
+      const { user: userInfo }: UserInfo | any = data;
       if (userInfo) {
         const userStore = useUserStore();
-        userStore.setUserInfo({ ...userInfo, userId: this.userId });
+        userStore.setUserInfo(userInfo);
       } else {
         throw new Error(`Failed to load user`);
       }
     },
     async loadUserInfo(userId: string) {
       try {
-        const { data } = await useFetch(`/api/userQuery?userId=${userId}`);
+        const { data } = await useFetch(`/api/users?id=${userId}`, {
+          headers: {
+            Authorization: "Bearer " + this.token,
+          },
+        });
         const res = data.value;
         return res;
       } catch (err) {
@@ -145,7 +134,6 @@ export const useAuthStore = defineStore("auth", {
       this.loggedIn = false;
       this.token = "";
       this.userId = "";
-      this.tokenExpiration = "";
       this.tokenExpired = false;
       const userStore = useUserStore();
       userStore.reset();

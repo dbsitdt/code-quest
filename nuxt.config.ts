@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     { path: "~/components/QuestsGlobal", pathPrefix: false, global: true },
     { path: "~/components/Quests", pathPrefix: false },
     { path: "~/components/Leaderboard", pathPrefix: false },
-    { path: "~/components/UI", pathPrefix: false },
+    // { path: "~/components/UI", pathPrefix: false },
     "~/components",
   ],
   app: {
@@ -29,17 +29,19 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ["@pinia/nuxt"],
+  modules: ["@pinia/nuxt", "nuxt-helm"],
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
       "defineStore", // import { defineStore } from 'pinia'
     ],
   },
+  imports: {},
   runtimeConfig: {
-    public: {
-      authKey: process.env.NUXT_AUTH_API_TOKEN,
-      usersApi: process.env.NUXT_USERS_API_ENDPOINT,
-    },
+    dbURL: process.env.NUXT_DATABASE,
+    serverEnv: process.env.SERVER_ENV,
+    dbPassword: process.env.NUXT_DATABASE_PASSWORD,
+    jwtSecret: process.env.JWT_SECRET,
+    jwtExpiresIn: process.env.JWT_EXPIRES_IN,
   },
 });

@@ -1,4 +1,4 @@
-import { checkElementProperty, isElementChildOf } from "../helpers/domHelpers";
+import { checkElementProperty, isElementChildOf } from "../utils/domHelpers";
 export default {
   title: "List styling",
   category: "Basic CSS",

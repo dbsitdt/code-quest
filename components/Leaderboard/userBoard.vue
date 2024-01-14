@@ -17,8 +17,8 @@
     </div>
     <p>{{ user.username }}</p>
     <p>{{ user.questNumber }} <span class="quest-unit">Quests</span></p>
-    <p class="rank" :style="{ color: rankInfo.rankColor }">
-      {{ rankInfo.rank }}
+    <p class="rank" :style="{ color: user.rankInfo.rankColor }">
+      {{ user.rankInfo.rankName }}
     </p>
   </div>
 </template>
@@ -35,33 +35,6 @@ if (user.value.place === 1) {
 } else {
   iconFill.value = "#494949";
 }
-const rankInfo = computed(() => {
-  const num = props.user.questNumber;
-  if (num <= 10) {
-    return {
-      rank: "Novice",
-      rankColor: "#D6B06C",
-    };
-  }
-  if (num <= 20) {
-    return {
-      rank: "Intermediate",
-      rankColor: "#8DBB6E",
-    };
-  }
-  if (num <= 40) {
-    return {
-      rank: "Expert",
-      rankColor: "#57A5ED",
-    };
-  }
-  if (num <= 60) {
-    return {
-      rank: "Master",
-      rankColor: "#BF6DD8",
-    };
-  }
-});
 </script>
 <style scoped>
 .user {

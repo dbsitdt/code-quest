@@ -10,9 +10,12 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@types/bcrypt": "^5.0.2",
     "@types/canvas-confetti": "^1.6.0",
+    "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^18.17.3",
     "@types/sanitize-html": "^2.9.1",
+    "@types/validator": "^13.11.8",
     "nuxt": "^3.6.5",
     "typescript": "^5.1.6"
   },
@@ -24,10 +27,17 @@
     "@nuxtjs/google-fonts": "^3.0.2",
     "@pinia/nuxt": "^0.4.11",
     "babel": "^6.23.0",
+    "bcrypt": "^5.1.1",
     "canvas-confetti": "^1.6.0",
     "html2canvas": "^1.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.4",
+    "morgan": "^1.10.0",
+    "nuxt-helm": "^0.0.2",
     "pinia": "^2.1.6",
     "sanitize-html": "^2.11.0",
+    "validator": "^13.11.0",
     "vue-codemirror": "^6.1.1"
   },
   "overrides": {

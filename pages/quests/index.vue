@@ -18,6 +18,7 @@
         :username="username"
         :maxTasks="maxTasks"
         :tasksCompleted="numberOfCompletedQuests"
+        :rankInfo="rankInfo"
       />
     </div>
   </div>
@@ -53,7 +54,7 @@ const store = useUserStore();
 const completedQuests = computed(() => store.getUserCompletedQuests);
 const numberOfCompletedQuests = computed(() => store.numberOfCompletedQuests);
 const username = computed(() => store.userInfo.username);
-
+const rankInfo = computed(() => store.userInfo.rank);
 const questsCat = [
   {
     categoryName: "Basic HTML",

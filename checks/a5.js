@@ -2,7 +2,7 @@ import {
   checkElementAttribute,
   checkElementText,
   isElementChildOf,
-} from "../helpers/domHelpers";
+} from "../utils/domHelpers";
 export default {
   title: "Using anchor tags for links",
   category: "Basic HTML",

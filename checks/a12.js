@@ -1,4 +1,4 @@
-import { checkElementProperty } from "../helpers/domHelpers";
+import { checkElementProperty } from "../utils/domHelpers";
 export default {
   title: "Changing default styling",
   category: "Basic CSS",

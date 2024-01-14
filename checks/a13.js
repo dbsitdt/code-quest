@@ -1,4 +1,4 @@
-import { checkElementProperty } from "../helpers/domHelpers";
+import { checkElementProperty } from "../utils/domHelpers";
 export default {
   title: "Dealing with images",
   category: "Basic CSS",
