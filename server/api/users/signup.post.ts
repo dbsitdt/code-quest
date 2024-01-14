@@ -20,8 +20,6 @@ export default defineEventHandler(async (event) => {
     const token = jwt.sign({ id: newUser._id }, jwtSecret, {
       expiresIn: jwtExpiresIn,
     });
-    await newUser.createUpdatetoken();
-    await newUser.save({ validateBeforeSave: false });
     setResponseStatus(event, 501);
     return {
       status: "success",

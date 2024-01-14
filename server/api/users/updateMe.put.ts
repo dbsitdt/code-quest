@@ -17,7 +17,15 @@ export default defineEventHandler(async (event: any) => {
         event
       );
     const filteredBody = filterObj(body, "completedQuests");
-
+    if (filteredBody.completedQuests) {
+      if (
+        filteredBody.completedQuests.length - req.user.completedQuests.length >
+          1 &&
+        req.user.role !== "admin"
+      ) {
+        return createAppError(`Unallowed completed quests update.`, 403, event);
+      }
+    }
     const updatedUser: any = await User.findByIdAndUpdate(
       req.user.id,
       filteredBody,
