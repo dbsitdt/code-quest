@@ -57,7 +57,7 @@ export const useUserStore = defineStore("user", {
     async updateUserInfo(userId: any, token: any) {
       const userInfo = this.getUserInfo;
       try {
-        await useFetch(`/api/users?id=${userId}`, {
+        await useFetch(`/api/users/updateMe`, {
           method: "PUT",
           body: {
             completedQuests: userInfo.completedQuests,
