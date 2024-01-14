@@ -8,7 +8,6 @@ const filterObj = function (obj: any, ...allowedFields: string[]) {
 };
 export default defineEventHandler(async (event: any) => {
   try {
-    const { id } = getQuery(event);
     const { req } = event.node;
     const body = await readBody(event);
     if (!body)
@@ -18,12 +17,15 @@ export default defineEventHandler(async (event: any) => {
         event
       );
     const filteredBody = filterObj(body, "completedQuests");
-    if (id !== req.user.id)
-      return createAppError("You can't update other users' data.", 403, event);
-    const updatedUser: any = await User.findByIdAndUpdate(id, filteredBody, {
-      new: true,
-      runValidators: true,
-    });
+
+    const updatedUser: any = await User.findByIdAndUpdate(
+      req.user.id,
+      filteredBody,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
     setResponseStatus(event, 200);
     return {
       status: "success",

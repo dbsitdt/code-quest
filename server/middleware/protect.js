@@ -4,7 +4,7 @@ import User from "../../models/userModel";
 export default defineEventHandler(async (event) => {
   try {
     let token;
-    const protectedPaths = ["/api/users?id", "/api/users"];
+    const protectedPaths = ["/api/users?id", "/api/users", "/api/updateMe"];
     const specialPaths = ["/api/users/login"];
     const { req } = event.node;
     if (
