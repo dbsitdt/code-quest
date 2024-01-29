@@ -19,8 +19,9 @@ export default defineEventHandler(async (event: any) => {
     const filteredBody = filterObj(body, "completedQuests");
     if (filteredBody.completedQuests) {
       if (
-        filteredBody.completedQuests.length - req.user.completedQuests.length >
-          1 &&
+        Math.abs(
+          filteredBody.completedQuests.length - req.user.completedQuests.length
+        ) > 1 &&
         req.user.role !== "admin"
       ) {
         return createAppError(`Unallowed completed quests update.`, 403, event);
