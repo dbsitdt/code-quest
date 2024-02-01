@@ -63,6 +63,7 @@ export default defineNuxtConfig({
     },
     requestSizeLimiter: {
       maxRequestSizeInBytes: 10000,
+      maxUploadFileRequestInBytes: 8000000,
     },
   },
   pinia: {
