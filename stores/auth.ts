@@ -43,14 +43,15 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     async auth(payload: { email: string; password: string }) {
       try {
-        const { data } = await useFetch("/api/users/login", {
+        const loginRes = await useFetch("/api/users/login", {
           method: "POST",
           body: JSON.stringify({
             email: payload.email,
             password: payload.password,
           }),
         });
-        const res: any = data.value;
+        if (loginRes.error.value) throw loginRes.error.value.data;
+        const res: any = loginRes.data.value;
         const tokenRef = useCookie("token");
         tokenRef.value = res.token;
         const userIdRef = useCookie("userId");
@@ -62,7 +63,7 @@ export const useAuthStore = defineStore("auth", {
         await this.setUser({ token: res.token, userId: res.id });
         this.loggedIn = true;
       } catch (err: any) {
-        throw new Error("Something went wrong");
+        throw err;
       }
     },
     setAutoAuth(status: Boolean) {

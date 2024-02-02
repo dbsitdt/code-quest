@@ -3,7 +3,6 @@ export default {
   title: "ID",
   category: "CSS Selectors",
   disabled: { html: false, css: false },
-  lastInCat: true,
   defaultCode: {
     htmlCode: `<section>
   <h2 id='hero-title'>Jane Doe</h2>

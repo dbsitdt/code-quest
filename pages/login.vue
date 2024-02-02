@@ -7,9 +7,9 @@
           Skill issue? <a href="mailto:dbsitdt@gmail.com">Get help.</a>
         </p>
         <p v-if="error" class="error-message">
-          Your email or password is wrong!
+          {{ error }}
         </p>
-        <form @submit.prevent="submitCred">
+        <form id="login-form" @submit.prevent="submitCred">
           <div class="input-box">
             <div class="field">
               <label for="email">Email</label>
@@ -34,7 +34,13 @@
               />
             </div>
           </div>
-          <input type="submit" value="Login" />
+          <button type="submit" form="login-form" class="submit-form-btn">
+            <div v-if="isLoading" class="wrap">
+              <div class="spinner"></div>
+            </div>
+
+            <p v-else>Login</p>
+          </button>
         </form>
       </div>
     </div>
@@ -44,17 +50,30 @@
 <script setup>
 import { useAuthStore } from "../stores/auth.ts";
 const store = useAuthStore();
-const error = ref(false);
+const error = ref("");
+const isLoading = ref(false);
 const email = ref("");
 const password = ref("");
 onBeforeMount(async () => {});
 
 const submitCred = async function () {
+  error.value = "";
+  isLoading.value = true;
+
   try {
     await store.auth({ email: email.value, password: password.value });
+    isLoading.value = false;
+
     return navigateTo("/quests");
   } catch (err) {
-    error.value = true;
+    if (err.message === "Incorrect email or password") {
+      // show the right error msg that wrong emial or pwd
+      error.value = "Your email and password are not correct.";
+    } else {
+      // show something wnet wrong
+      error.value = "Something went wrong; Please try again later.";
+    }
+    isLoading.value = false;
   }
 };
 definePageMeta({
@@ -129,7 +148,8 @@ input[type="email"]:focus,
 input[type="password"]:focus {
   border: 3px solid rgb(177, 177, 177);
 }
-input[type="submit"] {
+
+button {
   -webkit-appearance: none;
   appearance: none;
   margin-top: 32px;
@@ -140,12 +160,43 @@ input[type="submit"] {
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
+  width: 110px;
+  height: 50px;
 }
 .right-col {
   flex: 1;
 
   display: none;
 }
+.wrap {
+  /*   Flex Perfect Centring  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*   Colors */
+  box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
+}
+
+/* SPINER */
+
+.spinner {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 4px solid var(--accent-dark);
+  border-left: 4px solid white;
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (min-width: 1000px) {
   .container {
     flex-direction: row;
