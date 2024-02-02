@@ -47,6 +47,7 @@ export const checkElementAttribute = (
   optimalValue: string
 ): boolean => {
   const attributeValue = element.getAttribute(attribute);
+
   if (attributeValue === optimalValue) {
     return true;
   } else {
@@ -61,6 +62,6 @@ export const checkElementProperty = function (
 ) {
   const style: any = getComputedStyle(element);
   const obtainedStyle = style[property];
-  // console.log(obtainedStyle);
+  // console.log(obtainedStyle, value);
   return obtainedStyle === value;
 };

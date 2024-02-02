@@ -93,6 +93,8 @@ const questsCat = [
     quests: [
       { title: "Classes", id: "a18" },
       { title: "ID", id: "a19" },
+      { title: "Advanced Selection 1", id: "a20" },
+      { title: "Advanced Selection 2", id: "a21" },
     ],
   },
 ];
