@@ -79,12 +79,16 @@ export default {
             const box1 = frame.querySelector(".box:nth-of-type(1)");
             const box3 = frame.querySelector(".box:nth-of-type(3)");
             return (
-              checkElementProperty(
+              !checkElementProperty(
                 box1,
                 "backgroundColor",
-                "rgb(106, 90, 205)"
+                "rgb(250, 128, 114)"
               ) &&
-              checkElementProperty(box3, "backgroundColor", "rgb(106, 90, 205)")
+              !checkElementProperty(
+                box3,
+                "backgroundColor",
+                "rgb(250, 128, 114)"
+              )
             );
           },
           error: "Make sure the other boxes are not affected",
