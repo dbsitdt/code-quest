@@ -86,14 +86,14 @@ div > div {
             return checkElementAttribute(
               image,
               "src",
-              "https://dudeproducts.com/cdn/shop/articles/gigachad_1068x.jpg?v=1667928905"
+              "https://dudeproducts.com/cdn/shop/articles/gigachad_1068x.jpg"
             );
           },
           error: "Remember to set the source of the image to the link!",
         },
       ],
       instruction:
-        "Add an attribute of 'src' and set it to https://dudeproducts.com/cdn/shop/articles/gigachad_1068x.jpg?v=1667928905",
+        "Add an attribute of 'src' and set it to https://dudeproducts.com/cdn/shop/articles/gigachad_1068x.jpg",
     },
   ],
 };

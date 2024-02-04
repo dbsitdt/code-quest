@@ -18,7 +18,10 @@ export const useQuestStore = defineStore("quest", {
   },
   actions: {
     updateHtml(newCode) {
-      const safeCode = newCode.replaceAll("script", "sscript");
+      const safeCode = newCode
+        .replaceAll("script", "sscript")
+        .replaceAll("iframe", "iiframe")
+        .replaceAll("<img", `<img crossorigin="anonymous"`);
       this.htmlCode = safeCode;
     },
     updateCss(newCode) {

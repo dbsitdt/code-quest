@@ -14,7 +14,9 @@ export const useSandboxStore = defineStore("sandbox", {
     updateHtml(newCode) {
       const safeCode = newCode
         .replaceAll("script", "sscript")
-        .replaceAll("iframe", "iiframe");
+        .replaceAll("iframe", "iiframe")
+        .replaceAll("<img", `<img crossorigin="anonymous"`);
+      console.log(safeCode);
       this.htmlCode = safeCode;
     },
     updateCss(newCode) {

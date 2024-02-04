@@ -45,7 +45,15 @@ export default defineNuxtConfig({
           "https:", // For increased security, replace by the specific hosting domain or file name of your external stylesheets
           "'unsafe-inline'", // Recommended default for most Nuxt apps
         ],
-        "img-src": ["'self'", "data:"], // Add relevant https://... sources if you load images from external sources
+        "img-src": [
+          "'self'",
+          "data:",
+          "https://dudeproducts.com/cdn/shop/articles/gigachad_1068x.jpg",
+          "https://www.dbs.edu.hk/dbslogoF-B.png",
+          "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png",
+          "https://placehold.co/80",
+        ], // Add relevant https://... sources if you load images from external sources
         "font-src": ["'self'", "https:", "data:"], //  For increased security, replace by the specific sources for fonts
         "base-uri": ["'none'"],
         "object-src": ["'none'"],

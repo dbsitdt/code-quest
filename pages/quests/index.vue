@@ -97,6 +97,13 @@ const questsCat = [
       { title: "Advanced Selection 2", id: "a21" },
     ],
   },
+  {
+    categoryName: "CSS layout",
+    quests: [
+      { title: "Transform: Translate and Rotate", id: "a22" },
+      { title: "Transform: Scale and Skew", id: "a23" },
+    ],
+  },
 ];
 const maxTasks = questsCat.reduce((acc, cat) => (acc += cat.quests.length), 0);
 definePageMeta({
