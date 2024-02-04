@@ -12,12 +12,7 @@ export const useSandboxStore = defineStore("sandbox", {
   },
   actions: {
     updateHtml(newCode) {
-      const safeCode = newCode
-        .replaceAll("script", "sscript")
-        .replaceAll("iframe", "iiframe")
-        .replaceAll("<img", `<img crossorigin="anonymous"`);
-      console.log(safeCode);
-      this.htmlCode = safeCode;
+      this.htmlCode = newCode;
     },
     updateCss(newCode) {
       this.cssCode = newCode;

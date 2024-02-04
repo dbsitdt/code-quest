@@ -4,7 +4,13 @@
 <script setup>
 const props = defineProps(["code"]);
 const { code } = toRefs(props);
-
+const processedCode = computed(() =>
+  code.value
+    .replaceAll()
+    .replaceAll("<img", `<img crossorigin="anonymous"`)
+    .replaceAll("script", "sscript")
+    .replaceAll("iframe", "iiframe")
+);
 const frame = ref(null);
 defineExpose({ frame });
 const renderCode = function (code) {
@@ -12,11 +18,11 @@ const renderCode = function (code) {
   frame.value.contentDocument.writeln(code);
   frame.value.contentDocument.close();
 };
-watch(code, (newCode) => {
+watch(processedCode, (newCode) => {
   renderCode(newCode);
 });
 onMounted(() => {
-  renderCode(code.value);
+  renderCode(processedCode.value);
 });
 </script>
 <style scoped>

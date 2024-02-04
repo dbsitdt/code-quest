@@ -5,7 +5,7 @@ export default {
   disabled: { html: true, css: false },
   defaultCode: {
     htmlCode:
-      "<img src='https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png'/>",
+      "<img src='https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg'/>",
     cssCode: "",
   },
   steps: [
@@ -22,7 +22,7 @@ export default {
             const img = frame.querySelector("img");
             return (
               img.getAttribute("src") ===
-              "https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png"
+              "https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg"
             );
           },
           error: "Don't change the src of the image.",
@@ -51,7 +51,7 @@ export default {
             const img = frame.querySelector("img");
             return (
               img.getAttribute("src") ===
-              "https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png"
+              "https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg"
             );
           },
           error: "Don't change the src of the image.",
@@ -87,7 +87,7 @@ export default {
             const img = frame.querySelector("img");
             return (
               img.getAttribute("src") ===
-              "https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png"
+              "https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg"
             );
           },
           error: "Don't change the src of the image.",
