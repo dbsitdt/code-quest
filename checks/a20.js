@@ -74,7 +74,7 @@ div {
         },
       ],
       instruction:
-        "Set the <tag>h1</tag> tag with the text <tag>John Doe</tag> to have a <tag>font-size</tag> of <tag>3rem</tag> without affecting the h1 in the div or the title in footer",
+        "Set the <tag>h1</tag> tag with the text <tag>Jane Doe</tag> to have a <tag>font-size</tag> of <tag>3rem</tag> without affecting the h1 in the div or the title in footer",
     },
     {
       tests: [

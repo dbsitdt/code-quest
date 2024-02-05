@@ -88,7 +88,7 @@ img {
           error: "Follow the instructions.",
         },
       ],
-      instruction: `Skew the badge by <tag>15deg</tag> in both axes without changing other transform properties and keeping the translate from last step.`,
+      instruction: `Skew the badge by <tag>15deg</tag> in both axes using <tag>skew()</tag>without changing other transform properties and keeping the translate from last step.`,
     },
   ],
 };
