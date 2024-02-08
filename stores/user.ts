@@ -1,6 +1,18 @@
 import { acceptHMRUpdate } from "pinia";
 import { useAuthStore } from "./auth.ts";
+interface AsyncDataExecuteOptions {
+  dedupe?: "cancel" | "defer";
+}
+type AsyncDataRequestStatus = "idle" | "pending" | "success" | "error";
 
+type AsyncData<DataT, ErrorT> = {
+  data: Ref<DataT | null>;
+  pending: Ref<boolean>;
+  refresh: (opts?: AsyncDataExecuteOptions) => Promise<void>;
+  execute: (opts?: AsyncDataExecuteOptions) => Promise<void>;
+  error: Ref<ErrorT | null>;
+  status: Ref<AsyncDataRequestStatus>;
+};
 interface UserInfo {
   username: string;
   userId: string;
@@ -58,15 +70,19 @@ export const useUserStore = defineStore("user", {
       const userInfo = this.getUserInfo;
 
       try {
-        await useFetch(`/api/users/updateMe`, {
-          method: "PUT",
-          body: {
-            completedQuests: userInfo.completedQuests,
-          },
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        });
+        const updatedUser: AsyncData<any, Error> = await useFetch(
+          `/api/users/updateMe`,
+          {
+            method: "PUT",
+            body: {
+              completedQuests: userInfo.completedQuests,
+            },
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        this.setUserInfo(updatedUser.data.value.data.updatedUser);
       } catch (err) {
         // console.error(err);
         throw err;
