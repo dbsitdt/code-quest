@@ -177,8 +177,6 @@ button {
   box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
 }
 
-/* SPINER */
-
 .spinner {
   width: 25px;
   height: 25px;
