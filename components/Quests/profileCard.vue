@@ -33,9 +33,9 @@
         <p class="white">Quests Completed</p>
       </div>
     </div>
-    <button @click="downloadCard" class="button">
+    <secondaryButton class="secondary-button" @click="downloadCard">
       <img src="../../assets/Quests/share.svg" />Share
-    </button>
+    </secondaryButton>
   </div>
 </template>
 <script setup>
@@ -141,6 +141,9 @@ const downloadCard = async function () {
 };
 </script>
 <style scoped>
+.secondary-button {
+  margin-top: 1rem;
+}
 .mastery-text {
   font-size: 30px;
   font-style: normal;
@@ -218,25 +221,6 @@ const downloadCard = async function () {
   stroke-dashoffset: 0;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
-}
-
-button.button {
-  background-color: #444444;
-  color: white;
-  border-radius: 5px;
-  border: 2px solid var(--accent-main);
-  cursor: pointer;
-  font-family: "Poppins", Sans-Serif;
-  padding: 0.4rem 13px;
-  transition-duration: 300ms;
-  font-size: 18px;
-  margin-top: 1rem;
-  display: flex;
-  gap: 0.6rem;
-}
-
-button.button:hover {
-  border: 2px solid #57bbff;
 }
 
 .white {

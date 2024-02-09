@@ -4,6 +4,8 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
   components: [
+    { path: "~/components/UI", pathPrefix: false, global: true },
+
     { path: "~/components/QuestsGlobal", pathPrefix: false, global: true },
     { path: "~/components/Quests", pathPrefix: false },
     { path: "~/components/Leaderboard", pathPrefix: false },

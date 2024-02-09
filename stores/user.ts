@@ -66,6 +66,11 @@ export const useUserStore = defineStore("user", {
         return;
       }
     },
+    isCompleted(id: any) {
+      if (this.userInfo.completedQuests) {
+        return !this.userInfo.completedQuests.includes(id);
+      }
+    },
     async updateUserInfo(userId: any, token: any) {
       const userInfo = this.getUserInfo;
 

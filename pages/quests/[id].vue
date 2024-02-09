@@ -24,24 +24,24 @@
         <p v-if="error" v-html="error"></p>
         <p v-if="completedQuest">{{ completeMessage }}</p>
         <div class="buttons">
-          <quest-button v-if="!completedStep && expanded" @click="submitCode"
-            >Submit</quest-button
+          <primary-button v-if="!completedStep && expanded" @click="submitCode"
+            >Submit</primary-button
           >
 
-          <quest-button
+          <primary-button
             @click="nextStep"
             v-else-if="completedStep && !completedQuest"
-            >Next Step</quest-button
+            >Next Step</primary-button
           >
-          <quest-button
+          <primary-button
             v-if="completedQuest && expanded && !lastInCat"
             @click="nextQuest"
-            >Next Quest</quest-button
+            >Next Quest</primary-button
           >
-          <quest-button
+          <primary-button
             v-else-if="completedQuest && expanded && lastInCat"
             @click="backToQuests"
-            >All Quests</quest-button
+            >All Quests</primary-button
           >
         </div>
         <div class="controls">
@@ -86,9 +86,18 @@
     <audio ref="successAudio">
       <source src="../../assets/audio/success.mp3" />
     </audio>
+    <QuestCompletedModal
+      :title="title"
+      :completedQuest="completedQuest"
+      :completedQuestNumber="userStore.userInfo.completedQuests?.length"
+      :firstTime="firstTime"
+      :questId="questId"
+      :lastInCat="lastInCat"
+    ></QuestCompletedModal>
   </div>
 </template>
 <script lang="ts" setup>
+// Perhaps PASS IN WITH PROPS TODO
 import sanitizeHtml from "sanitize-html";
 import htmlIDE from "../../components/QuestsGlobal/htmlIDE.vue";
 import cssIDE from "../../components/QuestsGlobal/cssIDE.vue";
@@ -97,7 +106,7 @@ import { useQuestStore } from "../../stores/quest.js";
 import confetti from "canvas-confetti";
 import { useUserStore } from "../../stores/user.ts";
 const userStore = useUserStore();
-
+// BUG ADD SANITIZE HTML
 const route = useRoute();
 const questId = route.params.id;
 try {
@@ -114,6 +123,7 @@ const { defaultCode, steps, title, category, disabled } = questInfo;
 const htmlDisabled = ref(disabled.html);
 const cssDisabled = ref(disabled.css);
 const lastInCat = questInfo?.lastInCat;
+const firstTime = userStore.isCompleted(questId);
 // console.log(steps[0].instruction);
 const step = ref(1);
 const currentStep = computed(() => steps[step.value - 1]);
@@ -370,6 +380,7 @@ canvas {
   text-decoration: underline;
   cursor: pointer;
 } */
+
 @media (max-width: 800px) {
   .quest-container {
     flex-direction: column;
