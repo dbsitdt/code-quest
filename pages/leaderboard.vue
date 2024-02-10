@@ -56,7 +56,8 @@ try {
         return 0;
       }
     });
-  let placeIndex = 0;
+  let placeIndex = 0,
+    storedUp = 0;
   const rankedPeople = sortedPeople.map((person, index) => {
     if (
       index > 0 &&
@@ -65,10 +66,15 @@ try {
     ) {
       person.place = sortedPeople[index - 1].place;
       placeIndex = sortedPeople[index - 1].place;
+      if (person.place > 3) storedUp++;
     } else {
-      person.place = placeIndex + 1;
-      placeIndex++;
+      person.place = placeIndex + storedUp + 1;
+      storedUp = 0;
+
+      placeIndex = person.place;
     }
+    // console.log(person.place, index, placeIndex, storedUp);
+
     return person;
   });
   const cutOff = rankedPeople.findIndex((person) => person.place > 20);
