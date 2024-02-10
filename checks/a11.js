@@ -7,6 +7,18 @@ export default {
     htmlCode: "<h1>Hi!</h1>",
     cssCode: "",
   },
+  description:
+    "As your first step into CSS, you will learn how to use CSS to change the color of text.",
+  links: [
+    {
+      name: "MDN CSS syntax",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax",
+    },
+    {
+      name: "MDN color property",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/color",
+    },
+  ],
   steps: [
     {
       tests: [

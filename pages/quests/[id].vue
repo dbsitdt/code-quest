@@ -86,6 +86,13 @@
     <audio ref="successAudio">
       <source src="../../assets/audio/success.mp3" />
     </audio>
+    <startModal
+      :show="isStartModalOpen"
+      :questInfo="questBasicInfo"
+      :isFirstTime="isFirstTime"
+      @closeModal="closeStartModal"
+    ></startModal>
+
     <QuestCompletedModal
       :title="title"
       :completedQuest="completedQuest"
@@ -94,6 +101,9 @@
       :questId="questId"
       :lastInCat="lastInCat"
     ></QuestCompletedModal>
+    <secondaryButton class="links-button" @click="openStartModal"
+      >Show intro</secondaryButton
+    >
   </div>
 </template>
 <script lang="ts" setup>
@@ -119,7 +129,25 @@ try {
   });
 }
 const { default: questInfo } = await import(`../../checks/${questId}.js`);
-const { defaultCode, steps, title, category, disabled } = questInfo;
+const {
+  defaultCode,
+  steps,
+  title,
+  category,
+  disabled,
+  description,
+  concepts,
+  links,
+} = questInfo;
+const questBasicInfo = computed(() => {
+  return {
+    title,
+    category,
+    description,
+    concepts,
+    links,
+  };
+});
 const htmlDisabled = ref(disabled.html);
 const cssDisabled = ref(disabled.css);
 const lastInCat = questInfo?.lastInCat;
@@ -256,6 +284,15 @@ const instructionStyles = computed(function (): CSSProperties {
   };
 });
 
+const isStartModalOpen = ref(true);
+const isFirstTime = ref(true);
+const closeStartModal = function () {
+  isStartModalOpen.value = false;
+  if (isFirstTime.value) isFirstTime.value = false;
+};
+const openStartModal = function () {
+  isStartModalOpen.value = true;
+};
 definePageMeta({
   layout: "quests",
   middleware: ["auth-page", "load-quest"],
@@ -267,6 +304,13 @@ useHead({
 <style scoped>
 .instructionTitle {
   font-size: 18px;
+}
+.links-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  color: black;
+  background: rgba(224, 224, 224, 0.418);
 }
 .height-control {
   font-size: 0.9rem;

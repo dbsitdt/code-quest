@@ -65,7 +65,7 @@ export default defineNuxtConfig({
     },
     sri: true,
     rateLimiter: {
-      tokensPerInterval: 100,
+      tokensPerInterval: 300,
       interval: 60 * 60 * 1000,
       headers: true,
     },

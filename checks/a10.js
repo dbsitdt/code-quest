@@ -15,6 +15,18 @@ export default {
       "<h1>Sign up to ITDT!</h1>\n<form>\n  <input type='radio' id='web' name='stream'>\n  <label>Web</label>\n  <input type='radio' id='app' name='stream'>\n  <label>App</label>\n</form>",
     cssCode: "/* Nothing to see here :) */",
   },
+  description:
+    "In this exercise you will learn how to use radio buttons as inputs.",
+  links: [
+    {
+      name: "MDN form element",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form",
+    },
+    {
+      name: "MDN input element",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input",
+    },
+  ],
   steps: [
     {
       tests: [

@@ -4,6 +4,22 @@ export default {
   category: "CSS Selectors",
   disabled: { html: true, css: false },
   lastInCat: true,
+  description:
+    "Sometimes we need to select elements very precisely in various sections. Let's see how we can do that.",
+  links: [
+    {
+      name: "W3Schools CSS selectors",
+      url: "https://www.w3schools.com/cssref/css_selectors.php",
+    },
+    {
+      name: "MDN nth-of-type pseudo selector",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-of-type",
+    },
+    {
+      name: "MDN not pseudo selector",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:not",
+    },
+  ],
   defaultCode: {
     htmlCode: `<div>
   <div class="box">1</div>

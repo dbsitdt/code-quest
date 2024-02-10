@@ -8,6 +8,14 @@ export default {
       "<h1>Shopping List</h1>\n<ul>\n   <li>Lettuce</li>\n  <li>Tomato</li>\n</ul>",
     cssCode: "",
   },
+  description:
+    "There are many ways to spice up a list aside from the basic bullet points. We now try some of them.",
+  links: [
+    {
+      name: "MDN list-style property",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/list-style",
+    },
+  ],
   steps: [
     {
       tests: [

@@ -7,7 +7,13 @@ export default {
   title: "Adding images",
   category: "Basic HTML",
   disabled: { html: false, css: true },
-
+  description: "You will learn how to add images in this exercise.",
+  links: [
+    {
+      name: "MDN img element",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
+    },
+  ],
   defaultCode: {
     htmlCode: `<div>
   <h1>John Doe</h1>

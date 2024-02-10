@@ -8,7 +8,18 @@ export default {
   title: "Text Input",
   category: "Working with forms",
   disabled: { html: false, css: true },
-
+  description:
+    "In this exercise you will learn how to add text inputs into a form to accept user input.",
+  links: [
+    {
+      name: "MDN form element",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form",
+    },
+    {
+      name: "MDN input element",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input",
+    },
+  ],
   defaultCode: {
     htmlCode: "<h1>Sign up to ITDT!</h1>",
     cssCode: "/* Nothing to see here :) */",

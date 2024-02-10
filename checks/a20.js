@@ -3,6 +3,14 @@ export default {
   title: "Advanced Selection 1",
   category: "CSS Selectors",
   disabled: { html: true, css: false },
+  description:
+    "After learning about the two basic ways of selecting elements in CSS, we can move on to more advanced CSS selectors.",
+  links: [
+    {
+      name: "W3Schools CSS selectors",
+      url: "https://www.w3schools.com/cssref/css_selectors.php",
+    },
+  ],
   defaultCode: {
     htmlCode: `<section>
   <h1 class='title'>Jane Doe</h1>

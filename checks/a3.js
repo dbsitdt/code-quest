@@ -7,7 +7,13 @@ export default {
   title: "Basic layout",
   category: "Basic HTML",
   disabled: { html: false, css: true },
-
+  description: "In this exercise, you will create a basic HTML layout.",
+  links: [
+    {
+      name: "W3Schools Basic HTML",
+      url: "https://www.w3schools.com/html/html_basic.asp",
+    },
+  ],
   defaultCode: {
     htmlCode: "<div>\n<!--Write code here-->\n</div>",
     cssCode:

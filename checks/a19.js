@@ -3,6 +3,14 @@ export default {
   title: "ID",
   category: "CSS Selectors",
   disabled: { html: false, css: false },
+  description:
+    "IDs are another way for you to identify and select an element. ",
+  links: [
+    {
+      name: "W3Schools CSS selectors",
+      url: "https://www.w3schools.com/cssref/css_selectors.php",
+    },
+  ],
   defaultCode: {
     htmlCode: `<section>
   <h2 id='hero-title'>Jane Doe</h2>

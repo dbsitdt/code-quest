@@ -8,6 +8,14 @@ export default {
       "<div class='box red'></div>\n<section class='box blue'></section>\n<div class='box green'></div>",
     cssCode: ``,
   },
+  description:
+    "CSS selectors allow us to select the correct elements to put styles on. We can now learn some more advanced selectors for more precise and advanced styling.",
+  links: [
+    {
+      name: "W3Schools CSS selectors",
+      url: "https://www.w3schools.com/cssref/css_selectors.php",
+    },
+  ],
   steps: [
     {
       tests: [

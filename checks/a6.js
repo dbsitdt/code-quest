@@ -7,7 +7,14 @@ export default {
   title: "Ordered Lists",
   category: "Basic HTML",
   disabled: { html: false, css: true },
-
+  description:
+    "In this exercise you will learn how to make an ordered list and use list items.",
+  links: [
+    {
+      name: "MDN ol element",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol",
+    },
+  ],
   defaultCode: {
     htmlCode: "<h1>Instructions</h1>",
     cssCode: "/* Nothing to see here :) */",

@@ -4,6 +4,22 @@ export default {
   category: "CSS layout",
   disabled: { html: true, css: false },
   lastInCat: true,
+  description:
+    "Two other common methods of transform is scale and skew. Let's see how they work.",
+  links: [
+    {
+      name: "MDN transform property",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/transform",
+    },
+    {
+      name: "MDN scale function",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale",
+    },
+    {
+      name: "MDN skew function",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew",
+    },
+  ],
   defaultCode: {
     htmlCode: `<div class="badge">\n  <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg" />\n</div>`,
     cssCode: `.badge {

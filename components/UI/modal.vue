@@ -27,7 +27,7 @@ const { show } = toRefs(props);
 }
 .modal-enter-from {
   opacity: 0;
-  transform: translate(-50%, -80%);
+  transform: translate(-50%, -60%);
 }
 .modal-enter-active,
 .modal-leave-active {
@@ -40,7 +40,7 @@ const { show } = toRefs(props);
 }
 .modal-leave-to {
   opacity: 0;
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -40%);
 }
 dialog {
   width: clamp(500px, 50%, 870px);

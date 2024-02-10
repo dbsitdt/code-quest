@@ -7,7 +7,14 @@ export default {
   title: "Using anchor tags for links",
   category: "Basic HTML",
   disabled: { html: false, css: true },
-
+  description:
+    "In this exercise you will learn how to use anchor elements by building a rickroll hyperlink.",
+  links: [
+    {
+      name: "MDN anchor element",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a",
+    },
+  ],
   defaultCode: {
     htmlCode: "<p>Click here for RICKROLL!</p>",
     cssCode: "/* Nothing to see here :) */",

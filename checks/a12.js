@@ -8,6 +8,18 @@ export default {
       "<a href='https://dbsitdt.netlify.app' target='_blank'>ITDT Website</a>",
     cssCode: "",
   },
+  description:
+    "Default HTML elements have defualt styling. We can now use CSS to change it up and make things pretty.",
+  links: [
+    {
+      name: "MDN background-color property",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/background-color",
+    },
+    {
+      name: "MDN cursor property",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/cursor",
+    },
+  ],
   steps: [
     {
       tests: [

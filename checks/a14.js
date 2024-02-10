@@ -9,6 +9,18 @@ export default {
     cssCode:
       "div {\n  background: lightgray;\n}\n/*Hint: CSS is cascading i.e. styles that you apply later override those before*/",
   },
+  description:
+    "Padding and Margin is crucial for making web elements look good. We now explore the differences between them and how they play into the CSS box model.",
+  links: [
+    {
+      name: "MDN CSS box model",
+      url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model",
+    },
+    {
+      name: "WDS CSS box model short",
+      url: "https://www.youtube.com/watch?v=f9nNfogKzmI",
+    },
+  ],
   steps: [
     {
       tests: [

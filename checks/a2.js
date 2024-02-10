@@ -7,6 +7,13 @@ export default {
   title: "Adding tags",
   category: "Basic HTML",
   disabled: { html: false, css: true },
+  links: [
+    {
+      name: "W3Schools Basic HTML",
+      url: "https://www.w3schools.com/html/html_basic.asp",
+    },
+  ],
+  description: "You learn how to create your own tags in this exercise.",
 
   defaultCode: {
     htmlCode:

@@ -8,6 +8,14 @@ export default {
       "<img src='https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg'/>",
     cssCode: "",
   },
+  description:
+    "There are a lot of things you can do with images in CSS. We can learn some basic techniques to change how they look.",
+  links: [
+    {
+      name: "MDN width property",
+      url: "https://developer.mozilla.org/zh-TW/docs/Web/CSS/width",
+    },
+  ],
   steps: [
     {
       tests: [

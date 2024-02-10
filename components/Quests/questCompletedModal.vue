@@ -111,7 +111,7 @@ div.modal-container {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: start;
+  align-items: flex-start;
 }
 .button-container {
   margin-top: 2vh;

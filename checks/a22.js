@@ -3,6 +3,18 @@ export default {
   title: "Transform: Translate and Rotate",
   category: "CSS layout",
   disabled: { html: true, css: false },
+  description:
+    "An easy way to layout elements and move elements around is using the transform property. We now check out how to translate and rotate elements around.",
+  links: [
+    {
+      name: "MDN transform property",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/transform",
+    },
+    {
+      name: "MDN rotate function",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate",
+    },
+  ],
   defaultCode: {
     htmlCode: `<div class="box">
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut \nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor \nin reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

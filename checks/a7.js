@@ -8,7 +8,13 @@ export default {
   category: "Basic HTML",
   lastInCat: true,
   disabled: { html: false, css: true },
-
+  description: "In this exercise you will learn how to make an unordered list.",
+  links: [
+    {
+      name: "MDN ul element",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul",
+    },
+  ],
   defaultCode: {
     htmlCode: "<h1>Shopping List</h1>",
     cssCode: "/* Nothing to see here :) */",

@@ -24,6 +24,18 @@ img {
   border-radius: 30px;
 }`,
   },
+  description:
+    "Box-shadows can offer interesting effects to a modern website when done correctly. Let's learn how to use them.",
+  links: [
+    {
+      name: "MDN box-shadow property",
+      url: "https://developer.mozilla.org/zh-TW/docs/Web/CSS/box-shadow",
+    },
+    {
+      name: "Box Shadow CSS Generator",
+      url: "https://cssgenerator.org/box-shadow-css-generator.html",
+    },
+  ],
   steps: [
     {
       tests: [

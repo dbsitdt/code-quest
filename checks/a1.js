@@ -2,7 +2,14 @@ export default {
   title: "Changing Tag Content",
   category: "Basic HTML",
   disabled: { html: false, css: true },
-
+  links: [
+    {
+      name: "W3Schools Basic HTML",
+      url: "https://www.w3schools.com/html/html_basic.asp",
+    },
+  ],
+  description:
+    "This exercise is the start to understanding the basic structure of HTML.",
   defaultCode: {
     htmlCode: "<h1>Hi!</h1>",
     cssCode: "",

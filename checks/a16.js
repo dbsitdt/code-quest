@@ -1,6 +1,6 @@
 import { checkElementProperty, isElementChildOf } from "../utils/domHelpers";
 export default {
-  title: "Text font styles",
+  title: "Styled Layout",
   category: "Basic CSS",
   disabled: { html: true, css: false },
   defaultCode: {
@@ -9,6 +9,13 @@ export default {
     cssCode:
       "div {\n  background: dodgerBlue;\n  padding: 1rem;\n  width: 300px;\n}",
   },
+  description: "With our newfound CSS skills, let's improve a layout.",
+  links: [
+    {
+      name: "MDN font property",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/font",
+    },
+  ],
   steps: [
     {
       tests: [
