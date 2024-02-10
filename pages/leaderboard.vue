@@ -77,8 +77,14 @@ try {
 
     return person;
   });
+  console.log(rankedPeople);
   const cutOff = rankedPeople.findIndex((person) => person.place > 20);
-  userList = rankedPeople.slice(0, cutOff == -1 ? rankedPeople.length : cutOff);
+  console.log(cutOff);
+  userList = rankedPeople.slice(
+    0,
+    cutOff === -1 ? rankedPeople.length : cutOff
+  );
+  console.log(userList);
 } catch (err) {
   console.error(err);
   error.value = true;
