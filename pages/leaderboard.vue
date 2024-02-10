@@ -42,6 +42,7 @@ try {
     },
   });
   if (users.length === 0) {
+    console.log("Empty bro");
     error.value = true;
     throw new Error(`Error in fetching leaderboard!`);
   }
@@ -73,11 +74,13 @@ try {
 
       placeIndex = person.place;
     }
-    // console.log(person.place, index, placeIndex, storedUp);
+    console.log(person.place, index, placeIndex, storedUp);
 
     return person;
   });
-  const cutOff = rankedPeople.findIndex((person) => person?.place > 20);
+  console.log(rankedPeople);
+  const cutOff = rankedPeople.findIndex((person) => person.place > 20);
+  console.log(cutOff);
   userList = rankedPeople.slice(
     0,
     cutOff === -1 ? rankedPeople.length : cutOff
