@@ -11,7 +11,6 @@ export default defineEventHandler(async (event: any) => {
   const { email, password } = body;
   const user: any = await User.findOne({ email }).select("+password");
   if (!user || !(await user.correctPassword(password, user.password))) {
-    console.log("WROMG");
     return createAppError("Incorrect email or password", 401, event);
   }
   const { jwtSecret, jwtExpiresIn } = useRuntimeConfig();

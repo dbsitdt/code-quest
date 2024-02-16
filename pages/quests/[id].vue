@@ -164,10 +164,58 @@ const currentInstruction = computed(() => {
   return instruction;
 });
 const store = useQuestStore();
-store.updateHtml(defaultCode.htmlCode);
+store.updateHtml(
+  sanitizeHtml(defaultCode.htmlCode, {
+    allowedClasses: {
+      "*": ["*"],
+    },
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+      "img",
+      "input",
+      "label",
+      "form",
+    ]),
+    allowedAttributes: {
+      img: [
+        "src",
+        "srcset",
+        "alt",
+        "title",
+        "width",
+        "height",
+        "loading",
+        "crossorigin",
+      ],
+    },
+  })
+);
 store.updateCss(defaultCode.cssCode);
 
-const htmlCode = computed(() => store.htmlCode);
+const htmlCode = computed(() =>
+  sanitizeHtml(store.htmlCode, {
+    allowedClasses: {
+      "*": ["*"],
+    },
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+      "img",
+      "input",
+      "label",
+      "form",
+    ]),
+    allowedAttributes: {
+      img: [
+        "src",
+        "srcset",
+        "alt",
+        "title",
+        "width",
+        "height",
+        "loading",
+        "crossorigin",
+      ],
+    },
+  })
+);
 const cssCode = computed(() => store.cssCode);
 
 const htmlIdeActive = ref(true);
