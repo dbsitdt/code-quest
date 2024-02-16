@@ -8,6 +8,7 @@ button {
   border-radius: 5px;
   border: 2px solid var(--accent-main);
   cursor: pointer;
+  font-family: "Poppins", sans-serif;
   padding: 0.4rem 1rem;
   transition-duration: 200ms;
   font-size: 16px;

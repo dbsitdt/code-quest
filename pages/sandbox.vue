@@ -110,6 +110,7 @@ useHead({
   flex-direction: column;
   overflow-y: auto;
 }
+
 .right-col {
   width: 62.5%;
   height: 89vh;

@@ -74,8 +74,6 @@ try {
 
       placeIndex = person.place;
     }
-    console.log(person.place, index, placeIndex, storedUp);
-
     return person;
   });
   const cutOff = rankedPeople.findIndex((person) => person.place > 20);
@@ -100,7 +98,7 @@ useHead({
   background-color: var(--bg-dark);
 }
 .user-board:nth-of-type(even) {
-  background-color: #191b1e;
+  background-color: var(--bg-ligher);
 }
 .leaderboard-container {
   padding: 3vh 5vw;

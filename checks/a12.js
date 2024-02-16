@@ -9,7 +9,7 @@ export default {
     cssCode: "",
   },
   description:
-    "Default HTML elements have defualt styling. We can now use CSS to change it up and make things pretty.",
+    "Default HTML elements have default styling. We can now use CSS to change it up and make things pretty.",
   links: [
     {
       name: "MDN background-color property",

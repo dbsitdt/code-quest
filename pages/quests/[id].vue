@@ -378,6 +378,7 @@ useHead({
 .ide {
   flex: 30;
 }
+
 canvas {
   position: fixed;
   width: 100%;

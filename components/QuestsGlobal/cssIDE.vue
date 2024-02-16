@@ -24,7 +24,7 @@ export default defineComponent({
   components: {
     Codemirror,
   },
-  props: ["defaultCode", "disabled"],
+  props: ["defaultCode", "disabled", "sandbox"],
   setup(props, context) {
     const code = ref(`${props.defaultCode ? props.defaultCode : ""}`);
     const disabled = ref(props.disabled);
@@ -59,9 +59,14 @@ export default defineComponent({
 <style>
 .cm-editor {
   text-align: left;
-  height: 60vh;
+  height: 63vh;
 }
 .cm-scroller {
   overflow: auto;
+}
+@media (max-width: 800px) {
+  .cm-editor {
+    height: auto;
+  }
 }
 </style>

@@ -3,6 +3,7 @@
   --accent-main: #278bff;
   --accent-dark: #062b56;
   --bg-dark: #1e2121;
+  --bg-ligher: #1a1c1f;
   --bg-light: #3b3d42;
   --bg-dark-light: #2a2d32;
   --btn-dark: #00070f;
@@ -12,11 +13,14 @@
 }
 .autumn {
   --bg-dark-blue: #241f15;
-  --accent-main: #d89e22;
+  --accent-main: #c9972d;
   --accent-dark: #563606;
-  --bg-dark: #21201e;
+  --bg-dark: hsl(40, 5%, 12%);
+  --bg-ligher: hsl(40, 9%, 11%);
   --bg-light: #42403b;
   --bg-dark-light: #322f2a;
   --btn-dark: #0f0a00;
   --btn-dark-active: rgb(78, 55, 5);
+  --btn-light: hsl(41, 73%, 49%);
+  --btn-light-active: hsl(41, 68%, 40%);
 }

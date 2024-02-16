@@ -60,6 +60,7 @@ export default defineComponent({
 <style scoped>
 .cm-editor {
   text-align: left;
+  height: 100%;
 }
 .cm-scroller {
   overflow: auto;
