@@ -3,6 +3,8 @@ export default {
   title: "Position absolute",
   category: "CSS layout",
   disabled: { html: true, css: false },
+  lastInCat: true,
+
   description:
     "Another positioning method is absolute. It is special and less intuitive than position relative so be sure to read the useful links.",
   links: [

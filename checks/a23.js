@@ -3,7 +3,6 @@ export default {
   title: "Transform: Scale and Skew",
   category: "CSS layout",
   disabled: { html: true, css: false },
-  lastInCat: true,
   description:
     "Two other common methods of transform is scale and skew. Let's see how they work.",
   links: [

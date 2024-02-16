@@ -4,7 +4,7 @@ export default {
   category: "CSS layout",
   disabled: { html: true, css: false },
   description:
-    "Another way to move elements is using the posiiton property. There are many usecases for position so let's first delve into relative, the simplest one first.",
+    "Another way to move elements is using the position property. There are many usecases for position so let's first delve into relative, the simplest one first.",
   links: [
     {
       name: "MDN positioning guide",
