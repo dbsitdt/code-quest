@@ -177,6 +177,7 @@ const santizeHtmlOptions = {
   ]),
   allowedAttributes: {
     "*": ["id"],
+    input: ["*"],
     img: [
       "src",
       "srcset",
