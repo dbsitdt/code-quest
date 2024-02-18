@@ -104,6 +104,8 @@ const questsCat = [
       { title: "Transform: Scale and Skew", id: "a23" },
       { title: "Position relative", id: "a24" },
       { title: "Position absolute", id: "a25" },
+      { title: "Position fixed", id: "a26" },
+      { title: "Layering with z-index", id: "a27" },
     ],
   },
 ];

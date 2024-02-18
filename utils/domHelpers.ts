@@ -65,3 +65,12 @@ export const checkElementProperty = function (
   // console.log(obtainedStyle, value);
   return obtainedStyle === value;
 };
+export const getElementProperty = function (
+  element: HTMLElement,
+  property: string
+) {
+  const style: any = getComputedStyle(element);
+  const obtainedStyle = style[property];
+  // console.log(obtainedStyle, value);
+  return obtainedStyle;
+};

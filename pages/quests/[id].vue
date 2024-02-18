@@ -164,57 +164,35 @@ const currentInstruction = computed(() => {
   return instruction;
 });
 const store = useQuestStore();
-store.updateHtml(
-  sanitizeHtml(defaultCode.htmlCode, {
-    allowedClasses: {
-      "*": ["*"],
-    },
-    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
-      "img",
-      "input",
-      "label",
-      "form",
-    ]),
-    allowedAttributes: {
-      img: [
-        "src",
-        "srcset",
-        "alt",
-        "title",
-        "width",
-        "height",
-        "loading",
-        "crossorigin",
-      ],
-    },
-  })
-);
+const santizeHtmlOptions = {
+  allowedClasses: {
+    "*": ["*"],
+  },
+  allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+    "img",
+    "input",
+    "label",
+    "form",
+    "button",
+  ]),
+  allowedAttributes: {
+    img: [
+      "src",
+      "srcset",
+      "alt",
+      "title",
+      "width",
+      "height",
+      "loading",
+      "crossorigin",
+    ],
+  },
+};
+store.updateHtml(sanitizeHtml(defaultCode.htmlCode, santizeHtmlOptions));
 store.updateCss(defaultCode.cssCode);
 
 const htmlCode = computed(() =>
-  sanitizeHtml(store.htmlCode, {
-    allowedClasses: {
-      "*": ["*"],
-    },
-    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
-      "img",
-      "input",
-      "label",
-      "form",
-    ]),
-    allowedAttributes: {
-      img: [
-        "src",
-        "srcset",
-        "alt",
-        "title",
-        "width",
-        "height",
-        "loading",
-        "crossorigin",
-      ],
-    },
-  })
+  sanitizeHtml(store.htmlCode, santizeHtmlOptions)
 );
 const cssCode = computed(() => store.cssCode);
 
