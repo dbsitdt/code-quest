@@ -24,3 +24,12 @@
   --btn-light: hsl(41, 73%, 49%);
   --btn-light-active: hsl(41, 68%, 40%);
 }
+.ocean {
+  --accent-main: #22bad8;
+  --accent-dark: #064956;
+  --bg-dark: #1d2020;
+  --bg-light: #3c4244;
+  --bg-dark-light: #2a3132;
+  --btn-dark: #000d0f;
+  --btn-dark-active: #05414d;
+}

@@ -34,7 +34,7 @@ export default defineEventHandler(async (event: any) => {
         new: true,
         runValidators: true,
       }
-    );
+    ); // BUG pls add quests
     setResponseStatus(event, 200);
     return {
       status: "success",
