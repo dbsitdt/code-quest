@@ -169,8 +169,8 @@ div.container {
             const popup = frame.querySelector(".popup");
             const overlay = frame.querySelector(".overlay");
             return (
-              getElementProperty(popup, "z-index") >
-              getElementProperty(overlay, "z-index")
+              Number(getElementProperty(popup, "z-index")) >
+              Number(getElementProperty(overlay, "z-index"))
             );
           },
           error: "Follow the instructions.",
