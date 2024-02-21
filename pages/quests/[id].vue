@@ -174,10 +174,12 @@ const santizeHtmlOptions = {
     "label",
     "form",
     "button",
+    "a",
   ]),
   allowedAttributes: {
     "*": ["id"],
     input: ["*"],
+    a: ["href", "name", "target"],
     img: [
       "src",
       "srcset",
