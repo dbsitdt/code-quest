@@ -3,7 +3,6 @@ export default {
   title: "Layering with z-index",
   category: "CSS layout",
   disabled: { html: true, css: false },
-  lastInCat: true,
 
   description:
     "z-index is a useful property that allows us to layer elements atop of each other in acontrolled manner.",

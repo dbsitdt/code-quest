@@ -106,6 +106,9 @@ const questsCat = [
       { title: "Position absolute", id: "a25" },
       { title: "Position fixed", id: "a26" },
       { title: "Layering with z-index", id: "a27" },
+      { title: "Display Flex", id: "a28" },
+      { title: "Justify and Align", id: "a29" },
+      { title: "Flexbox: Basic Navigation bar", id: "a30" },
     ],
   },
 ];

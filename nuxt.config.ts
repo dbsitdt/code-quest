@@ -52,7 +52,7 @@ export default defineNuxtConfig({
           "data:",
           "https://dudeproducts.com/cdn/shop/articles/gigachad_1068x.jpg",
           "https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg",
-          "https://placehold.co/80",
+          "https://placehold.co",
         ], // Add relevant https://... sources if you load images from external sources
         "font-src": ["'self'", "https:", "data:"], //  For increased security, replace by the specific sources for fonts
         "base-uri": ["'none'"],
