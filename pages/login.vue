@@ -34,7 +34,7 @@
               />
             </div>
           </div>
-          <!--megz file-->
+          <div class="new-container">placeholder</div>
           <button type="submit" form="login-form" class="submit-form-btn">
             <div v-if="isLoading" class="wrap">
               <div class="spinner"></div>
@@ -98,6 +98,9 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+.new-container {
+  display: none;
 }
 label {
   display: block;
