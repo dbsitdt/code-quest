@@ -34,6 +34,7 @@
               />
             </div>
           </div>
+          <!--megz file-->
           <button type="submit" form="login-form" class="submit-form-btn">
             <div v-if="isLoading" class="wrap">
               <div class="spinner"></div>
@@ -76,6 +77,10 @@ const submitCred = async function () {
     isLoading.value = false;
   }
 };
+const key = useCookie("key");
+if (!key.value) {
+  key.value = "This is a key";
+}
 definePageMeta({
   layout: "login",
   middleware: ["unauth-page"],
