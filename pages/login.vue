@@ -34,7 +34,9 @@
               />
             </div>
           </div>
-          <div class="new-container">placeholder</div>
+          <div class="itc24-container">
+            https://mega.nz/file/EKtxXQ7a#nmas0LLAd0iNiv0LLyTG0K3TGdyME05PvtkW6wEsUL8
+          </div>
           <button type="submit" form="login-form" class="submit-form-btn">
             <div v-if="isLoading" class="wrap">
               <div class="spinner"></div>
@@ -77,9 +79,9 @@ const submitCred = async function () {
     isLoading.value = false;
   }
 };
-const key = useCookie("key");
-if (!key.value) {
-  key.value = "This is a key";
+const pwd = useCookie("pwd");
+if (!pwd.value) {
+  pwd.value = "itdtIsTheBest!";
 }
 definePageMeta({
   layout: "login",
@@ -99,7 +101,7 @@ a {
   display: flex;
   flex-direction: column;
 }
-.new-container {
+.itc24-container {
   display: none;
 }
 label {
