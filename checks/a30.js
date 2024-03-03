@@ -150,7 +150,7 @@ nav {
         {
           testFunc: (frame) => {
             const navLinks = frame.querySelector(".nav-links");
-            return checkElementProperty(navLinks, "gap", "16px");
+            return checkElementProperty(navLinks, "row-gap", "16px");
           },
           error: "Follow the instructions.",
         },

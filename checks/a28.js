@@ -99,7 +99,7 @@ export default {
         {
           testFunc: (frame) => {
             const container = frame.querySelector(".container");
-            return checkElementProperty(container, "gap", "16px");
+            return checkElementProperty(container, "row-gap", "16px");
           },
           error: "Follow the instructions",
         },
@@ -140,8 +140,8 @@ export default {
       tests: [
         {
           testFunc: (frame) => {
-            const container = frame.querySelector(".container");
-            return !!container;
+            const card = frame.querySelectorAll(".card");
+            return card.length === 3;
           },
           error: "Don't touch the html!",
         },
@@ -160,7 +160,7 @@ export default {
         {
           testFunc: (frame) => {
             const card = frame.querySelector(".card");
-            return checkElementProperty(card, "display", "flex");
+            return checkElementProperty(card, "column-gap", "10px");
           },
           error: "Follow the instructions.",
         },
