@@ -3,7 +3,6 @@ export default {
   title: "Flexbox: Basic Navigation bar",
   category: "CSS layout",
   disabled: { html: true, css: false },
-  lastInCat: true,
   description:
     "A navigation bar, nav for short, is a common component of most modern websites. Let's learn how to create one in flexbox.",
   links: [

@@ -119,16 +119,20 @@ export default {
 
         {
           testFunc: (frame) => {
-            const card = frame.querySelector(".card");
-            return checkElementProperty(card, "display", "flex");
+            const cards = frame.querySelectorAll(".card");
+            return Array.from(cards).every((card) =>
+              checkElementProperty(card, "display", "flex")
+            );
           },
           error:
             "Set <tag>display</tag> of each <tag>.card</tag> to <tag>flex</tag>",
         },
         {
           testFunc: (frame) => {
-            const card = frame.querySelector(".card");
-            return checkElementProperty(card, "flex-direction", "column");
+            const cards = frame.querySelectorAll(".card");
+            return Array.from(cards).every((card) =>
+              checkElementProperty(card, "flex-direction", "column")
+            );
           },
           error: "Make sure the h3 and p are vertically placed.",
         },
@@ -147,20 +151,23 @@ export default {
         },
         {
           testFunc: (frame) => {
-            const card = frame.querySelector(".card");
-            return (
-              checkElementProperty(card, "display", "flex") &&
-              checkElementProperty(card, "flex-direction", "column")
+            const cards = frame.querySelectorAll(".card");
+            return Array.from(cards).every(
+              (card) =>
+                checkElementProperty(card, "display", "flex") &&
+                checkElementProperty(card, "flex-direction", "column")
             );
           },
           error:
-            "Make sure the <tag>.article</tag> still is a flex container and is vertical.",
+            "Make sure the <tag>.card</tag> still is a flex container and is vertical.",
         },
 
         {
           testFunc: (frame) => {
-            const card = frame.querySelector(".card");
-            return checkElementProperty(card, "column-gap", "10px");
+            const cards = frame.querySelectorAll(".card");
+            return Array.from(cards).every((card) =>
+              checkElementProperty(card, "column-gap", "10px")
+            );
           },
           error: "Follow the instructions.",
         },

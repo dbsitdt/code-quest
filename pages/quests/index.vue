@@ -109,6 +109,7 @@ const questsCat = [
       { title: "Display Flex", id: "a28" },
       { title: "Justify and Align", id: "a29" },
       { title: "Flexbox: Basic Navigation bar", id: "a30" },
+      { title: "Flex and Order", id: "a31" },
     ],
   },
 ];
