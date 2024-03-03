@@ -156,7 +156,7 @@ nav {
         },
       ],
       instruction:
-        "Add a gap of 1rem between each <tag>li</tag> in <tag>.nav-link</tag>",
+        "Add a gap of 1rem between each <tag>li</tag> in <tag>.nav-links</tag>",
     },
     {
       tests: [
@@ -184,7 +184,7 @@ nav {
         },
       ],
       instruction:
-        "Align <tag>.logo</tag> and the <tag>.nav-link</tag> vertically in the <tag>nav</tag>",
+        "Align <tag>.logo</tag> and the <tag>.nav-links</tag> vertically in the <tag>nav</tag>",
     },
   ],
 };
