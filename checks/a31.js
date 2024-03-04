@@ -11,6 +11,14 @@ export default {
       name: "MDN Flexbox",
       url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox",
     },
+    {
+      name: "MDN flex property",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/flex",
+    },
+    {
+      name: "MDN order property",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/order",
+    },
   ],
   defaultCode: {
     htmlCode: `<div class="container">

@@ -100,17 +100,10 @@ export default {
         {
           testFunc: (frame) => {
             const ul = frame.querySelector("ul");
-            return (
-              checkElementProperty(
-                ul,
-                "list-style-image",
-                'url("https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg")'
-              ) ||
-              checkElementProperty(
-                ul,
-                "list-style-image",
-                "url('https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg')"
-              )
+            return checkElementProperty(
+              ul,
+              "list-style-image",
+              'url("https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg")'
             );
           },
           error:
@@ -118,7 +111,7 @@ export default {
         },
       ],
       instruction:
-        "Set the <tag>list-style</tag> as an image: https://www.dbspd.edu.hk/sites/default/files/inline-images/dbslogo.png",
+        "Set the <tag>list-style</tag> as an image: https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/cb/b9/f9/cbb9f9b5-97db-ca9e-e07d-efabcf2ec51b/source/512x512bb.jpg",
     },
     {
       tests: [
