@@ -22,9 +22,9 @@ export default {
   ],
   defaultCode: {
     htmlCode: `<div class="container">
-  <div class="box red"></div>
-  <div class="box green"></div>
-  <div class="box blue"></div>
+  <div class="box red">Box 1</div>
+  <div class="box green">Box 2</div>
+  <div class="box blue">Box 3</div>
 </div>
 `,
     cssCode: `* {
@@ -90,7 +90,7 @@ export default {
         {
           testFunc: (frame) => {
             const red = frame.querySelector(".red");
-            return checkElementProperty(red, "flex-grow", "1");
+            return getElementProperty(red, "flex-grow") > 0;
           },
           error: "Follow the instructions.",
         },
@@ -117,7 +117,7 @@ export default {
         {
           testFunc: (frame) => {
             const red = frame.querySelector(".red");
-            return checkElementProperty(red, "flex-grow", "1");
+            return getElementProperty(red, "flex-grow") > 0;
           },
           error:
             "Make sure <tag>.red</tag> is still taking up the maximum it can in the viewport.",
@@ -125,7 +125,12 @@ export default {
         {
           testFunc: (frame) => {
             const green = frame.querySelector(".green");
-            return checkElementProperty(green, "flex-grow", "1");
+            const red = frame.querySelector(".red");
+
+            return (
+              getElementProperty(red, "flex-grow") ===
+              getElementProperty(green, "flex-grow")
+            );
           },
           error: "Follow the instructions.",
         },
