@@ -5,7 +5,7 @@ export default {
   disabled: { html: true, css: false },
 
   description:
-    "z-index is a useful property that allows us to layer elements atop of each other in acontrolled manner.",
+    "z-index is a useful property that allows us to layer elements atop of each other in a controlled manner.",
   links: [
     {
       name: "MDN understanding z-index",
@@ -101,7 +101,7 @@ div.container {
         },
       ],
       instruction:
-        "Set the <tag>position</tag> prpoerty of <tag>.overlay</tag> to <tag>fixed</tag>.",
+        "Set the <tag>position</tag> property of <tag>.overlay</tag> to <tag>fixed</tag>.",
     },
     {
       tests: [
