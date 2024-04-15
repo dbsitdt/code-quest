@@ -180,6 +180,7 @@ const santizeHtmlOptions = {
     "*": ["id"],
     input: ["*"],
     a: ["href", "name", "target"],
+    label: ["for"],
     img: [
       "src",
       "srcset",
