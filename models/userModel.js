@@ -101,5 +101,4 @@ userSchema.virtual("rank").get(function () {
   }
 });
 const User = mongoose.model("User", userSchema);
-
 export default User;
