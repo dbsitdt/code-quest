@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 export default defineNitroPlugin((nitroApp) => {
   const { dbURL, dbPassword } = useRuntimeConfig();
-
   const DB = dbURL.replace("<password>", dbPassword);
+
   mongoose
     .connect(DB)
     .then(() => {
